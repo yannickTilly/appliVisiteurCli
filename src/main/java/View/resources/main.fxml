@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import View.component.ConsultationRapportVisiteView?>
+<?import View.component.ConsultationRapportVisitesView?>
+<?import View.component.LoginView?>
+<?import View.component.SaisirRapportVisiteView?>
+<?import View.component.MenuView?>
+<fx:root xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" type="javafx.scene.layout.AnchorPane">
+    <BorderPane>
+        <center>
+            <Pane>
+                <ConsultationRapportVisiteView fx:id="consultationRapportVisiteView"/>
+                <ConsultationRapportVisitesView fx:id="consultationRapportVisitesView"/>
+                <LoginView fx:id="loginView"/>
+                <SaisirRapportVisiteView fx:id="saisirRapportVisiteView"/>
+            </Pane>
+        </center>
+      <top>
+        <MenuView fx:id="menuView"/>
+      </top>
+    </BorderPane>
+</fx:root>

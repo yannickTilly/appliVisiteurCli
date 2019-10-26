@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+    <MenuBar>
+        <Menu mnemonicParsing="false" text="Rapport de visite">
+            <MenuItem fx:id="consulter" mnemonicParsing="false" text="consulter"/>
+            <MenuItem fx:id="saisir" mnemonicParsing="false" text="saisir"/>
+        </Menu>
+        <Menu fx:id="medicament" mnemonicParsing="false" text="Medicament"/>
+        <Menu fx:id="espaceUtilisateur" mnemonicParsing="false" text="Espace utilisateur"/>
+    </MenuBar>
+</fx:root>

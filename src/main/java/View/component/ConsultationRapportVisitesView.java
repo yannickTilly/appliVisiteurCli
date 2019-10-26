@@ -1,0 +1,103 @@
+package View.component;
+
+import Listener.ConsultationRapportVisitesListener;
+import Listener.ConsultationRapportVisitesModelListener;
+import Listener.RouteListener;
+import Model.ConsultationRapportVisitesModel;
+import Model.RapportVisite;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.ResourceBundle;
+
+public class ConsultationRapportVisitesView extends AnchorPane implements Initializable, ConsultationRapportVisitesModelListener {
+
+    @FXML
+    private Button searchSubmit;
+    @FXML
+    private VBox rapportVisites;
+
+    private Collection<ConsultationRapportVisitesListener> consultationRapportVisitesListeners;
+    private Collection<RouteListener> routeListeners;
+
+    private ConsultationRapportVisitesModel consultationRapportVisitesModel;
+
+    public ConsultationRapportVisitesView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/consultationRapportVisites.fxml"));
+        loader.setController(this);
+        loader.setRoot(this);
+        loader.load();
+        consultationRapportVisitesListeners = new ArrayList<ConsultationRapportVisitesListener>();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        EventHandler<ActionEvent> eventHandler = e -> {
+            fireConsulterCliked();
+        };
+        searchSubmit.setOnAction(eventHandler);
+
+    }
+
+    public ConsultationRapportVisitesModel getConsultationRapportVisitesModel() {
+        return consultationRapportVisitesModel;
+    }
+
+    public ConsultationRapportVisitesView setConsultationRapportVisitesModel(ConsultationRapportVisitesModel consultationRapportVisitesModel) {
+        this.consultationRapportVisitesModel = consultationRapportVisitesModel;
+        consultationRapportVisitesModel.addListener(this);
+        return this;
+    }
+
+    public void addConsultationRapportVisitesListener(ConsultationRapportVisitesListener consultationRapportVisitesListener) {
+        consultationRapportVisitesListeners.add(consultationRapportVisitesListener);
+    }
+
+    public void removeConsultationRapportVisitesListener(ConsultationRapportVisitesListener consultationRapportVisitesListener) {
+        consultationRapportVisitesListeners.remove(consultationRapportVisitesListener);
+    }
+
+    public void addRouteListener(RouteListener routeListener) {
+        routeListeners.add(routeListener);
+    }
+
+    public void removeRouteListener(RouteListener routeListener) {
+        routeListeners.remove(routeListener);
+    }
+    private void fireConsulterCliked() {
+        for (ConsultationRapportVisitesListener listener : consultationRapportVisitesListeners) {
+            listener.onSearchSubmit();
+        }
+    }
+    private void fireRequestConsultationRapportVisite(long id) {
+        for (ConsultationRapportVisitesListener listener : consultationRapportVisitesListeners) {
+            listener.onSearchSubmit();
+        }
+        System.out.println("rapport Visite: " + id);
+    }
+
+    @Override
+    public void onRapportVisitesChange(Collection<RapportVisite> rapportVisites) {
+        this.rapportVisites.getChildren().removeAll(this.rapportVisites.getChildren());
+        rapportVisites.forEach(rapportVisite -> {
+            try {
+                RapportVisiteResumeView rapportVisiteResumeView= new RapportVisiteResumeView();
+                this.rapportVisites.getChildren().add(rapportVisiteResumeView);
+                rapportVisiteResumeView.setNote(rapportVisite.getNote());
+                rapportVisiteResumeView.setOnOuvrirRapport(actionEvent -> fireRequestConsultationRapportVisite(rapportVisite.getId()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+}

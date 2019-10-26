@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+         >
+  <VBox>
+    <Label text="GSB visiteur login" />
+    <Label text="login" />
+    <TextField fx:id="gsbLogin"/>
+    <Label text="mot de passe" />
+    <PasswordField fx:id="password"/>
+    <Button fx:id="submit" mnemonicParsing="false" text="Se Conecter"/>
+  </VBox>
+</fx:root>
