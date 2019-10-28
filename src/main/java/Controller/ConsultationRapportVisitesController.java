@@ -1,6 +1,7 @@
 package Controller;
 
 import Listener.ConsultationRapportVisitesListener;
+import Listener.RouteListener;
 import Model.ConsultationRapportVisitesModel;
 import Model.Context;
 import Model.RapportVisite;
@@ -21,8 +22,8 @@ public class ConsultationRapportVisitesController extends BaseController impleme
     private ConsultationRapportVisitesModel consultationRapportVisitesModel;
     private Collection<ConsultationRapportVisitesListener> listeners;
 
-    public ConsultationRapportVisitesController(Context context, ConsultationRapportVisitesView consultationRapportVisitesView) {
-        super(context);
+    public ConsultationRapportVisitesController(Context context, RouteListener routeListener, ConsultationRapportVisitesView consultationRapportVisitesView) {
+        super(context, routeListener);
         this.consultationRapportVisitesView = consultationRapportVisitesView;
         consultationRapportVisitesView.addConsultationRapportVisitesListener(this);
     }
@@ -33,6 +34,7 @@ public class ConsultationRapportVisitesController extends BaseController impleme
 
     public ConsultationRapportVisitesController setConsultationRapportVisitesView(ConsultationRapportVisitesView consultationRapportVisitesView) {
         this.consultationRapportVisitesView = consultationRapportVisitesView;
+        this.consultationRapportVisitesView.setRouteListener(this.getRouteListener());
         return this;
     }
 
@@ -42,14 +44,16 @@ public class ConsultationRapportVisitesController extends BaseController impleme
 
     public ConsultationRapportVisitesController setConsultationRapportVisitesModel(ConsultationRapportVisitesModel consultationRapportVisitesModel) {
         this.consultationRapportVisitesModel = consultationRapportVisitesModel;
-        consultationRapportVisitesView.setConsultationRapportVisitesModel(consultationRapportVisitesModel);
+        consultationRapportVisitesView
+                .setConsultationRapportVisitesModel(consultationRapportVisitesModel)
+                .setRouteListener(this.getRouteListener());
         return this;
     }
 
     @Override
     public void onSearchSubmit() {
         try {
-            consultationRapportVisitesModel.setRapportVisites(apiClient.getRapportVisites(getContext().getToken()));
+            consultationRapportVisitesModel.setRapportVisites(getApiClient().getRapportVisites(getContext().getToken()));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

@@ -47,7 +47,7 @@
         </plugins>
         <resources>
             <resource>
-                <directory>C:/Users/cash/Documents/AppliVisiteurClient/src/main/java</directory>
+                <directory>C:/appliVisiteurCli/src/main/java</directory>
                 <includes>
                     <include>**/*.fxml</include>
                 </includes>

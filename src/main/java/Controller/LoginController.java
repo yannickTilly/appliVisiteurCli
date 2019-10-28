@@ -1,6 +1,7 @@
 package Controller;
 
 import Listener.LoginListener;
+import Listener.RouteListener;
 import Model.Context;
 import Model.Credential;
 import Util.ApiClient;
@@ -25,8 +26,8 @@ public class LoginController extends BaseController implements LoginListener {
     @FXML
     private TextField gsbLogin;
 
-    public LoginController(Context context, LoginView loginView) {
-        super(context);
+    public LoginController(Context context, RouteListener routeListener, LoginView loginView) {
+        super(context, routeListener);
         this.loginView = loginView;
         loginView.addListener(this);
     }

@@ -1,32 +1,51 @@
 package Controller;
 
 import Listener.MenuListener;
+import Listener.RouteListener;
+import Model.ConsultationRapportVisiteModel;
 import Model.ConsultationRapportVisitesModel;
 import Model.Context;
+import View.component.ConsultationRapportVisiteView;
 import View.component.ConsultationRapportVisitesView;
 import View.component.LoginView;
 import View.component.MainView;
 
-public class MainController extends BaseController implements MenuListener {
-    private LoginController loginController;
+public class MainController extends BaseController implements MenuListener, RouteListener {
     private MainView view;
-
-    private LoginView loginView;
-
-    private ConsultationRapportVisitesController consultationRapportVisitesController;
-
-    private ConsultationRapportVisitesView consultationRapportVisitesView;
+    private ConsultationRapportVisiteController consultationRapportVisiteController;
 
     public MainController(Context context, MainView view) {
-        super(context);
+        super(context, null);
+        // vue principale
         this.view = view;
 
-        this.consultationRapportVisitesView = view.getConsultationRapportVisitesView();
-        this.loginView = view.getLoginView();
-        consultationRapportVisitesController = new ConsultationRapportVisitesController(getContext(),consultationRapportVisitesView);
-        consultationRapportVisitesController.setConsultationRapportVisitesModel(new ConsultationRapportVisitesModel());
-        loginController = new LoginController(getContext(),loginView);
+        // partie consultation rapportvisites
+        ConsultationRapportVisitesView consultationRapportVisitesView = view.getConsultationRapportVisitesView();
+        ConsultationRapportVisitesController consultationRapportVisitesController =
+                new ConsultationRapportVisitesController(
+                        getContext(),
+                        this,
+                        consultationRapportVisitesView);
+        consultationRapportVisitesController
+                .setConsultationRapportVisitesModel(new ConsultationRapportVisitesModel());
+
+        // partie consultation rapportvisite
+        ConsultationRapportVisiteView consultationRapportVisiteView = view.getConsultationRapportVisiteView();
+        ConsultationRapportVisiteModel consultationRapportVisiteModel = new ConsultationRapportVisiteModel();
+        consultationRapportVisiteController=
+                new ConsultationRapportVisiteController(
+                        context,
+                        this,
+                        consultationRapportVisiteModel,
+                        consultationRapportVisiteView);
+
+        // partie login
+        LoginView loginView = view.getLoginView();
+        LoginController loginController = new LoginController(getContext(), this, loginView);
+
+        //premiére vue affichée
         view.display(MainView.login);
+
         view.addMenuViewListener(this);
     }
 
@@ -42,5 +61,15 @@ public class MainController extends BaseController implements MenuListener {
     @Override
     public void onConsulterClicked() {
         view.display(MainView.consultationRapportVisites);
+    }
+
+    @Override
+    public void onRequestConsultationRapportVisites() {
+    }
+
+    @Override
+    public void onRequestConsultationRapport(Long idRapportVisite) {
+        view.display(MainView.consultationRapportVisite);
+        consultationRapportVisiteController.loadRapportVisite(idRapportVisite);
     }
 }

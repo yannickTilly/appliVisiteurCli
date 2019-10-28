@@ -28,10 +28,12 @@ public class ConsultationRapportVisitesView extends AnchorPane implements Initia
     private VBox rapportVisites;
 
     private Collection<ConsultationRapportVisitesListener> consultationRapportVisitesListeners;
-    private Collection<RouteListener> routeListeners;
 
     private ConsultationRapportVisitesModel consultationRapportVisitesModel;
 
+    private RouteListener routeListener;
+
+    // constructeur et initalisation
     public ConsultationRapportVisitesView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/consultationRapportVisites.fxml"));
         loader.setController(this);
@@ -43,12 +45,13 @@ public class ConsultationRapportVisitesView extends AnchorPane implements Initia
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         EventHandler<ActionEvent> eventHandler = e -> {
-            fireConsulterCliked();
+            fireSearchSubmit();
         };
         searchSubmit.setOnAction(eventHandler);
 
     }
 
+    //getter setter
     public ConsultationRapportVisitesModel getConsultationRapportVisitesModel() {
         return consultationRapportVisitesModel;
     }
@@ -59,33 +62,33 @@ public class ConsultationRapportVisitesView extends AnchorPane implements Initia
         return this;
     }
 
+    public RouteListener getRouteListener() {
+        return routeListener;
+    }
+
+    public ConsultationRapportVisitesView setRouteListener(RouteListener routeListener) {
+        this.routeListener = routeListener;
+        return this;
+    }
+
+    // gestion de l'écoute de la vue (this)
     public void addConsultationRapportVisitesListener(ConsultationRapportVisitesListener consultationRapportVisitesListener) {
         consultationRapportVisitesListeners.add(consultationRapportVisitesListener);
     }
-
     public void removeConsultationRapportVisitesListener(ConsultationRapportVisitesListener consultationRapportVisitesListener) {
         consultationRapportVisitesListeners.remove(consultationRapportVisitesListener);
     }
-
-    public void addRouteListener(RouteListener routeListener) {
-        routeListeners.add(routeListener);
-    }
-
-    public void removeRouteListener(RouteListener routeListener) {
-        routeListeners.remove(routeListener);
-    }
-    private void fireConsulterCliked() {
+    private void fireSearchSubmit() {
         for (ConsultationRapportVisitesListener listener : consultationRapportVisitesListeners) {
             listener.onSearchSubmit();
         }
     }
     private void fireRequestConsultationRapportVisite(long id) {
-        for (ConsultationRapportVisitesListener listener : consultationRapportVisitesListeners) {
-            listener.onSearchSubmit();
-        }
-        System.out.println("rapport Visite: " + id);
+        routeListener.onRequestConsultationRapport(id);
     }
 
+
+    //écoute du model
     @Override
     public void onRapportVisitesChange(Collection<RapportVisite> rapportVisites) {
         this.rapportVisites.getChildren().removeAll(this.rapportVisites.getChildren());
