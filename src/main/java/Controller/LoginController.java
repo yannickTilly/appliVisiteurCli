@@ -5,6 +5,7 @@ import Model.Context;
 import Model.Credential;
 import Util.ApiClient;
 import View.component.LoginView;
+import View.component.MenuView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,6 +25,7 @@ public class LoginController extends BaseController implements LoginListener {
 
     @FXML
     private TextField gsbLogin;
+
 
     public LoginController(Context context, LoginView loginView) {
         super(context);
