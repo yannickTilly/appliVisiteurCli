@@ -1,7 +1,7 @@
 package Util;
 import Model.Credential;
 
-import Model.RapportVisite;
+import Model.Report;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class ApiClient {
         return response.body();
     }
 
-    public RapportVisite getRapportVisite(Long id, String token) throws IOException, InterruptedException {
+    public Report getRapportVisite(Long id, String token) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
                 .header("Content-Type", "application/json")
                 .header("Authorization", token)
@@ -47,10 +47,10 @@ public class ApiClient {
                 .uri(URI.create(endPointUrl + "/rapportVisite/" + id.toString()))
                 .build();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        return objectMapper.readValue(response.body(), RapportVisite.class);
+        return objectMapper.readValue(response.body(), Report.class);
     }
 
-    public Collection<RapportVisite> getRapportVisites(String token) throws IOException, InterruptedException {
+    public Collection<Report> getRapportVisites(String token) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
                 .header("Content-Type", "application/json")
                 .header("Authorization", token)
@@ -58,7 +58,7 @@ public class ApiClient {
                 .uri(URI.create(endPointUrl + "/visitor/reports"))
                 .build();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        return Arrays.asList(objectMapper.readValue(response.body(), RapportVisite[].class));
+        return Arrays.asList(objectMapper.readValue(response.body(), Report[].class));
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {

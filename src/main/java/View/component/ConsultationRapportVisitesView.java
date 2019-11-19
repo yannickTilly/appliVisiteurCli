@@ -4,7 +4,7 @@ import Listener.ConsultationRapportVisitesListener;
 import Listener.ConsultationRapportVisitesModelListener;
 import Listener.RouteListener;
 import Model.ConsultationRapportVisitesModel;
-import Model.RapportVisite;
+import Model.Report;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -87,7 +87,7 @@ public class ConsultationRapportVisitesView extends AnchorPane implements Initia
     }
 
     @Override
-    public void onRapportVisitesChange(Collection<RapportVisite> rapportVisites) {
+    public void onRapportVisitesChange(Collection<Report> rapportVisites) {
         this.rapportVisites.getChildren().removeAll(this.rapportVisites.getChildren());
         rapportVisites.forEach(rapportVisite -> {
             try {

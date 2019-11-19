@@ -2,7 +2,7 @@ package Controller;
 
 import Listener.ContextListener;
 import Model.Context;
-import Model.RapportVisite;
+import Model.Report;
 import Util.ApiClient;
 import View.component.ConsultationRapportVisiteView;
 import View.component.ConsultationRapportVisitesView;
@@ -16,20 +16,20 @@ import java.util.ResourceBundle;
 
 public class ConsultationRapportVisiteController extends BaseController
 {
-    private RapportVisite rapportVisite;
+    private Report rapportVisite;
     private ConsultationRapportVisiteView consultationRapportVisiteView;
 
-    public ConsultationRapportVisiteController(Context context, RapportVisite rapportVisite, ConsultationRapportVisiteView consultationRapportVisiteView) {
+    public ConsultationRapportVisiteController(Context context, Report rapportVisite, ConsultationRapportVisiteView consultationRapportVisiteView) {
         super(context);
         this.rapportVisite = rapportVisite;
         this.consultationRapportVisiteView = consultationRapportVisiteView;
     }
 
-    public RapportVisite getRapportVisite() {
+    public Report getRapportVisite() {
         return rapportVisite;
     }
 
-    public ConsultationRapportVisiteController setRapportVisite(RapportVisite rapportVisite) {
+    public ConsultationRapportVisiteController setRapportVisite(Report rapportVisite) {
         this.rapportVisite = rapportVisite;
         return this;
     }

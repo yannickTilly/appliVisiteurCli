@@ -3,7 +3,7 @@ package Controller;
 import Listener.ConsultationRapportVisitesListener;
 import Model.ConsultationRapportVisitesModel;
 import Model.Context;
-import Model.RapportVisite;
+import Model.Report;
 import Util.ApiClient;
 import View.component.ConsultationRapportVisitesView;
 import View.component.MainView;
