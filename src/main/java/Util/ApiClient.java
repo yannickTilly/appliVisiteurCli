@@ -55,7 +55,7 @@ public class ApiClient {
                 .header("Content-Type", "application/json")
                 .header("Authorization", token)
                 .GET()
-                .uri(URI.create(endPointUrl + "/rapportVisites"))
+                .uri(URI.create(endPointUrl + "/visitor/reports"))
                 .build();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         return Arrays.asList(objectMapper.readValue(response.body(), RapportVisite[].class));

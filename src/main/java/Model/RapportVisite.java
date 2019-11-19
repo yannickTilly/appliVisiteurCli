@@ -1,7 +1,6 @@
 package Model;
 
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 
@@ -9,13 +8,24 @@ public class RapportVisite {
 
     private long id;
 
-    private String note;
+    private String description;
 
     private User user;
 
     private Collection<PresentationMedicament> presentationMedicaments;
 
     private Praticien praticien;
+
+    private int sampleNumbers;
+
+    public int getSampleNumbers() {
+        return sampleNumbers;
+    }
+
+    public RapportVisite setSampleNumbers(int sampleNumbers) {
+        this.sampleNumbers = sampleNumbers;
+        return this;
+    }
 
     public long getId() {
         return id;
@@ -26,12 +36,12 @@ public class RapportVisite {
         return this;
     }
 
-    public String getNote() {
-        return note;
+    public String getDescription() {
+        return description;
     }
 
-    public RapportVisite setNote(String note) {
-        this.note = note;
+    public RapportVisite setDescription(String description) {
+        this.description = description;
         return this;
     }
 
