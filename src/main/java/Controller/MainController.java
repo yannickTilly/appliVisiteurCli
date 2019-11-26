@@ -6,6 +6,7 @@ import Model.Context;
 import View.component.ConsultationRapportVisitesView;
 import View.component.LoginView;
 import View.component.MainView;
+import View.component.SaisirRapportVisiteView;
 
 public class MainController extends BaseController implements MenuListener {
     private LoginController loginController;
@@ -17,15 +18,23 @@ public class MainController extends BaseController implements MenuListener {
 
     private ConsultationRapportVisitesView consultationRapportVisitesView;
 
+    private SaisirRapportVisiteView newReportView;
+
+    private SaisieRapportVisiteController newReportController;
+
     public MainController(Context context, MainView view) {
         super(context);
         this.view = view;
 
-        this.consultationRapportVisitesView = view.getConsultationRapportVisitesView();
+        this.consultationRapportVisitesView = view.getConsultationReportsView();
         this.loginView = view.getLoginView();
+        this.newReportView = view.getNewReportView();
+
         consultationRapportVisitesController = new ConsultationRapportVisitesController(getContext(),consultationRapportVisitesView);
         consultationRapportVisitesController.setConsultationRapportVisitesModel(new ConsultationRapportVisitesModel());
         loginController = new LoginController(getContext(),loginView);
+        newReportController = new SaisieRapportVisiteController(getContext());
+        newReportController.setNewReportView(newReportView);
         view.display(MainView.login);
         view.addMenuViewListener(this);
     }
@@ -42,5 +51,11 @@ public class MainController extends BaseController implements MenuListener {
     @Override
     public void onConsulterClicked() {
         view.display(MainView.consultationRapportVisites);
+    }
+
+    @Override
+    public void onNewReportClicked()
+    {
+        view.display(MainView.newReport);
     }
 }

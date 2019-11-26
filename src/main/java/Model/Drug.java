@@ -53,4 +53,10 @@ public class Drug {
         this.description = description;
         return this;
     }
+
+    @Override
+    public String toString()
+    {
+        return getName();
+    }
 }

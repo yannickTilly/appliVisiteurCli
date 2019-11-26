@@ -13,17 +13,17 @@ import java.util.ResourceBundle;
 public class MainView extends AnchorPane implements Initializable{
 
     @FXML
-    private ConsultationRapportVisiteView consultationRapportVisiteView;
+    private ConsultationRapportVisiteView consultationReportView;
     @FXML
-    private ConsultationRapportVisitesView consultationRapportVisitesView;
+    private ConsultationRapportVisitesView consultationReportsView;
     @FXML
     private LoginView loginView;
     @FXML
-    private SaisirRapportVisiteView saisirRapportVisiteView;
+    private SaisirRapportVisiteView newReportView;
     @FXML
     private MenuView menuView;
 
-    public static final int saisirRapportVisite = 330;
+    public static final int newReport = 330;
     public static final int login = 11;
     public static final int consultationRapportVisite = 20;
     public static final int consultationRapportVisites = 121;
@@ -38,9 +38,9 @@ public class MainView extends AnchorPane implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.loginView.setVisible(false);
-        this.saisirRapportVisiteView.setVisible(false);
-        this.consultationRapportVisitesView.setVisible(false);
-        this.consultationRapportVisiteView.setVisible(false);
+        this.newReportView.setVisible(false);
+        this.consultationReportsView.setVisible(false);
+        this.consultationReportView.setVisible(false);
     }
 
     public void display(int component)
@@ -49,27 +49,27 @@ public class MainView extends AnchorPane implements Initializable{
         {
             case MainView.login:
                 loginView.setVisible(true);
-                consultationRapportVisiteView.setVisible(false);
-                consultationRapportVisitesView.setVisible(false);
-                saisirRapportVisiteView.setVisible(false);
+                consultationReportView.setVisible(false);
+                consultationReportsView.setVisible(false);
+                newReportView.setVisible(false);
                 break;
             case MainView.consultationRapportVisites:
-                consultationRapportVisitesView.setVisible(true);
+                consultationReportsView.setVisible(true);
                 loginView.setVisible(false);
-                consultationRapportVisiteView.setVisible(false);
-                saisirRapportVisiteView.setVisible(false);
+                consultationReportView.setVisible(false);
+                newReportView.setVisible(false);
                 break;
             case MainView.consultationRapportVisite:
-                consultationRapportVisiteView.setVisible(true);
-                consultationRapportVisitesView.setVisible(false);
+                consultationReportView.setVisible(true);
+                consultationReportsView.setVisible(false);
                 loginView.setVisible(false);
-                saisirRapportVisiteView.setVisible(false);
+                newReportView.setVisible(false);
                 break;
-            case MainView.saisirRapportVisite:
-                saisirRapportVisiteView.setVisible(true);
+            case MainView.newReport:
+                newReportView.setVisible(true);
                 loginView.setVisible(false);
-                consultationRapportVisiteView.setVisible(false);
-                consultationRapportVisitesView.setVisible(false);
+                consultationReportView.setVisible(false);
+                consultationReportsView.setVisible(false);
                 break;
         }
     }
@@ -79,20 +79,20 @@ public class MainView extends AnchorPane implements Initializable{
         menuView.addListener(menuListener);
     }
 
-    public ConsultationRapportVisiteView getConsultationRapportVisiteView() {
-        return consultationRapportVisiteView;
+    public ConsultationRapportVisiteView getConsultationReportView() {
+        return consultationReportView;
     }
 
-    public ConsultationRapportVisitesView getConsultationRapportVisitesView() {
-        return consultationRapportVisitesView;
+    public ConsultationRapportVisitesView getConsultationReportsView() {
+        return consultationReportsView;
     }
 
     public LoginView getLoginView() {
         return loginView;
     }
 
-    public SaisirRapportVisiteView getSaisirRapportVisiteView() {
-        return saisirRapportVisiteView;
+    public SaisirRapportVisiteView getNewReportView() {
+        return newReportView;
     }
 
     public MenuView getMenuView() {

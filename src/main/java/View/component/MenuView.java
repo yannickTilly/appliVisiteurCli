@@ -20,7 +20,8 @@ public class MenuView extends AnchorPane implements Initializable{
     @FXML
     private MenuItem consulter;
     @FXML
-    private MenuItem saisir;
+    private MenuItem newReport;
+
     private Collection<MenuListener> listeners;
 
     public void addListener(MenuListener menuListener)
@@ -42,10 +43,16 @@ public class MenuView extends AnchorPane implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        EventHandler<ActionEvent> eventHandler = e -> {
+        EventHandler<ActionEvent> consultHandler = e -> {
             onConsulterClick();
         };
-        consulter.setOnAction(eventHandler);
+
+        EventHandler<ActionEvent> newReportHandler = e -> {
+            onNewReportClick();
+        };
+
+        consulter.setOnAction(consultHandler);
+        newReport.setOnAction(newReportHandler);
     }
 
     public void onConsulterClick()
@@ -57,6 +64,19 @@ public class MenuView extends AnchorPane implements Initializable{
     {
         for(MenuListener listener : listeners) {
             listener.onConsulterClicked();
+        }
+    }
+
+    public void onNewReportClick()
+    {
+        fireNewReportClicked();
+    }
+
+    private void fireNewReportClicked()
+    {
+        for(MenuListener listener : listeners)
+        {
+            listener.onNewReportClicked();
         }
     }
 }
