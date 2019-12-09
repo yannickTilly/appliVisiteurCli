@@ -2,45 +2,39 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.collections.FXCollections?>
-<?import Model.Pratitionner?>
-<?import Model.Drug?>
-<?import com.sun.javafx.scene.control.IntegerField?>
-<?import com.sun.javafx.scene.control.DoubleField?>
-<fx:root prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
-         type="javafx.scene.layout.AnchorPane">
-  <VBox>
-    <ComboBox fx:id="pratitionner" layoutX="14.0" layoutY="14.0" value="Pratitien rencontré">
+<fx:root type="javafx.scene.layout.AnchorPane" prefHeight="371.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <Text layoutX="114.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :" />
+    <Text layoutX="95.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pratitien :" />
+    <Text layoutX="58.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Médicament(s) : " />
+    <Text layoutX="218.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enregistrer un rapport de visite" underline="true" />
+    <Text layoutX="46.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note sur la visite :" />
+    <ComboBox layoutX="183.0" layoutY="79.0" prefHeight="21.0" prefWidth="200.0" promptText="Selectionner un pratitien">
       <items>
         <FXCollections fx:factory="observableArrayList">
-          <Pratitionner first_name="Jean" last_name="Dupont" id="1"/>
-          <Pratitionner first_name="Charles" last_name="Desquino" id="2"/>
-          <Pratitionner first_name="Frank" last_name="Phisyti" id="3"/>
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
         </FXCollections>
       </items>
     </ComboBox>
-
-    <ComboBox layoutX="14.0" layoutY="14.0" value="Médicament(s) présenté(s)">
+    <ComboBox layoutX="182.0" layoutY="108.0" prefHeight="21.0" prefWidth="200.0" promptText="Selectionner le(s) médicament(s)">
       <items>
-        <FXCollections fx:id="drugs" fx:factory="observableArrayList">
-          <Drug name="Dolipranne" id="1"/>
-          <Drug name="Voltarène" id="2"/>
-          <Drug name="Tartelettes" id="3"/>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
         </FXCollections>
       </items>
     </ComboBox>
-
-    <Label text="Note sur la présentation : " />
-    <TextArea fx:id="note" editable="false" focusTraversable="false"
-              layoutX="203.0" layoutY="32.0" prefHeight="205.0" prefWidth="308.0"
-              wrapText="true"/>
-
-
-    <Button fx:id="submitNewReport" mnemonicParsing="false" text="Button"/>
-
-  </VBox>
+    <TextArea layoutX="182.0" layoutY="137.0" prefWidth="200.0" wrapText="true" />
+    <TextField layoutX="183.0" layoutY="51.0" prefWidth="200.0" />
+    <Button layoutX="189.0" layoutY="314.0" mnemonicParsing="false" text="Sauvegarder le rapport de visite" />
+  </children>
 </fx:root>
