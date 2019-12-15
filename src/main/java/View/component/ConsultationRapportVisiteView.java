@@ -2,7 +2,7 @@ package View.component;
 
 import Listener.ConsultationRapportVisiteModelListener;
 import Model.ConsultationRapportVisiteModel;
-import Model.RapportVisite;
+import Model.Report;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -39,7 +39,8 @@ public class ConsultationRapportVisiteView extends AnchorPane implements Consult
     }
 
     @Override
-    public void onRapportVisiteChange(RapportVisite rapportVisite) {
-        note.setText(rapportVisite.getNote());
+    public void onRapportVisiteChange(Report rapportVisite) {
+        note.setText(rapportVisite.getDescription());
     }
+
 }

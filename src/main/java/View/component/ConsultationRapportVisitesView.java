@@ -84,7 +84,7 @@ public class ConsultationRapportVisitesView extends AnchorPane implements Initia
         }
     }
     private void fireRequestConsultationRapportVisite(long id) {
-        routeListener.onRequestConsultationRapport(id);
+        routeListener.onReportConsultation(id);
     }
 
 

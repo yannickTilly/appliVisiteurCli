@@ -22,23 +22,14 @@ public class MenuView extends AnchorPane implements Initializable{
     @FXML
     private MenuItem newReport;
 
-    private Collection<MenuListener> listeners;
+    private MenuListener listener;
 
-    public void addListener(MenuListener menuListener)
-    {
-        listeners.add(menuListener);
-    }
-    public void removeListener(MenuListener menuListener)
-    {
-        listeners.remove(menuListener);
-    }
 
     public MenuView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/menu.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
-        listeners = new ArrayList<MenuListener>();
     }
 
     @Override
@@ -55,28 +46,21 @@ public class MenuView extends AnchorPane implements Initializable{
         newReport.setOnAction(newReportHandler);
     }
 
-    public void onConsulterClick()
-    {
-        fireConsulterCliked();
+    public MenuListener getListener() {
+        return listener;
     }
 
-    private void fireConsulterCliked()
+    public void setListener(MenuListener listener) {
+        this.listener = listener;
+    }
+
+    public void onConsulterClick()
     {
-        for(MenuListener listener : listeners) {
-            listener.onConsulterClicked();
-        }
+        listener.onConsulterClicked();;
     }
 
     public void onNewReportClick()
     {
-        fireNewReportClicked();
-    }
-
-    private void fireNewReportClicked()
-    {
-        for(MenuListener listener : listeners)
-        {
-            listener.onNewReportClicked();
-        }
+        listener.onNewReportClicked();
     }
 }

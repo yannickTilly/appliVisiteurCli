@@ -74,11 +74,6 @@ public class MainView extends AnchorPane implements Initializable{
         }
     }
 
-    public void addMenuViewListener(MenuListener menuListener)
-    {
-        menuView.addListener(menuListener);
-    }
-
     public ConsultationRapportVisiteView getConsultationReportView() {
         return consultationReportView;
     }

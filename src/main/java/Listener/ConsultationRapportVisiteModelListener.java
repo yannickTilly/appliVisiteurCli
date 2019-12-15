@@ -1,9 +1,9 @@
 package Listener;
 
-import Model.RapportVisite;
+import Model.Report;
 
 import java.util.EventListener;
 
 public interface ConsultationRapportVisiteModelListener extends EventListener {
-    void onRapportVisiteChange(RapportVisite rapportVisite);
+    void onRapportVisiteChange(Report rapportVisite);
 }

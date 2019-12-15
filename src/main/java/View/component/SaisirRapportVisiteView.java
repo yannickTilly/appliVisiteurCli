@@ -19,17 +19,17 @@ import java.util.Collection;
 import java.util.ResourceBundle;
 
 public class SaisirRapportVisiteView extends AnchorPane implements Initializable {
-    @FXML
-    private Pratitionner pratitionnerId;
-
-    @FXML
-    private Collection<Drug> drugs;
-
-    @FXML
-    private TextArea note;
-
-    @FXML
-    private Button submitNewReport;
+//    @FXML
+//    private Pratitionner pratitionnerId;
+//
+//    @FXML
+//    private Collection<Drug> drugs;
+//
+//    @FXML
+//    private TextArea note;
+//
+//    @FXML
+//    private Button submitNewReport;
 
     private Collection<NewReportListener> listeners;
 
@@ -58,7 +58,7 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
             onSubmit();
         };
 
-        submitNewReport.setOnAction(submitReportHandler);
+//        submitNewReport.setOnAction(submitReportHandler);
     }
 
     public void onSubmit()
@@ -73,7 +73,4 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
             listener.onSubmitNewReport();
         }
     }
-
-
-
 }

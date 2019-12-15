@@ -5,22 +5,21 @@ import Listener.RouteListener;
 import Model.ConsultationRapportVisiteModel;
 import Model.ConsultationRapportVisitesModel;
 import Model.Context;
-import View.component.ConsultationRapportVisiteView;
-import View.component.ConsultationRapportVisitesView;
-import View.component.LoginView;
-import View.component.MainView;
+import View.component.*;
 
-public class MainController extends BaseController implements MenuListener, RouteListener {
+public class MainController extends BaseController implements RouteListener {
     private MainView view;
     private ConsultationRapportVisiteController consultationRapportVisiteController;
+    private MenuController menuController;
 
     public MainController(Context context, MainView view) {
         super(context, null);
         // vue principale
         this.view = view;
-
+        // partie menu
+        MenuController menuController = new MenuController(context, this, view.getMenuView());
         // partie consultation rapportvisites
-        ConsultationRapportVisitesView consultationRapportVisitesView = view.getConsultationRapportVisitesView();
+        ConsultationRapportVisitesView consultationRapportVisitesView = view.getConsultationReportsView();
         ConsultationRapportVisitesController consultationRapportVisitesController =
                 new ConsultationRapportVisitesController(
                         getContext(),
@@ -30,7 +29,7 @@ public class MainController extends BaseController implements MenuListener, Rout
                 .setConsultationRapportVisitesModel(new ConsultationRapportVisitesModel());
 
         // partie consultation rapportvisite
-        ConsultationRapportVisiteView consultationRapportVisiteView = view.getConsultationRapportVisiteView();
+        ConsultationRapportVisiteView consultationRapportVisiteView = view.getConsultationReportView();
         ConsultationRapportVisiteModel consultationRapportVisiteModel = new ConsultationRapportVisiteModel();
         consultationRapportVisiteController=
                 new ConsultationRapportVisiteController(
@@ -45,8 +44,6 @@ public class MainController extends BaseController implements MenuListener, Rout
 
         //premiére vue affichée
         view.display(MainView.login);
-
-        view.addMenuViewListener(this);
     }
 
     public MainView getView() {
@@ -58,18 +55,21 @@ public class MainController extends BaseController implements MenuListener, Rout
         return this;
     }
 
+
+    // gestion des "routes "terme a revoir
     @Override
-    public void onConsulterClicked() {
+    public void onReportConsultations() {
         view.display(MainView.consultationRapportVisites);
     }
 
     @Override
-    public void onRequestConsultationRapportVisites() {
+    public void onReportConsultation(Long idRapportVisite) {
+        view.display(MainView.consultationRapportVisite);
+        consultationRapportVisiteController.loadRapportVisite(idRapportVisite);
     }
 
     @Override
-    public void onRequestConsultationRapport(Long idRapportVisite) {
-        view.display(MainView.consultationRapportVisite);
-        consultationRapportVisiteController.loadRapportVisite(idRapportVisite);
+    public void onNewReport() {
+        view.display(MainView.newReport);
     }
 }

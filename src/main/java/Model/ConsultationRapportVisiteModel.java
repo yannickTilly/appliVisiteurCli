@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class ConsultationRapportVisiteModel {
-    private RapportVisite rapportVisite;
+    private Report rapportVisite;
     private Collection<ConsultationRapportVisiteModelListener> listeners;
 
     public ConsultationRapportVisiteModel() {
         this.listeners = new ArrayList<>();
     }
 
-    public RapportVisite getRapportVisite() {
+    public Report getRapportVisite() {
         return rapportVisite;
     }
 
-    public ConsultationRapportVisiteModel setRapportVisite(RapportVisite rapportVisite) {
+    public ConsultationRapportVisiteModel setRapportVisite(Report rapportVisite) {
         this.rapportVisite = rapportVisite;
         fireRapportVisiteChange();
         return this;

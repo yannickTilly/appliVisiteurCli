@@ -1,6 +1,7 @@
 package Listener;
 
 public interface RouteListener {
-    void onRequestConsultationRapportVisites();
-    void onRequestConsultationRapport(Long idRapportVisite);
+    void onReportConsultations();
+    void onReportConsultation(Long idRapportVisite);
+    void onNewReport();
 }

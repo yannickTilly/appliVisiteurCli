@@ -5,7 +5,7 @@ import Listener.RouteListener;
 import Model.ConsultationRapportVisiteModel;
 import Model.ConsultationRapportVisitesModel;
 import Model.Context;
-import Model.RapportVisite;
+import Model.Report;
 import Util.ApiClient;
 import View.component.ConsultationRapportVisiteView;
 import View.component.ConsultationRapportVisitesView;
@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ConsultationRapportVisiteController extends BaseController {
-    private RapportVisite rapportVisite;
+    private Report rapportVisite;
     private ConsultationRapportVisiteView consultationRapportVisiteView;
     private ConsultationRapportVisiteModel consultationRapportVisiteModel;
 
@@ -35,11 +35,11 @@ public class ConsultationRapportVisiteController extends BaseController {
     // getter setter
 
 
-    public RapportVisite getRapportVisite() {
+    public Report getRapportVisite() {
         return rapportVisite;
     }
 
-    public ConsultationRapportVisiteController setRapportVisite(RapportVisite rapportVisite) {
+    public ConsultationRapportVisiteController setRapportVisite(Report rapportVisite) {
         this.rapportVisite = rapportVisite;
         return this;
     }
@@ -66,12 +66,12 @@ public class ConsultationRapportVisiteController extends BaseController {
 
     public void loadRapportVisite(long id)
     {
-        try {
-            consultationRapportVisiteModel.setRapportVisite(getApiClient().getRapportVisite(id, this.getContext().getToken()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            consultationRapportVisiteModel.setRapportVisite(getApiClient().getRapportVisite(id, this.getContext().getToken()));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 }
