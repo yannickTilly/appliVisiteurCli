@@ -10,4 +10,5 @@ public class MenuController extends BaseController{
     public MenuController(Context context, RouteListener routeListener) {
         super(context, routeListener);
     }
+
 }

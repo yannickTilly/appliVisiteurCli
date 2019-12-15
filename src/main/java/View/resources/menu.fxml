@@ -6,13 +6,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
-    <MenuBar>
-        <Menu mnemonicParsing="false" text="Rapport de visite">
-            <MenuItem fx:id="consulter" mnemonicParsing="false" text="consulter"/>
-            <MenuItem fx:id="saisir" mnemonicParsing="false" text="saisir"/>
-        </Menu>
-        <Menu fx:id="medicament" mnemonicParsing="false" text="Medicament"/>
-        <Menu fx:id="espaceUtilisateur" mnemonicParsing="false" text="Espace utilisateur"/>
-    </MenuBar>
+<fx:root type="javafx.scene.layout.AnchorPane" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <MenuBar layoutX="0.0" layoutY="0.0" prefWidth="600.0">
+    <Menu mnemonicParsing="false" text="Rapport de visite">
+      <MenuItem mnemonicParsing="false" text="Consulter les rapports" fx:id="consulter" />
+      <MenuItem mnemonicParsing="false" text="Entrer un nouveau rapport" fx:id="newReport" />
+    </Menu>
+    <Menu mnemonicParsing="false" text="Medicament" fx:id="medicament">
+      <MenuItem mnemonicParsing="false" text="Consulter les médicaments" fx:id="drugs_consult" />
+    </Menu>
+    <Menu mnemonicParsing="false" text="Pratitiens" fx:id="pratitionners">
+      <MenuItem mnemonicParsing="false" text="Consulter les pratitiens" fx:id="pratitionners_consult" />
+    </Menu>
+    <Menu mnemonicParsing="false" text="Espace utilisateur" fx:id="espaceUtilisateur" />
+  </MenuBar>
 </fx:root>

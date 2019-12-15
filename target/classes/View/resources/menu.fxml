@@ -6,13 +6,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<fx:root prefWidth="600.0" type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
     <MenuBar>
         <Menu mnemonicParsing="false" text="Rapport de visite">
-            <MenuItem fx:id="consulter" mnemonicParsing="false" text="consulter"/>
-            <MenuItem fx:id="saisir" mnemonicParsing="false" text="saisir"/>
+            <MenuItem fx:id="consulter" mnemonicParsing="false" text="Consulter les rapports"/>
+            <MenuItem fx:id="newReport" mnemonicParsing="false" text="Entrer un nouveau rapport"/>
         </Menu>
-        <Menu fx:id="medicament" mnemonicParsing="false" text="Medicament"/>
+        <Menu fx:id="medicament" mnemonicParsing="false" text="Medicament">
+            <MenuItem fx:id="drugs_consult" mnemonicParsing="false" text="Consulter les médicaments" />
+        </Menu>
+        <Menu fx:id="pratitionners" mnemonicParsing="false" text="Pratitiens">
+            <MenuItem fx:id="pratitionners_consult" mnemonicParsing="false" text="Consulter les pratitiens" />
+        </Menu>
         <Menu fx:id="espaceUtilisateur" mnemonicParsing="false" text="Espace utilisateur"/>
     </MenuBar>
 </fx:root>
