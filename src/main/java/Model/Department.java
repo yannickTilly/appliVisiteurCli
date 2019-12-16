@@ -1,8 +1,10 @@
 package Model;
 
+
 import java.util.Collection;
 
 public class Department {
+
     private long id;
 
     private String code;

@@ -2,18 +2,29 @@ package View.component;
 
 import Listener.ConsultationRapportVisiteModelListener;
 import Model.ConsultationRapportVisiteModel;
+import Model.DrugPresentation;
 import Model.Report;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 
 public class ConsultationRapportVisiteView extends AnchorPane implements ConsultationRapportVisiteModelListener {
 
     @FXML
-    private Label note;
+    private Label description;
+
+    @FXML
+    private Label pratitionner;
+
+    @FXML
+    private Label region;
+
+    @FXML
+    private HBox drugPresentations;
 
     private ConsultationRapportVisiteModel consultationRapportVisiteModel;
 
@@ -40,7 +51,19 @@ public class ConsultationRapportVisiteView extends AnchorPane implements Consult
 
     @Override
     public void onRapportVisiteChange(Report rapportVisite) {
-        note.setText(rapportVisite.getDescription());
+        description.setText(rapportVisite.getDescription());
+        pratitionner.setText(String.valueOf(rapportVisite.getPratitionner().getFirst_name()));
+        region.setText(rapportVisite.getRegion().getName());
+        drugPresentations.getChildren().clear();
+        for(DrugPresentation drugPresentation : rapportVisite.getDrugPresentations())
+        {
+            try {
+                DrugPresentationResumeView drugPresentationResumeView = new DrugPresentationResumeView();
+                drugPresentationResumeView.setDrugName(drugPresentation.getDrug().getName());
+                drugPresentations.getChildren().add(drugPresentationResumeView);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
-
 }

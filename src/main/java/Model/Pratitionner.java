@@ -11,8 +11,6 @@ public class Pratitionner {
 
     private String first_name;
 
-    private String last_name;
-
     public long getId() {
         return id;
     }
@@ -47,24 +45,5 @@ public class Pratitionner {
     public Pratitionner setFirst_name(String first_name) {
         this.first_name = first_name;
         return this;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public Pratitionner setLast_name(String last_name) {
-        this.last_name = last_name;
-        return this;
-    }
-
-    public String getName()
-    {
-        return this.first_name + " " + this.last_name;
-    }
-
-    @Override
-    public String toString() {
-        return getName();
     }
 }

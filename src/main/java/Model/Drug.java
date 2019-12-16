@@ -1,5 +1,8 @@
 package Model;
 
+
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -52,11 +55,5 @@ public class Drug {
     public Drug setDescription(String description) {
         this.description = description;
         return this;
-    }
-
-    @Override
-    public String toString()
-    {
-        return getName();
     }
 }

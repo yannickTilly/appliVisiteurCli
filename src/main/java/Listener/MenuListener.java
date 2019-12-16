@@ -5,4 +5,5 @@ import java.util.EventListener;
 public interface MenuListener extends EventListener {
     void onConsulterClicked();
     void onNewReportClicked();
+    void onDrugsClicked();
 }

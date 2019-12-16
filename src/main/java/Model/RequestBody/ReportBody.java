@@ -3,17 +3,17 @@ package Model.RequestBody;
 import java.util.Collection;
 
 public class ReportBody {
-    private Collection<Long> MedicamentId;
+    private Collection<Long> medicamentIds;
     private Long praticienId;
     private String note;
     private int sampleNumber;
 
-    public Collection<Long> getMedicamentId() {
-        return MedicamentId;
+    public Collection<Long> getMedicamentIds() {
+        return medicamentIds;
     }
 
-    public ReportBody setMedicamentId(Collection<Long> medicamentId) {
-        MedicamentId = medicamentId;
+    public ReportBody setMedicamentIds(Collection<Long> medicamentIds) {
+        this.medicamentIds = medicamentIds;
         return this;
     }
 

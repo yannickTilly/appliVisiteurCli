@@ -8,6 +8,7 @@
 <?import View.component.LoginView?>
 <?import View.component.SaisirRapportVisiteView?>
 <?import View.component.MenuView?>
+<?import View.component.ConsultationDrugsView?>
 <fx:root prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" type="javafx.scene.layout.AnchorPane">
     <BorderPane>
         <center>
@@ -16,6 +17,7 @@
                 <ConsultationRapportVisitesView fx:id="consultationReportsView"/>
                 <LoginView fx:id="loginView"/>
                 <SaisirRapportVisiteView fx:id="newReportView"/>
+                <ConsultationDrugsView fx:id="consultationDrugsView"/>
             </Pane>
         </center>
       <top>

@@ -21,4 +21,9 @@ public class MenuController extends BaseController implements MenuListener{
     public void onNewReportClicked() {
         this.getRouteListener().onNewReport();
     }
+
+    @Override
+    public void onDrugsClicked() {
+        this.getRouteListener().onDrugConsultation();
+    }
 }

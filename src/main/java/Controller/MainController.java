@@ -1,6 +1,5 @@
 package Controller;
 
-import Listener.MenuListener;
 import Listener.RouteListener;
 import Model.ConsultationRapportVisiteModel;
 import Model.ConsultationRapportVisitesModel;
@@ -9,9 +8,9 @@ import View.component.*;
 
 public class MainController extends BaseController implements RouteListener {
     private MainView view;
-    private ConsultationRapportVisiteController consultationRapportVisiteController;
+    private ConsultationReportController consultationReportController;
     private MenuController menuController;
-    private SaisieRapportVisiteController saisieRapportVisiteController;
+    private NewReportController newReportController;
 
     public MainController(Context context, MainView view) {
         super(context, null);
@@ -21,19 +20,19 @@ public class MainController extends BaseController implements RouteListener {
         MenuController menuController = new MenuController(context, this, view.getMenuView());
         // partie consultation rapportvisites
         ConsultationRapportVisitesView consultationRapportVisitesView = view.getConsultationReportsView();
-        ConsultationRapportVisitesController consultationRapportVisitesController =
-                new ConsultationRapportVisitesController(
+        ConsultationReportsController consultationReportsController =
+                new ConsultationReportsController(
                         getContext(),
                         this,
                         consultationRapportVisitesView);
-        consultationRapportVisitesController
+        consultationReportsController
                 .setConsultationRapportVisitesModel(new ConsultationRapportVisitesModel());
 
         // partie consultation rapportvisite
         ConsultationRapportVisiteView consultationRapportVisiteView = view.getConsultationReportView();
         ConsultationRapportVisiteModel consultationRapportVisiteModel = new ConsultationRapportVisiteModel();
-        consultationRapportVisiteController=
-                new ConsultationRapportVisiteController(
+        consultationReportController =
+                new ConsultationReportController(
                         context,
                         this,
                         consultationRapportVisiteModel,
@@ -41,7 +40,7 @@ public class MainController extends BaseController implements RouteListener {
         //partie saisie rapport
 
         SaisirRapportVisiteView saisirRapportVisiteView = view.getNewReportView();
-        saisieRapportVisiteController = new SaisieRapportVisiteController(context,this, saisirRapportVisiteView);
+        newReportController = new NewReportController(context,this, saisirRapportVisiteView);
         // partie login
         LoginView loginView = view.getLoginView();
         LoginController loginController = new LoginController(getContext(), this, loginView);
@@ -69,11 +68,21 @@ public class MainController extends BaseController implements RouteListener {
     @Override
     public void onReportConsultation(Long idRapportVisite) {
         view.display(MainView.consultationRapportVisite);
-        consultationRapportVisiteController.loadRapportVisite(idRapportVisite);
+        consultationReportController.loadRapportVisite(idRapportVisite);
     }
 
     @Override
     public void onNewReport() {
         view.display(MainView.newReport);
+    }
+
+    @Override
+    public void onError() {
+        System.out.println("erreur dectecté (gestion à faire)");
+    }
+
+    @Override
+    public void onDrugConsultation() {
+        view.display(MainView.consultationDrugs);
     }
 }

@@ -40,6 +40,7 @@ public class LoginController extends BaseController implements LoginListener {
         try {
             AuthResponse authResponse = apiClient.getToken(credential.getLogin(),credential.getPassword());
             getContext().setToken(authResponse.getToken());
+            System.out.println(authResponse.toString());
 
         } catch (IOException e) {
             e.printStackTrace();

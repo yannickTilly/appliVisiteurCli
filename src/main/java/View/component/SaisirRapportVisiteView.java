@@ -1,30 +1,26 @@
 package View.component;
 
 import Listener.NewReportListener;
-import Model.Drug;
-import Model.Pratitionner;
+import View.Structure.Prationner;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class SaisirRapportVisiteView extends AnchorPane implements Initializable {
     @FXML
-    private ComboBox<Pratitionner> pratitionner;
+    private ComboBox<Prationner> pratitionners;
 
     @FXML
-    private ComboBox<Drug> drug;
+    private MenuButton drugs;
 
     @FXML
     private TextArea description;
@@ -36,6 +32,9 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
     private DatePicker date;
 
     private NewReportListener listener;
+
+    List<Long> selectedDrugIds = new ArrayList<>();
+    Hashtable<Long, String> pratitionnersIdName = new Hashtable<>();
 
     public SaisirRapportVisiteView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/saisirRapportVisite.fxml"));
@@ -50,16 +49,18 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
         EventHandler<ActionEvent> submitReportHandler = e -> {
             onSubmit();
         };
-
         submit.setOnAction(submitReportHandler);
+        List<CheckMenuItem> items = Arrays.asList(
+        );
+        drugs.getItems().addAll(items);
     }
 
     public long getPrationerId() {
-        return Long.parseLong(String.valueOf(pratitionner.getValue()));
+        return pratitionners.getValue().getId();
     }
 
-    public long getDrugId() {
-        return Long.parseLong(String.valueOf(drug.getValue()));
+    public List<Long> getDrugIds() {
+        return selectedDrugIds;
     }
 
     public String getDescription() {
@@ -72,7 +73,7 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
 
     public void onSubmit()
     {
-        listener.onSubmitNewReport(getDate(), getDescription(), getDrugId(), getPrationerId());
+        listener.onSubmitNewReport(getDate(), getDescription(), getDrugIds(), getPrationerId());
     }
 
     public NewReportListener getListener() {
@@ -81,5 +82,28 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
 
     public void setListener(NewReportListener listener) {
         this.listener = listener;
+    }
+
+    public void addDrug(String name, Long id)
+    {
+        CheckMenuItem checkMenuItem = new CheckMenuItem();
+        checkMenuItem.setText(name);
+        drugs.getItems().add(checkMenuItem);
+        checkMenuItem.selectedProperty().addListener((observableValue, oldValue, newValue) -> {
+            if (newValue) {
+                selectedDrugIds.add(id);
+            } else {
+                selectedDrugIds.remove(id);
+            }
+        });
+    }
+
+    public void addPratitionners(String name, Long id)
+    {
+        Prationner prationner = new Prationner();
+        prationner
+                .setId(id)
+                .setName(name);
+        pratitionners.getItems().add(prationner);
     }
 }

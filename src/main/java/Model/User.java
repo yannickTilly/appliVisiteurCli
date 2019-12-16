@@ -1,10 +1,10 @@
 package Model;
 
-import com.fasterxml.jackson.annotation.JsonView;
-
 import java.util.Collection;
 
+
 public class User {
+
     private long id;
 
     private String prenom;

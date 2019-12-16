@@ -1,8 +1,14 @@
 package Util;
 import Model.Credential;
 
+import Model.Drug;
+import Model.Execption.ServerError;
+import Model.Pratitionner;
 import Model.Report;
+import Model.RequestBody.ReportBody;
 import Model.ResponseBody.AuthResponse;
+import View.Structure.Prationner;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -44,7 +50,7 @@ public class ApiClient {
                 .header("Content-Type", "application/json")
                 .header("Authorization", token)
                 .GET()
-                .uri(URI.create(endPointUrl + "/rapportVisite/" + id.toString()))
+                .uri(URI.create(endPointUrl + "/visitor/report/" + id.toString()))
                 .build();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         return objectMapper.readValue(response.body(), Report.class);
@@ -61,7 +67,60 @@ public class ApiClient {
         return Arrays.asList(objectMapper.readValue(response.body(), Report[].class));
     }
 
+    public Report postReport(ReportBody reportBody, String token) throws ServerError {
+        HttpRequest request = null;
+        try {
+            request = HttpRequest.newBuilder()
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", token)
+                    .POST(HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(reportBody)))
+                    .uri(URI.create(endPointUrl + "/visitor/report"))
+                    .build();
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        HttpResponse<String> response = null;
+        try {
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            return objectMapper.readValue(response.body(), Report.class);
+        } catch (IOException | InterruptedException e) {
+            throw new ServerError(e.toString());
+        }
+    }
+
     public static void main(String[] args) throws IOException, InterruptedException {
         ApiClient apiClient = new ApiClient();
+    }
+
+    public Collection<Drug> getDrugs(String token) throws ServerError {
+        HttpRequest request = HttpRequest.newBuilder()
+                .header("Content-Type", "application/json")
+                .header("Authorization", token)
+                .GET()
+                .uri(URI.create(endPointUrl + "/visitor/drugs"))
+                .build();
+        HttpResponse<String> response = null;
+        try {
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            return Arrays.asList(objectMapper.readValue(response.body(), Drug[].class));
+        } catch (IOException | InterruptedException e) {
+            throw new ServerError(e.toString());
+        }
+    }
+
+    public Collection<Pratitionner> getPratitionners(String token) throws ServerError {
+        HttpRequest request = HttpRequest.newBuilder()
+                .header("Content-Type", "application/json")
+                .header("Authorization", token)
+                .GET()
+                .uri(URI.create(endPointUrl + "/visitor/pratitionners"))
+                .build();
+        HttpResponse<String> response = null;
+        try {
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            return Arrays.asList(objectMapper.readValue(response.body(), Pratitionner[].class));
+        } catch (IOException | InterruptedException e) {
+            throw new ServerError(e.toString());
+        }
     }
 }

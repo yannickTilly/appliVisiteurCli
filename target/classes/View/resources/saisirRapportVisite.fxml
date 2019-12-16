@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.MenuButton?>
 <fx:root prefHeight="371.0" prefWidth="600.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <Text layoutX="114.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :" />
@@ -17,24 +18,10 @@
     <Text layoutX="218.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enregistrer un rapport de visite" underline="true" />
     <Text layoutX="46.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note sur la visite :" />
     <DatePicker fx:id="date" layoutX="183.0" layoutY="46.0" />
-    <ComboBox fx:id="pratitionner" layoutX="183.0" layoutY="79.0" prefHeight="21.0" prefWidth="200.0" promptText="Selectionner un pratitien">
-      <items>
-        <FXCollections fx:factory="observableArrayList">
-          <String fx:value="1" />
-          <String fx:value="2" />
-          <String fx:value="3" />
-        </FXCollections>
-      </items>
+    <ComboBox fx:id="pratitionners" layoutX="183.0" layoutY="79.0" prefHeight="21.0" prefWidth="200.0" promptText="Selectionner un pratitien">
     </ComboBox>
-    <ComboBox fx:id="drug" layoutX="182.0" layoutY="108.0" prefHeight="21.0" prefWidth="200.0" promptText="Selectionner le(s) médicament(s)">
-      <items>
-        <FXCollections fx:factory="observableArrayList">
-          <String fx:value="1" />
-          <String fx:value="2" />
-          <String fx:value="3" />
-        </FXCollections>
-      </items>
-    </ComboBox>
+    <MenuButton fx:id="drugs" layoutX="182.0" layoutY="108.0" prefHeight="21.0" prefWidth="200.0">
+    </MenuButton>
     <TextArea fx:id="description" layoutX="182.0" layoutY="137.0" prefWidth="200.0" wrapText="true" />
     <Button fx:id="submit" layoutX="189.0" layoutY="314.0" mnemonicParsing="false" text="Sauvegarder le rapport de visite" />
   </children>

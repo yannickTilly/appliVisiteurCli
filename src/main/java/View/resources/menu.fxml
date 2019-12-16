@@ -12,7 +12,7 @@
       <MenuItem mnemonicParsing="false" text="Consulter les rapports" fx:id="consulter" />
       <MenuItem mnemonicParsing="false" text="Entrer un nouveau rapport" fx:id="newReport" />
     </Menu>
-    <Menu mnemonicParsing="false" text="Medicament" fx:id="medicament">
+    <Menu mnemonicParsing="false" text="Medicament" fx:id="drugs">
       <MenuItem mnemonicParsing="false" text="Consulter les médicaments" fx:id="drugs_consult" />
     </Menu>
     <Menu mnemonicParsing="false" text="Pratitiens" fx:id="pratitionners">
