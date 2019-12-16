@@ -2,7 +2,7 @@ package Model.RequestBody;
 
 import java.util.Collection;
 
-public class VisitorReportBody {
+public class ReportBody {
     private Collection<Long> MedicamentId;
     private Long praticienId;
     private String note;
@@ -12,7 +12,7 @@ public class VisitorReportBody {
         return MedicamentId;
     }
 
-    public VisitorReportBody setMedicamentId(Collection<Long> medicamentId) {
+    public ReportBody setMedicamentId(Collection<Long> medicamentId) {
         MedicamentId = medicamentId;
         return this;
     }
@@ -21,7 +21,7 @@ public class VisitorReportBody {
         return praticienId;
     }
 
-    public VisitorReportBody setPraticienId(Long praticienId) {
+    public ReportBody setPraticienId(Long praticienId) {
         this.praticienId = praticienId;
         return this;
     }
@@ -30,7 +30,7 @@ public class VisitorReportBody {
         return note;
     }
 
-    public VisitorReportBody setNote(String note) {
+    public ReportBody setNote(String note) {
         this.note = note;
         return this;
     }
@@ -39,7 +39,7 @@ public class VisitorReportBody {
         return sampleNumber;
     }
 
-    public VisitorReportBody setSampleNumber(int sampleNumber) {
+    public ReportBody setSampleNumber(int sampleNumber) {
         this.sampleNumber = sampleNumber;
         return this;
     }

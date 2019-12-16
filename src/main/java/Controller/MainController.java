@@ -11,6 +11,7 @@ public class MainController extends BaseController implements RouteListener {
     private MainView view;
     private ConsultationRapportVisiteController consultationRapportVisiteController;
     private MenuController menuController;
+    private SaisieRapportVisiteController saisieRapportVisiteController;
 
     public MainController(Context context, MainView view) {
         super(context, null);
@@ -37,7 +38,10 @@ public class MainController extends BaseController implements RouteListener {
                         this,
                         consultationRapportVisiteModel,
                         consultationRapportVisiteView);
+        //partie saisie rapport
 
+        SaisirRapportVisiteView saisirRapportVisiteView = view.getNewReportView();
+        saisieRapportVisiteController = new SaisieRapportVisiteController(context,this, saisirRapportVisiteView);
         // partie login
         LoginView loginView = view.getLoginView();
         LoginController loginController = new LoginController(getContext(), this, loginView);

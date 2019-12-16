@@ -4,6 +4,7 @@ import Listener.LoginListener;
 import Listener.RouteListener;
 import Model.Context;
 import Model.Credential;
+import Model.ResponseBody.AuthResponse;
 import Util.ApiClient;
 import View.component.LoginView;
 import javafx.event.ActionEvent;
@@ -35,10 +36,10 @@ public class LoginController extends BaseController implements LoginListener {
     @Override
     public void onSubmit(Credential credential)
     {
-        System.out.println("get token");
+        System.out.println("Authentification ...");
         try {
-            String response = apiClient.getToken(credential.getLogin(),credential.getPassword());
-            getContext().setToken(response);
+            AuthResponse authResponse = apiClient.getToken(credential.getLogin(),credential.getPassword());
+            getContext().setToken(authResponse.getToken());
 
         } catch (IOException e) {
             e.printStackTrace();

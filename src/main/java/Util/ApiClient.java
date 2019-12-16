@@ -2,10 +2,10 @@ package Util;
 import Model.Credential;
 
 import Model.Report;
+import Model.ResponseBody.AuthResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -22,7 +22,7 @@ public class ApiClient {
             .version(HttpClient.Version.HTTP_2)
             .build();
 
-    public String getToken(String login, String password) throws IOException, InterruptedException {
+    public AuthResponse getToken(String login, String password) throws IOException, InterruptedException {
         Credential credential = new Credential();
         credential.setLogin(login).setPassword(password);
         ObjectMapper objectMapper = new ObjectMapper();
@@ -36,7 +36,7 @@ public class ApiClient {
                 .uri(URI.create(endPointUrl + "/token"))
                 .build();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        return response.body();
+        return objectMapper.readValue(response.body(), AuthResponse.class);
     }
 
     public Report getRapportVisite(Long id, String token) throws IOException, InterruptedException {

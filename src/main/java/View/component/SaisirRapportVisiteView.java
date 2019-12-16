@@ -9,46 +9,39 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class SaisirRapportVisiteView extends AnchorPane implements Initializable {
-//    @FXML
-//    private Pratitionner pratitionnerId;
-//
-//    @FXML
-//    private Collection<Drug> drugs;
-//
-//    @FXML
-//    private TextArea note;
-//
-//    @FXML
-//    private Button submitNewReport;
+    @FXML
+    private ComboBox<Pratitionner> pratitionner;
 
-    private Collection<NewReportListener> listeners;
+    @FXML
+    private ComboBox<Drug> drug;
 
-    public void addListener(NewReportListener newReportListener)
-    {
-        listeners.add(newReportListener);
-    }
-    public void removeListener(NewReportListener newReportListener)
-    {
-        listeners.remove(newReportListener);
-    }
+    @FXML
+    private TextArea description;
 
+    @FXML
+    private Button submit;
+
+    @FXML
+    private DatePicker date;
+
+    private NewReportListener listener;
 
     public SaisirRapportVisiteView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/saisirRapportVisite.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
-        listeners = new ArrayList<>();
         System.out.println("test");
     }
 
@@ -58,19 +51,35 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
             onSubmit();
         };
 
-//        submitNewReport.setOnAction(submitReportHandler);
+        submit.setOnAction(submitReportHandler);
+    }
+
+    public long getPrationerId() {
+        return Long.parseLong(String.valueOf(pratitionner.getValue()));
+    }
+
+    public long getDrugId() {
+        return Long.parseLong(String.valueOf(drug.getValue()));
+    }
+
+    public String getDescription() {
+        return description.getText();
+    }
+
+    public LocalDate getDate() {
+        return date.getValue();
     }
 
     public void onSubmit()
     {
-        fireOnSubmitNewReport();
+        listener.onSubmitNewReport(getDate(), getDescription(), getDrugId(), getPrationerId());
     }
 
-    private void fireOnSubmitNewReport()
-    {
+    public NewReportListener getListener() {
+        return listener;
+    }
 
-        for(NewReportListener listener : listeners) {
-            listener.onSubmitNewReport();
-        }
+    public void setListener(NewReportListener listener) {
+        this.listener = listener;
     }
 }
