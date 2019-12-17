@@ -23,6 +23,8 @@ public class MenuView extends AnchorPane implements Initializable{
     private MenuItem newReport;
     @FXML
     private MenuItem drugs;
+    @FXML
+    private MenuItem pratitionners;
 
     private MenuListener listener;
 
@@ -46,7 +48,11 @@ public class MenuView extends AnchorPane implements Initializable{
         EventHandler<ActionEvent> drugsHandler = e -> {
             onDrugsClick();
         };
+        EventHandler<ActionEvent> pratitionnersHandler = e -> {
+            onPraticionnersClick();
+        };
 
+        pratitionners.setOnAction(pratitionnersHandler);
         consulter.setOnAction(consultHandler);
         newReport.setOnAction(newReportHandler);
         drugs.setOnAction(drugsHandler);
@@ -72,5 +78,9 @@ public class MenuView extends AnchorPane implements Initializable{
 
     private void onDrugsClick() {
         listener.onDrugsClicked();
+    }
+
+    private void onPraticionnersClick() {
+        listener.onPratitionnersClicked();
     }
 }

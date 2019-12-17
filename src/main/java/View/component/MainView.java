@@ -23,12 +23,15 @@ public class MainView extends AnchorPane implements Initializable{
     private MenuView menuView;
     @FXML
     private ConsultationDrugsView consultationDrugsView;
+    @FXML
+    private ConsultationPratitionnersView consultationPratitionnersView;
 
     public static final int newReport = 330;
     public static final int login = 11;
     public static final int consultationRapportVisite = 20;
     public static final int consultationRapportVisites = 121;
     public static final int consultationDrugs = 836;
+    public static final int consultationPratitionners = 613;
 
     public MainView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/main.fxml"));
@@ -55,6 +58,7 @@ public class MainView extends AnchorPane implements Initializable{
                 consultationReportsView.setVisible(false);
                 newReportView.setVisible(false);
                 consultationDrugsView.setVisible(false);
+                consultationPratitionnersView.setVisible(false);
                 break;
             case MainView.consultationRapportVisites:
                 consultationReportsView.setVisible(true);
@@ -62,6 +66,7 @@ public class MainView extends AnchorPane implements Initializable{
                 consultationReportView.setVisible(false);
                 newReportView.setVisible(false);
                 consultationDrugsView.setVisible(false);
+                consultationPratitionnersView.setVisible(false);
                 break;
             case MainView.consultationRapportVisite:
                 consultationReportView.setVisible(true);
@@ -69,6 +74,7 @@ public class MainView extends AnchorPane implements Initializable{
                 loginView.setVisible(false);
                 newReportView.setVisible(false);
                 consultationDrugsView.setVisible(false);
+                consultationPratitionnersView.setVisible(false);
                 break;
             case MainView.newReport:
                 newReportView.setVisible(true);
@@ -76,6 +82,7 @@ public class MainView extends AnchorPane implements Initializable{
                 consultationReportView.setVisible(false);
                 consultationReportsView.setVisible(false);
                 consultationDrugsView.setVisible(false);
+                consultationPratitionnersView.setVisible(false);
                 break;
             case MainView.consultationDrugs:
                 newReportView.setVisible(false);
@@ -83,6 +90,15 @@ public class MainView extends AnchorPane implements Initializable{
                 consultationReportView.setVisible(false);
                 consultationReportsView.setVisible(false);
                 consultationDrugsView.setVisible(true);
+                consultationPratitionnersView.setVisible(false);
+                break;
+            case MainView.consultationPratitionners:
+                newReportView.setVisible(false);
+                loginView.setVisible(false);
+                consultationReportView.setVisible(false);
+                consultationReportsView.setVisible(false);
+                consultationDrugsView.setVisible(false);
+                consultationPratitionnersView.setVisible(true);
                 break;
         }
     }
@@ -105,5 +121,13 @@ public class MainView extends AnchorPane implements Initializable{
 
     public MenuView getMenuView() {
         return menuView;
+    }
+
+    public ConsultationDrugsView getConsulatationDrugsView() {
+        return consultationDrugsView;
+    }
+
+    public ConsultationPratitionnersView getConsultationPratitionnersView() {
+        return consultationPratitionnersView;
     }
 }

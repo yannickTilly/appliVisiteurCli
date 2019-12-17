@@ -2,14 +2,14 @@ package Model;
 
 import java.util.Collection;
 
-public class ConsultationDrugModel {
+public class ConsultationDrugsModel {
     Collection<Drug> drugs;
 
     public Collection<Drug> getDrugs() {
         return drugs;
     }
 
-    public ConsultationDrugModel setDrugs(Collection<Drug> drugs) {
+    public ConsultationDrugsModel setDrugs(Collection<Drug> drugs) {
         this.drugs = drugs;
         return this;
     }

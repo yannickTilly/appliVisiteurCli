@@ -1,9 +1,8 @@
 package View.component;
 
-import Controller.ConsultationDrugsController;
-import Listener.ConsultationDrugsModelListener;
 import Listener.ConsultationDrugsViewListener;
-import Listener.ConsultationRapportVisitesListener;
+import Listener.ConsultationPratitionnerViewListener;
+import View.Structure.Prationner;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,43 +14,37 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ConsultationDrugsView extends AnchorPane implements ConsultationDrugsModelListener, Initializable {
-
+public class ConsultationPratitionnersView extends AnchorPane implements Initializable {
     @FXML
-    private VBox drugs;
+    private VBox pratitionners;
     @FXML
     private Button searchButton;
 
-    private ConsultationDrugsViewListener listener;
+    private ConsultationPratitionnerViewListener listener;
 
     // constructeur et initalisation
-    public ConsultationDrugsView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/consultationDrugs.fxml"));
+    public ConsultationPratitionnersView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/consultationPratitionners.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
     }
 
-    public void addDrug(String name)
+    public void addPratitionner(String name)
     {
         try {
-            DrugResumeView drugResumeView  = new DrugResumeView();
-            drugResumeView.setName(name);
-            drugs.getChildren().add(drugResumeView);
+            PrationnerResumeView prationnerResumeView  = new PrationnerResumeView();
+            prationnerResumeView.setName(name);
+            pratitionners.getChildren().add(prationnerResumeView);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-    @Override
-    public void onChangeModel() {
 
-    }
-
-    public void setListener(ConsultationDrugsViewListener listener) {
+    public void setListener(ConsultationPratitionnerViewListener listener) {
         this.listener = listener;
     }
 

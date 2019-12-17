@@ -17,7 +17,7 @@
                   <Button mnemonicParsing="false" text="rechercher" fx:id="searchButton"/>
                </children>
             </HBox>
-            <VBox fx:id="drugs"/>
+            <VBox fx:id="pratitionners"/>
          </children>
       </VBox>
    </children>

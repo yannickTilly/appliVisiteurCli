@@ -6,4 +6,5 @@ public interface RouteListener {
     void onNewReport();
     void onError();
     void onDrugConsultation();
+    void onPratitionners();
 }

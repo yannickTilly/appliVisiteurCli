@@ -1,19 +1,21 @@
 package Controller;
 
+import Listener.ContextListener;
 import Listener.RouteListener;
-import Model.ConsultationRapportVisiteModel;
-import Model.ConsultationRapportVisitesModel;
-import Model.Context;
+import Model.*;
 import View.component.*;
 
-public class MainController extends BaseController implements RouteListener {
+public class MainController extends BaseController implements RouteListener, ContextListener{
+    private ConsultationPratitionnersController consultationPratitionnersController;
     private MainView view;
     private ConsultationReportController consultationReportController;
     private MenuController menuController;
     private NewReportController newReportController;
+    private ConsultationDrugsController consultationDrugsController;
 
     public MainController(Context context, MainView view) {
         super(context, null);
+        context.addListener(this);
         // vue principale
         this.view = view;
         // partie menu
@@ -44,6 +46,14 @@ public class MainController extends BaseController implements RouteListener {
         // partie login
         LoginView loginView = view.getLoginView();
         LoginController loginController = new LoginController(getContext(), this, loginView);
+
+        //partie consultationView
+        ConsultationDrugsModel consultationDrugsModel = new ConsultationDrugsModel();
+        consultationDrugsController = new ConsultationDrugsController(context, this, consultationDrugsModel, view.getConsulatationDrugsView());
+
+        //partie consultation pratitiens
+        ConsultationPratitionnersModel consultationPratitionnersModel = new ConsultationPratitionnersModel();
+        consultationPratitionnersController = new ConsultationPratitionnersController(context, this, consultationPratitionnersModel, view.getConsultationPratitionnersView());
 
         //premiére vue affichée
         view.display(MainView.login);
@@ -84,5 +94,15 @@ public class MainController extends BaseController implements RouteListener {
     @Override
     public void onDrugConsultation() {
         view.display(MainView.consultationDrugs);
+    }
+
+    @Override
+    public void onPratitionners() {
+        view.display(MainView.consultationPratitionners);
+    }
+
+    @Override
+    public void userLoginSucess() {
+        view.display(MainView.consultationRapportVisites);
     }
 }
