@@ -2,6 +2,7 @@ package Util;
 import Model.Credential;
 
 import Model.Drug;
+import Model.Execption.ClientError;
 import Model.Execption.ServerError;
 import Model.Pratitionner;
 import Model.Report;
@@ -67,7 +68,7 @@ public class ApiClient {
         return Arrays.asList(objectMapper.readValue(response.body(), Report[].class));
     }
 
-    public Report postReport(ReportBody reportBody, String token) throws ServerError {
+    public Report postReport(ReportBody reportBody, String token) throws ServerError, ClientError {
         HttpRequest request = null;
         try {
             request = HttpRequest.newBuilder()
@@ -76,13 +77,11 @@ public class ApiClient {
                     .POST(HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(reportBody)))
                     .uri(URI.create(endPointUrl + "/visitor/report"))
                     .build();
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        HttpResponse<String> response = null;
-        try {
+            HttpResponse<String> response = null;
             response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             return objectMapper.readValue(response.body(), Report.class);
+        } catch (JsonProcessingException e) {
+            throw new ClientError(e.toString());
         } catch (IOException | InterruptedException e) {
             throw new ServerError(e.toString());
         }
