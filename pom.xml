@@ -39,7 +39,7 @@
         </plugins>
         <resources>
             <resource>
-                <directory>/home/tilly/IdeaProjects/appliVisiteurCli/src/main/java</directory>
+                <directory>/Users/paul/Documents/appliVisiteurCli/src/main/java</directory>
                 <includes>
                     <include>**/*.fxml</include>
                 </includes>

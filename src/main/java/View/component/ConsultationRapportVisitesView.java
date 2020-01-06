@@ -14,13 +14,14 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
 
-public class ConsultationRapportVisitesView extends AnchorPane implements Initializable, ConsultationRapportVisitesModelListener {
+public class ConsultationRapportVisitesView extends VBox implements Initializable, ConsultationRapportVisitesModelListener {
 
     @FXML
     private Button searchSubmit;
@@ -48,7 +49,6 @@ public class ConsultationRapportVisitesView extends AnchorPane implements Initia
             fireSearchSubmit();
         };
         searchSubmit.setOnAction(eventHandler);
-
     }
 
     //getter setter

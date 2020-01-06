@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
-    <VBox>
-        <Label text="liste de vos rapport de visites"/>
-        <VBox fx:id="rapportVisites"/>
-        <Button fx:id="searchSubmit">rechercher</Button>
-    </VBox>
+<fx:root BorderPane.alignment="CENTER" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="50.0" style="-fx-min-width: 10;" text="titre" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" VBox.vgrow="ALWAYS" />
+            <Button fx:id="searchSubmit" mnemonicParsing="false" text="Button" />
+            <VBox fx:id="rapportVisites" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: red;" />
+         </children>
 </fx:root>

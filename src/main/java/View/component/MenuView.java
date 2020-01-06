@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
 
-public class MenuView extends AnchorPane implements Initializable{
+public class MenuView extends MenuBar implements Initializable{
 
     @FXML
     private MenuItem consulter;

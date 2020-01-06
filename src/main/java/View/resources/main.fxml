@@ -10,20 +10,18 @@
 <?import View.component.MenuView?>
 <?import View.component.ConsultationDrugsView?>
 <?import View.component.ConsultationPratitionnersView?>
-<fx:root prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" type="javafx.scene.layout.AnchorPane">
-    <BorderPane>
+<fx:root xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" type="javafx.scene.layout.BorderPane">
+        <top>
+            <MenuView fx:id="menuView"/>
+        </top>
         <center>
-            <Pane>
+            <VBox>
                 <ConsultationRapportVisiteView fx:id="consultationReportView"/>
                 <ConsultationRapportVisitesView fx:id="consultationReportsView"/>
                 <LoginView fx:id="loginView"/>
                 <SaisirRapportVisiteView fx:id="newReportView"/>
                 <ConsultationDrugsView fx:id="consultationDrugsView"/>
                 <ConsultationPratitionnersView fx:id="consultationPratitionnersView"/>
-            </Pane>
+            </VBox>
         </center>
-      <top>
-        <MenuView fx:id="menuView"/>
-      </top>
-    </BorderPane>
 </fx:root>
