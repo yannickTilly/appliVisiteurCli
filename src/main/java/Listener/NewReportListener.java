@@ -5,5 +5,5 @@ import java.util.EventListener;
 import java.util.List;
 
 public interface NewReportListener extends EventListener {
-    void onSubmitNewReport(LocalDate date, String description, List<Long> drugId, long prationerId);
+    void onSubmitNewReport(String description, List<Long> drugId, long prationerId, LocalDate value);
 }

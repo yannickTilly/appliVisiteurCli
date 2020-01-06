@@ -66,4 +66,8 @@ public class ConsultationDrugsView extends AnchorPane implements ConsultationDru
     private void fireSearch() {
         listener.onSearch("test");
     }
+
+    public void clearDrug() {
+        drugs.getChildren().clear();
+    }
 }

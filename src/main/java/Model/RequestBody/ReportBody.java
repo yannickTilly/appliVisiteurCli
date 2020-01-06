@@ -1,5 +1,6 @@
 package Model.RequestBody;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 public class ReportBody {
@@ -7,6 +8,16 @@ public class ReportBody {
     private Long praticienId;
     private String note;
     private int sampleNumber;
+    private String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public ReportBody setDate(String date) {
+        this.date = date;
+        return this;
+    }
 
     public Collection<Long> getMedicamentIds() {
         return medicamentIds;

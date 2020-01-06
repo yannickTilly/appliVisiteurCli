@@ -59,4 +59,8 @@ public class ConsultationPratitionnersView extends AnchorPane implements Initial
     private void fireSearch() {
         listener.onSearch("test");
     }
+
+    public void clearPratitionners() {
+        pratitionners.getChildren().clear();
+    }
 }

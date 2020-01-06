@@ -27,6 +27,7 @@ public class ConsultationDrugsController extends BaseController implements Consu
     public void onSearch(String keyWord) {
         try {
             Collection<Drug> drugs = getApiClient().getDrugs(getContext().getToken());
+            view.clearDrug();
             for(Drug drug : drugs)
             {
                 view.addDrug(drug.getName());

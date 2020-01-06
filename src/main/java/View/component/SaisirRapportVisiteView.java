@@ -73,7 +73,7 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
 
     public void onSubmit()
     {
-        listener.onSubmitNewReport(getDate(), getDescription(), getDrugIds(), getPrationerId());
+        listener.onSubmitNewReport(getDescription(), getDrugIds(), getPrationerId(), date.getValue());
     }
 
     public NewReportListener getListener() {

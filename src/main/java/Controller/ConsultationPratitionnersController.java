@@ -25,9 +25,10 @@ public class ConsultationPratitionnersController extends BaseController implemen
     public void onSearch(String keyWord) {
         try {
             Collection<Pratitionner> pratitionners = getApiClient().getPratitionners(getContext().getToken());
+            view.clearPratitionners();
             for(Pratitionner pratitionner : pratitionners)
             {
-                view.addPratitionner(pratitionner.getFirst_name());
+                view.addPratitionner(pratitionner.getFirstName());
             }
         } catch (ServerError serverError) {
             getRouteListener().onError();

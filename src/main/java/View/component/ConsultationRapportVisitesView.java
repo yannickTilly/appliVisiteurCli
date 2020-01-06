@@ -91,7 +91,7 @@ public class ConsultationRapportVisitesView extends AnchorPane implements Initia
     //écoute du model
     @Override
     public void onRapportVisitesChange(Collection<Report> rapportVisites) {
-        this.rapportVisites.getChildren().removeAll(this.rapportVisites.getChildren());
+        this.rapportVisites.getChildren().clear();
         rapportVisites.forEach(rapportVisite -> {
             try {
                 RapportVisiteResumeView rapportVisiteResumeView= new RapportVisiteResumeView();

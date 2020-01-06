@@ -6,11 +6,11 @@ import Listener.NewReportListener;
 import Listener.RouteListener;
 import Model.Context;
 import Model.Drug;
+import Model.Execption.ClientError;
 import Model.Execption.ServerError;
 import Model.Pratitionner;
 import Model.Report;
 import Model.RequestBody.ReportBody;
-import View.Structure.Prationner;
 import View.component.SaisirRapportVisiteView;
 import javafx.event.ActionEvent;
 
@@ -32,17 +32,18 @@ public class NewReportController extends BaseController implements NewReportList
     }
 
     @Override
-    public void onSubmitNewReport(LocalDate date, String description, List<Long> drugIds, long prationerId) {
+    public void onSubmitNewReport(String description, List<Long> drugIds, long prationerId, LocalDate date) {
         System.out.println("Soumission rapport ...");
         ReportBody reportBody = new ReportBody();
         reportBody.setMedicamentIds(drugIds)
                 .setNote(description)
-                .setPraticienId(prationerId);
+                .setPraticienId(prationerId)
+                .setDate(date.toString());
         try {
             Report report = getApiClient().postReport(reportBody, getContext().getToken());
             getRouteListener().onReportConsultation(report.getId());
             System.out.println("redirection vers consultationReport");
-        } catch (ServerError serverError) {
+        } catch (ServerError | ClientError serverError) {
             getRouteListener().onError();
         }
     }
@@ -60,7 +61,7 @@ public class NewReportController extends BaseController implements NewReportList
     public void loadPratitionnerInView() {
         try {
             for (Pratitionner pratitionner : getApiClient().getPratitionners(getContext().getToken())) {
-                view.addPratitionners(pratitionner.getFirst_name(), pratitionner.getId());
+                view.addPratitionners(pratitionner.getFirstName(), pratitionner.getId());
             }
         } catch (ServerError serverError) {
             getRouteListener().onError();

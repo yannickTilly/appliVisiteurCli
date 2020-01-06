@@ -52,7 +52,7 @@ public class ConsultationRapportVisiteView extends AnchorPane implements Consult
     @Override
     public void onRapportVisiteChange(Report rapportVisite) {
         description.setText(rapportVisite.getDescription());
-        pratitionner.setText(String.valueOf(rapportVisite.getPratitionner().getFirst_name()));
+        pratitionner.setText(String.valueOf(rapportVisite.getPratitionner().getFirstName()));
         region.setText(rapportVisite.getRegion().getName());
         drugPresentations.getChildren().clear();
         for(DrugPresentation drugPresentation : rapportVisite.getDrugPresentations())

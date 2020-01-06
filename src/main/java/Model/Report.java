@@ -1,24 +1,31 @@
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class Report {
-
     private long id;
-
     private String description;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate date;
     private User user;
-
     private Collection<DrugPresentation> drugPresentations;
-
     private Pratitionner pratitionner;
-
     private Region region;
 
-    private int sampleNumber;
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public Report setDate(LocalDate date) {
+        this.date = date;
+        return this;
+    }
 
     public String getDescription() {
         return description;
@@ -75,15 +82,6 @@ public class Report {
 
     public Report setRegion(Region region) {
         this.region = region;
-        return this;
-    }
-
-    public int getSampleNumber() {
-        return sampleNumber;
-    }
-
-    public Report setSampleNumber(int sampleNumber) {
-        this.sampleNumber = sampleNumber;
         return this;
     }
 }
