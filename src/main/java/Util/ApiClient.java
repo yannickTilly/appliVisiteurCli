@@ -1,11 +1,18 @@
 package Util;
 import Model.Credential;
 
+import Model.Drug;
+import Model.Execption.ClientError;
+import Model.Execption.ServerError;
+import Model.Pratitionner;
 import Model.Report;
+import Model.RequestBody.ReportBody;
+import Model.ResponseBody.AuthResponse;
+import View.Structure.Prationner;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -22,7 +29,7 @@ public class ApiClient {
             .version(HttpClient.Version.HTTP_2)
             .build();
 
-    public String getToken(String login, String password) throws IOException, InterruptedException {
+    public AuthResponse getToken(String login, String password) throws IOException, InterruptedException {
         Credential credential = new Credential();
         credential.setLogin(login).setPassword(password);
         ObjectMapper objectMapper = new ObjectMapper();
@@ -36,7 +43,7 @@ public class ApiClient {
                 .uri(URI.create(endPointUrl + "/token"))
                 .build();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        return response.body();
+        return objectMapper.readValue(response.body(), AuthResponse.class);
     }
 
     public Report getRapportVisite(Long id, String token) throws IOException, InterruptedException {
@@ -44,7 +51,7 @@ public class ApiClient {
                 .header("Content-Type", "application/json")
                 .header("Authorization", token)
                 .GET()
-                .uri(URI.create(endPointUrl + "/rapportVisite/" + id.toString()))
+                .uri(URI.create(endPointUrl + "/visitor/report/" + id.toString()))
                 .build();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         return objectMapper.readValue(response.body(), Report.class);
@@ -61,7 +68,58 @@ public class ApiClient {
         return Arrays.asList(objectMapper.readValue(response.body(), Report[].class));
     }
 
+    public Report postReport(ReportBody reportBody, String token) throws ServerError, ClientError {
+        HttpRequest request = null;
+        try {
+            request = HttpRequest.newBuilder()
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", token)
+                    .POST(HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(reportBody)))
+                    .uri(URI.create(endPointUrl + "/visitor/report"))
+                    .build();
+            HttpResponse<String> response = null;
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            return objectMapper.readValue(response.body(), Report.class);
+        } catch (JsonProcessingException e) {
+            throw new ClientError(e.toString());
+        } catch (IOException | InterruptedException e) {
+            throw new ServerError(e.toString());
+        }
+    }
+
     public static void main(String[] args) throws IOException, InterruptedException {
         ApiClient apiClient = new ApiClient();
+    }
+
+    public Collection<Drug> getDrugs(String token) throws ServerError {
+        HttpRequest request = HttpRequest.newBuilder()
+                .header("Content-Type", "application/json")
+                .header("Authorization", token)
+                .GET()
+                .uri(URI.create(endPointUrl + "/visitor/drugs"))
+                .build();
+        HttpResponse<String> response = null;
+        try {
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            return Arrays.asList(objectMapper.readValue(response.body(), Drug[].class));
+        } catch (IOException | InterruptedException e) {
+            throw new ServerError(e.toString());
+        }
+    }
+
+    public Collection<Pratitionner> getPratitionners(String token) throws ServerError {
+        HttpRequest request = HttpRequest.newBuilder()
+                .header("Content-Type", "application/json")
+                .header("Authorization", token)
+                .GET()
+                .uri(URI.create(endPointUrl + "/visitor/pratitionners"))
+                .build();
+        HttpResponse<String> response = null;
+        try {
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            return Arrays.asList(objectMapper.readValue(response.body(), Pratitionner[].class));
+        } catch (IOException | InterruptedException e) {
+            throw new ServerError(e.toString());
+        }
     }
 }

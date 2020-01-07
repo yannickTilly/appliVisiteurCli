@@ -8,18 +8,22 @@
 <?import View.component.LoginView?>
 <?import View.component.SaisirRapportVisiteView?>
 <?import View.component.MenuView?>
-<fx:root prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" type="javafx.scene.layout.AnchorPane">
-    <BorderPane>
+<?import View.component.ConsultationDrugsView?>
+<?import View.component.ConsultationPratitionnersView?>
+<fx:root xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.BorderPane">
+        <top>
+            <MenuView fx:id="menuView"/>
+        </top>
         <center>
-            <Pane>
-                <ConsultationRapportVisiteView fx:id="consultationReportView"/>
-                <ConsultationRapportVisitesView fx:id="consultationReportsView"/>
-                <LoginView fx:id="loginView"/>
-                <SaisirRapportVisiteView fx:id="newReportView"/>
-            </Pane>
+            <ScrollPane>
+                <Pane>
+                    <ConsultationRapportVisiteView fx:id="consultationReportView"/>
+                    <ConsultationRapportVisitesView fx:id="consultationReportsView"/>
+                    <LoginView fx:id="loginView"/>
+                    <SaisirRapportVisiteView fx:id="newReportView"/>
+                    <ConsultationDrugsView fx:id="consultationDrugsView"/>
+                    <ConsultationPratitionnersView fx:id="consultationPratitionnersView"/>
+                </Pane>
+            </ScrollPane>
         </center>
-      <top>
-        <MenuView fx:id="menuView"/>
-      </top>
-    </BorderPane>
 </fx:root>

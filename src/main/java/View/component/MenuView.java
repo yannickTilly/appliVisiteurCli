@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 
@@ -15,30 +16,25 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
 
-public class MenuView extends AnchorPane implements Initializable{
+public class MenuView extends MenuBar implements Initializable{
 
     @FXML
     private MenuItem consulter;
     @FXML
     private MenuItem newReport;
+    @FXML
+    private MenuItem drugs;
+    @FXML
+    private MenuItem pratitionners;
 
-    private Collection<MenuListener> listeners;
+    private MenuListener listener;
 
-    public void addListener(MenuListener menuListener)
-    {
-        listeners.add(menuListener);
-    }
-    public void removeListener(MenuListener menuListener)
-    {
-        listeners.remove(menuListener);
-    }
 
     public MenuView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/menu.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
-        listeners = new ArrayList<MenuListener>();
     }
 
     @Override
@@ -50,33 +46,42 @@ public class MenuView extends AnchorPane implements Initializable{
         EventHandler<ActionEvent> newReportHandler = e -> {
             onNewReportClick();
         };
+        EventHandler<ActionEvent> drugsHandler = e -> {
+            onDrugsClick();
+        };
+        EventHandler<ActionEvent> pratitionnersHandler = e -> {
+            onPraticionnersClick();
+        };
 
+        pratitionners.setOnAction(pratitionnersHandler);
         consulter.setOnAction(consultHandler);
         newReport.setOnAction(newReportHandler);
+        drugs.setOnAction(drugsHandler);
+    }
+
+    public MenuListener getListener() {
+        return listener;
+    }
+
+    public void setListener(MenuListener listener) {
+        this.listener = listener;
     }
 
     public void onConsulterClick()
     {
-        fireConsulterCliked();
-    }
-
-    private void fireConsulterCliked()
-    {
-        for(MenuListener listener : listeners) {
-            listener.onConsulterClicked();
-        }
+        listener.onConsulterClicked();
     }
 
     public void onNewReportClick()
     {
-        fireNewReportClicked();
+        listener.onNewReportClicked();
     }
 
-    private void fireNewReportClicked()
-    {
-        for(MenuListener listener : listeners)
-        {
-            listener.onNewReportClicked();
-        }
+    private void onDrugsClick() {
+        listener.onDrugsClicked();
+    }
+
+    private void onPraticionnersClick() {
+        listener.onPratitionnersClicked();
     }
 }

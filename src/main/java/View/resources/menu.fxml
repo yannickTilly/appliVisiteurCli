@@ -6,18 +6,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root type="javafx.scene.layout.AnchorPane" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
-  <MenuBar layoutX="0.0" layoutY="0.0" prefWidth="600.0">
-    <Menu mnemonicParsing="false" text="Rapport de visite">
-      <MenuItem mnemonicParsing="false" text="Consulter les rapports" fx:id="consulter" />
-      <MenuItem mnemonicParsing="false" text="Entrer un nouveau rapport" fx:id="newReport" />
-    </Menu>
-    <Menu mnemonicParsing="false" text="Medicament" fx:id="medicament">
-      <MenuItem mnemonicParsing="false" text="Consulter les médicaments" fx:id="drugs_consult" />
-    </Menu>
-    <Menu mnemonicParsing="false" text="Pratitiens" fx:id="pratitionners">
-      <MenuItem mnemonicParsing="false" text="Consulter les pratitiens" fx:id="pratitionners_consult" />
-    </Menu>
-    <Menu mnemonicParsing="false" text="Espace utilisateur" fx:id="espaceUtilisateur" />
-  </MenuBar>
+<fx:root style="-fx-background-color: red;" type="javafx.scene.control.MenuBar" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+     <menus>
+       <Menu mnemonicParsing="false" text="Rapport de visite">
+          <items>
+            <MenuItem fx:id="consulter" mnemonicParsing="false" text="Consulter les rapports" />
+            <MenuItem fx:id="newReport" mnemonicParsing="false" text="Entrer un nouveau rapport" />
+          </items>
+       </Menu>
+       <Menu fx:id="drugs" mnemonicParsing="false" text="Medicament">
+          <items>
+            <MenuItem fx:id="drugs_consult" mnemonicParsing="false" text="Consulter les médicaments" />
+          </items>
+       </Menu>
+       <Menu fx:id="pratitionners" mnemonicParsing="false" text="Pratitiens">
+          <items>
+            <MenuItem fx:id="pratitionners_consult" mnemonicParsing="false" text="Consulter les pratitiens" />
+          </items>
+       </Menu>
+       <Menu fx:id="espaceUtilisateur" mnemonicParsing="false" text="Espace utilisateur" />
+     </menus>
 </fx:root>

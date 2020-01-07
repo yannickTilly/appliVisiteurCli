@@ -4,40 +4,19 @@ import Listener.ContextListener;
 
 import javax.swing.event.EventListenerList;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Observable;
 
 public class Context {
-    private final EventListenerList listeners = new EventListenerList();
+    private List<ContextListener> contextListeners;
 
     private String token;
 
-    private boolean userIslog;
-
-    private Long rapportVisteCourantId;
-
-    public boolean isUserIslog() {
-        return userIslog;
-    }
-
-    public Context setUserIslog(boolean userIslog) {
-        this.userIslog = userIslog;
-        return this;
-    }
-
-    public Long getRapportVisteCourantId() {
-        return rapportVisteCourantId;
-    }
-
-    public Context setRapportVisteCourantId(Long rapportVisteCourantId) {
-        this.rapportVisteCourantId = rapportVisteCourantId;
-        fireRapportVisiteCourantChange();
-        return this;
-    }
-
     public Context()
     {
-        userIslog = false;
+        contextListeners = new ArrayList<>();
     }
     public String getToken() {
         return token;
@@ -49,22 +28,16 @@ public class Context {
     }
     public void addListener(ContextListener contextListener)
     {
-        listeners.add(ContextListener.class, contextListener);
+        contextListeners.add(contextListener);
     }
     public void removeListener(ContextListener contextListener)
     {
-        listeners.remove(ContextListener.class, contextListener);
+        contextListeners.remove(contextListener);
     }
     private void fireUserLoginSucess()
     {
-        for(ContextListener listener : listeners.getListeners(ContextListener.class)) {
+        for(ContextListener listener : contextListeners) {
             listener.userLoginSucess();
-        }
-    }
-    private void fireRapportVisiteCourantChange()
-    {
-        for(ContextListener listener : listeners.getListeners(ContextListener.class)) {
-            listener.rapportVisiteCourantChange();
         }
     }
 }

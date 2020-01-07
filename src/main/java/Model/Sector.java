@@ -1,6 +1,10 @@
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+
 public class Sector {
+
     private long id;
 
     private String code;

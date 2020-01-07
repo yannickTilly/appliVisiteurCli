@@ -1,11 +1,12 @@
 package Controller;
 
 import Listener.LoginListener;
+import Listener.RouteListener;
 import Model.Context;
 import Model.Credential;
+import Model.ResponseBody.AuthResponse;
 import Util.ApiClient;
 import View.component.LoginView;
-import View.component.MenuView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -26,9 +27,8 @@ public class LoginController extends BaseController implements LoginListener {
     @FXML
     private TextField gsbLogin;
 
-
-    public LoginController(Context context, LoginView loginView) {
-        super(context);
+    public LoginController(Context context, RouteListener routeListener, LoginView loginView) {
+        super(context, routeListener);
         this.loginView = loginView;
         loginView.addListener(this);
     }
@@ -36,10 +36,11 @@ public class LoginController extends BaseController implements LoginListener {
     @Override
     public void onSubmit(Credential credential)
     {
-        System.out.println("get token");
+        System.out.println("Authentification ...");
         try {
-            String response = apiClient.getToken(credential.getLogin(),credential.getPassword());
-            getContext().setToken(response);
+            AuthResponse authResponse = apiClient.getToken(credential.getLogin(),credential.getPassword());
+            getContext().setToken(authResponse.getToken());
+            System.out.println(authResponse.toString());
 
         } catch (IOException e) {
             e.printStackTrace();

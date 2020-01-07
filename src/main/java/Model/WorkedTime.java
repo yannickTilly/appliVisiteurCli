@@ -2,7 +2,9 @@ package Model;
 
 import java.util.Date;
 
+
 public class WorkedTime {
+
     private long id;
 
     private User user;

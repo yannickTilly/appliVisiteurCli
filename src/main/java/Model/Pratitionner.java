@@ -4,14 +4,9 @@ import java.util.Collection;
 
 public class Pratitionner {
     private long id;
-
     private Collection<Report> reports;
-
     private Collection<Diploma> diplomas;
-
-    private String first_name;
-
-    private String last_name;
+    private String firstName;
 
     public long getId() {
         return id;
@@ -40,31 +35,12 @@ public class Pratitionner {
         return this;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public Pratitionner setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public Pratitionner setFirstName(String firstName) {
+        this.firstName = firstName;
         return this;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public Pratitionner setLast_name(String last_name) {
-        this.last_name = last_name;
-        return this;
-    }
-
-    public String getName()
-    {
-        return this.first_name + " " + this.last_name;
-    }
-
-    @Override
-    public String toString() {
-        return getName();
     }
 }
