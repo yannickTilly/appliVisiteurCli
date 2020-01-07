@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<fx:root BorderPane.alignment="CENTER" type="javafx.scene.layout.VBox" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<fx:root BorderPane.alignment="CENTER" type="javafx.scene.layout.Pane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
   <children>
     <Label layoutX="209.0" layoutY="34.0" text="Connexion à AppliVisiteur" />
     <Label layoutX="245.0" layoutY="50.0" text="Groupe GSB" />

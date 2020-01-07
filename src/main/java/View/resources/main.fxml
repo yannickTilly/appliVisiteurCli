@@ -10,18 +10,20 @@
 <?import View.component.MenuView?>
 <?import View.component.ConsultationDrugsView?>
 <?import View.component.ConsultationPratitionnersView?>
-<fx:root xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" type="javafx.scene.layout.BorderPane">
+<fx:root xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.BorderPane">
         <top>
             <MenuView fx:id="menuView"/>
         </top>
         <center>
-            <VBox>
-                <ConsultationRapportVisiteView fx:id="consultationReportView"/>
-                <ConsultationRapportVisitesView fx:id="consultationReportsView"/>
-                <LoginView fx:id="loginView"/>
-                <SaisirRapportVisiteView fx:id="newReportView"/>
-                <ConsultationDrugsView fx:id="consultationDrugsView"/>
-                <ConsultationPratitionnersView fx:id="consultationPratitionnersView"/>
-            </VBox>
+            <ScrollPane>
+                <Pane>
+                    <ConsultationRapportVisiteView fx:id="consultationReportView"/>
+                    <ConsultationRapportVisitesView fx:id="consultationReportsView"/>
+                    <LoginView fx:id="loginView"/>
+                    <SaisirRapportVisiteView fx:id="newReportView"/>
+                    <ConsultationDrugsView fx:id="consultationDrugsView"/>
+                    <ConsultationPratitionnersView fx:id="consultationPratitionnersView"/>
+                </Pane>
+            </ScrollPane>
         </center>
 </fx:root>

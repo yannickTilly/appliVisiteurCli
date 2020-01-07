@@ -9,10 +9,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class ConsultationRapportVisiteView extends AnchorPane implements ConsultationRapportVisiteModelListener {
+public class ConsultationRapportVisiteView extends VBox implements ConsultationRapportVisiteModelListener {
 
     @FXML
     private Label description;
@@ -22,6 +23,9 @@ public class ConsultationRapportVisiteView extends AnchorPane implements Consult
 
     @FXML
     private Label region;
+
+    @FXML
+    private Label date;
 
     @FXML
     private HBox drugPresentations;
@@ -54,6 +58,7 @@ public class ConsultationRapportVisiteView extends AnchorPane implements Consult
         description.setText(rapportVisite.getDescription());
         pratitionner.setText(String.valueOf(rapportVisite.getPratitionner().getFirstName()));
         region.setText(rapportVisite.getRegion().getName());
+        date.setText(rapportVisite.getDate().toString());
         drugPresentations.getChildren().clear();
         for(DrugPresentation drugPresentation : rapportVisite.getDrugPresentations())
         {

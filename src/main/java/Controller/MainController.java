@@ -73,12 +73,14 @@ public class MainController extends BaseController implements RouteListener, Con
     @Override
     public void onReportConsultations() {
         view.display(MainView.consultationRapportVisites);
+        System.out.println("route reports consultation");
     }
 
     @Override
     public void onReportConsultation(Long idRapportVisite) {
         view.display(MainView.consultationRapportVisite);
         consultationReportController.loadRapportVisite(idRapportVisite);
+        System.out.println("route report consultation");
     }
 
     @Override
