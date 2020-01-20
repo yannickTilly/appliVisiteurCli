@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
+<?import View.component.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import View.component.ConsultationRapportVisiteView?>
-<?import View.component.ConsultationRapportVisitesView?>
-<?import View.component.LoginView?>
-<?import View.component.SaisirRapportVisiteView?>
-<?import View.component.MenuView?>
-<?import View.component.ConsultationDrugsView?>
-<?import View.component.ConsultationPratitionnersView?>
-<fx:root xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.BorderPane">
+
+<fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
         <top>
-            <MenuView fx:id="menuView"/>
+            <MenuView fx:id="menuView" />
         </top>
         <center>
-            <ScrollPane>
-                <Pane>
-                    <ConsultationRapportVisiteView fx:id="consultationReportView"/>
-                    <ConsultationRapportVisitesView fx:id="consultationReportsView"/>
-                    <LoginView fx:id="loginView"/>
-                    <SaisirRapportVisiteView fx:id="newReportView"/>
-                    <ConsultationDrugsView fx:id="consultationDrugsView"/>
-                    <ConsultationPratitionnersView fx:id="consultationPratitionnersView"/>
-                </Pane>
+            <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <content>
+                   <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                      <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <ConsultationRapportVisiteView fx:id="consultationReportView" />
+                          <ConsultationRapportVisitesView fx:id="consultationReportsView" />
+                          <LoginView fx:id="loginView" />
+                          <SaisirRapportVisiteView fx:id="newReportView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                          <ConsultationDrugsView fx:id="consultationDrugsView" />
+                          <ConsultationPratitionnersView fx:id="consultationPratitionnersView" />
+                      </StackPane>
+                   </AnchorPane>
+               </content>
             </ScrollPane>
         </center>
 </fx:root>

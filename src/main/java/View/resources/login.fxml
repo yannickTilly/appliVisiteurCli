@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<fx:root BorderPane.alignment="CENTER" type="javafx.scene.layout.Pane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<fx:root alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color:  #10A6F0" type="javafx.scene.layout.VBox" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <Label layoutX="209.0" layoutY="34.0" text="Connexion à AppliVisiteur" />
+    <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="209.0" layoutY="34.0" style="-fx-background-position: center;" text="Connexion à AppliVisiteur" />
     <Label layoutX="245.0" layoutY="50.0" text="Groupe GSB" />
-    <Text layoutX="134.0" layoutY="170.0" scaleX="1.0" scaleY="1.002439733235438" strokeType="OUTSIDE" strokeWidth="0.0" text="Login :" />
     <Text layoutX="92.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe :" />
-    <TextField fx:id="gsbLogin" layoutX="189.0" layoutY="157.0" prefWidth="200.0" />
+    <Text layoutX="134.0" layoutY="170.0" nodeOrientation="LEFT_TO_RIGHT" scaleX="1.0" scaleY="1.002439733235438" strokeType="OUTSIDE" strokeWidth="0.0" text="Login :" textOrigin="CENTER" />
+    <TextField fx:id="gsbLogin" layoutX="189.0" layoutY="157.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="150.0" />
     <PasswordField fx:id="password" layoutX="189.0" layoutY="184.0" prefWidth="200.0" />
     <Button fx:id="submit" layoutX="239.0" layoutY="226.0" mnemonicParsing="false" text="Connexion" />
   </children>

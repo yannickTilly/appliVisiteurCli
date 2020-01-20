@@ -2,12 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c56d041-db08-44e4-a142-a1ae194227ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AppliVisiteurClient.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/resources/testfxmlresponsive.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/component/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/component/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/resources/consultationRapportVisite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/resources/consultationRapportVisite.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/resources/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/resources/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/resources/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/resources/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/resources/saisirRapportVisite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/resources/saisirRapportVisite.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -28,6 +42,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager">
@@ -103,29 +118,42 @@
     <option name="LAST_COMMIT_MESSAGE" value="commit idea" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="51" y="27" width="785" height="741" key="CommitChangelistDialog2" timestamp="1578405130852">
-      <screen x="51" y="27" width="1309" height="741" />
+    <state x="0" y="23" width="785" height="741" key="CommitChangelistDialog2" timestamp="1579526828214">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
+    <state x="0" y="23" key="CommitChangelistDialog2/0.23.1440.821@0.23.1440.821" timestamp="1579526828214" />
     <state x="51" y="27" width="785" height="741" key="CommitChangelistDialog2/51.27.1309.741@51.27.1309.741" timestamp="1578405130852" />
     <state x="200" y="122" width="1240" height="622" key="DiffContextDialog" timestamp="1578405557952">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="200" y="122" width="1240" height="622" key="DiffContextDialog/0.23.1440.822@0.23.1440.822" timestamp="1578405557952" />
-    <state width="1263" height="215" key="GridCell.Tab.0.bottom" timestamp="1578404517919">
-      <screen x="51" y="27" width="1309" height="741" />
+    <state width="1398" height="167" key="GridCell.Tab.0.bottom" timestamp="1579526558654">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
+    <state width="1398" height="167" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1579526558654" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1579523303363" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1579522057267" />
     <state width="1263" height="215" key="GridCell.Tab.0.bottom/51.27.1309.741@51.27.1309.741" timestamp="1578404517919" />
-    <state width="1263" height="215" key="GridCell.Tab.0.center" timestamp="1578404517919">
-      <screen x="51" y="27" width="1309" height="741" />
+    <state width="1398" height="167" key="GridCell.Tab.0.center" timestamp="1579526558652">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
+    <state width="1398" height="167" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1579526558652" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1579523303355" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1579522057265" />
     <state width="1263" height="215" key="GridCell.Tab.0.center/51.27.1309.741@51.27.1309.741" timestamp="1578404517919" />
-    <state width="1263" height="215" key="GridCell.Tab.0.left" timestamp="1578404517919">
-      <screen x="51" y="27" width="1309" height="741" />
+    <state width="1398" height="167" key="GridCell.Tab.0.left" timestamp="1579526558651">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
+    <state width="1398" height="167" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1579526558651" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1579523303352" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1579522057264" />
     <state width="1263" height="215" key="GridCell.Tab.0.left/51.27.1309.741@51.27.1309.741" timestamp="1578404517919" />
-    <state width="1263" height="215" key="GridCell.Tab.0.right" timestamp="1578404517919">
-      <screen x="51" y="27" width="1309" height="741" />
+    <state width="1398" height="167" key="GridCell.Tab.0.right" timestamp="1579526558653">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
+    <state width="1398" height="167" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1579526558653" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1579523303357" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1579522057266" />
     <state width="1263" height="215" key="GridCell.Tab.0.right/51.27.1309.741@51.27.1309.741" timestamp="1578404517919" />
     <state width="1263" height="215" key="GridCell.Tab.1.bottom" timestamp="1578404517920">
       <screen x="51" y="27" width="1309" height="741" />
@@ -151,6 +179,10 @@
       <screen x="51" y="27" width="1309" height="741" />
     </state>
     <state x="280" y="135" width="580" height="571" key="MultipleFileMergeDialog/51.27.1309.741@51.27.1309.741" timestamp="1578405231087" />
+    <state x="499" y="151" key="RollbackChangesDialog" timestamp="1579524652123">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="499" y="151" key="RollbackChangesDialog/0.23.1440.821@0.23.1440.821" timestamp="1579524652123" />
     <state x="300" y="137" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1578405133883">
       <screen x="51" y="27" width="1309" height="741" />
     </state>
@@ -171,6 +203,10 @@
       <screen x="51" y="27" width="1309" height="741" />
     </state>
     <state x="356" y="191" width="688" height="434" key="git4idea.merge.GitPullDialog/51.27.1309.741@51.27.1309.741" timestamp="1578405148478" />
+    <state x="385" y="85" width="670" height="676" key="search.everywhere.popup" timestamp="1579522013605">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="385" y="85" width="670" height="676" key="search.everywhere.popup/0.23.1440.823@0.23.1440.823" timestamp="1579522013605" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
