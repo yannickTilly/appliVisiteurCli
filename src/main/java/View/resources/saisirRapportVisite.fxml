@@ -5,21 +5,98 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-position: center; -fx-background-color: #14BFFA;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<fx:root alignment="TOP_CENTER" styleClass="background-color" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <Text layoutX="14.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Libellé du rapport :" wrappingWidth="100.2802734375" />
-    <Text layoutX="82.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :" />
-    <Text layoutX="64.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pratitien :" wrappingWidth="50.654296875" />
-    <Text layoutX="18.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Médicament(s) :" wrappingWidth="91.8212890625" />
-    <Text layoutX="140.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enregistrer un rapport de visite" underline="true" />
-    <Text layoutX="14.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note sur la visite :" wrappingWidth="100.2802734375" />
-    <DatePicker fx:id="date" layoutX="129.0" layoutY="129.0" style="-fx-background-color: #10A6F0;" />
-    <ComboBox fx:id="pratitionners" layoutX="127.0" layoutY="90.0" prefHeight="27.0" prefWidth="190.0" promptText="Selectionner un pratitien" style="-fx-background-color: #10A6F0;">
+    <Label layoutX="140.0" layoutY="41.0" text="Enregistrer un rapport de visite" textAlignment="CENTER" underline="true">
+      <VBox.margin>
+        <Insets bottom="150.0" top="5" />
+      </VBox.margin>
+      <font>
+        <Font size="17.0" />
+      </font>
+      <styleClass>
+        <String fx:value="content-color " />
+      </styleClass>
+    </Label>
+
+    <TextField fx:id="label" alignment="CENTER" focusTraversable="false" layoutX="189.0" layoutY="157.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Libellé du rapport">
+      <VBox.margin>
+        <Insets bottom="15.0" left="250" right="250" />
+      </VBox.margin>
+      <cursor>
+        <Cursor fx:constant="TEXT" />
+      </cursor>
+      <styleClass>
+        <String fx:value="content-color " />
+        <String fx:value="general-input" />
+      </styleClass>
+      <font>
+        <Font size="17.0" />
+      </font>
+    </TextField>
+
+    <DatePicker fx:id="date" layoutX="129.0" layoutY="129.0" promptText="Selectionner une date">
+      <VBox.margin>
+        <Insets bottom="15.0" left="250" right="250" />
+      </VBox.margin>
+      <cursor>
+        <Cursor fx:constant="TEXT" />
+      </cursor>
+      <styleClass>
+        <String fx:value="content-color " />
+        <String fx:value="general-input" />
+      </styleClass>
+    </DatePicker>
+
+    <ComboBox fx:id="pratitionners" layoutX="127.0" layoutY="90.0" prefHeight="27.0" prefWidth="190.0" promptText="Selectionner un pratitien">
+      <VBox.margin>
+        <Insets bottom="15.0" left="250" right="250" />
+      </VBox.margin>
+      <cursor>
+        <Cursor fx:constant="TEXT" />
+      </cursor>
+      <styleClass>
+        <String fx:value="content-color " />
+        <String fx:value="general-input" />
+      </styleClass>
     </ComboBox>
-    <MenuButton fx:id="drugs" layoutX="127.0" layoutY="170.0" prefHeight="27.0" prefWidth="190.0" style="-fx-background-color: #10A6F0;">
+    <MenuButton fx:id="drugs" layoutX="127.0" layoutY="170.0" prefHeight="27.0" prefWidth="190.0">
+      <VBox.margin>
+        <Insets bottom="15.0" left="250" right="250" />
+      </VBox.margin>
+      <cursor>
+        <Cursor fx:constant="TEXT" />
+      </cursor>
+      <styleClass>
+        <String fx:value="content-color " />
+        <String fx:value="general-input" />
+      </styleClass>
     </MenuButton>
-    <TextArea fx:id="description" layoutX="129.0" layoutY="206.0" prefHeight="164.0" prefWidth="188.0" style="-fx-background-color: #10A6F0;" wrapText="true" />
-    <Button fx:id="submit" layoutX="127.0" layoutY="385.0" mnemonicParsing="false" style="-fx-background-color: #10A6F0;" text="Sauvegarder le rapport de visite" />
-      <TextField layoutX="128.0" layoutY="60.0" prefHeight="27.0" prefWidth="188.0" style="-fx-background-color: #10A6F0;" />
+    <TextArea fx:id="description" layoutX="129.0" layoutY="206.0" prefHeight="164.0" prefWidth="188.0" promptText="Insérer une note au rapport">
+      <VBox.margin>
+        <Insets bottom="15.0" left="250" right="250" />
+      </VBox.margin>
+      <cursor>
+        <Cursor fx:constant="TEXT" />
+      </cursor>
+      <styleClass>
+        <String fx:value="content-color " />
+        <String fx:value="general-input" />
+      </styleClass>
+    </TextArea>
+    <Button fx:id="submit" layoutX="127.0" layoutY="385.0" mnemonicParsing="false" text="Sauvegarder le rapport de visite">
+      <cursor>
+        <Cursor fx:constant="HAND" />
+      </cursor>
+      <styleClass>
+        <String fx:value="content-color " />
+        <String fx:value="general-input" />
+      </styleClass>
+      <font>
+        <Font size="17.0" />
+      </font>
+    </Button>
   </children>
 </fx:root>

@@ -1,0 +1,11 @@
+.general-input {
+    -fx-background-radius:50px;
+}
+
+.content-color {
+    -fx-background-color:#1f91ff;
+}
+
+.background-color {
+    -fx-background-color:#66b4ff;
+}

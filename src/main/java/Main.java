@@ -15,7 +15,7 @@ public class Main extends Application {
         MainView mainView = new MainView();
         root.getChildren().add(mainView);
         primaryStage.setTitle("appliVisiteur");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
         Context context = new Context();
         MainController mainController= new MainController(context, mainView);

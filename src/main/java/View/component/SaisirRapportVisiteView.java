@@ -9,13 +9,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.*;
 
-public class SaisirRapportVisiteView extends AnchorPane implements Initializable {
+public class SaisirRapportVisiteView extends VBox implements Initializable {
     @FXML
     private ComboBox<Prationner> pratitionners;
 
