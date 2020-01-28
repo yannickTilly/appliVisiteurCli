@@ -37,7 +37,6 @@ public class ConsultationRapportVisiteView extends VBox implements ConsultationR
             loader.setController(this);
             loader.setRoot(this);
             loader.load();
-            System.out.println("test");
     }
 
     //getteur setteur

@@ -2,8 +2,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-        <Label>Note:</Label>
+<fx:root type="javafx.scene.layout.HBox" styleClass="background-color" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <Label>Libellé du rapport : </Label>
         <Label fx:id="note"></Label>
-        <Button fx:id="ouvrirRapport">ouvrir</Button>
+        <Button fx:id="ouvrirRapport">Ouvrir le rapport</Button>
 </fx:root>

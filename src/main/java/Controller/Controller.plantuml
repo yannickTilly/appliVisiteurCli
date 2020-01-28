@@ -1,0 +1,167 @@
+@startuml
+
+title __CONTROLLER's Class Diagram__\n
+
+    namespace Controller {
+      abstract class Controller.BaseController {
+          {static} - apiClient : ApiClient
+          + BaseController()
+          {static} + getApiClient()
+          + getContext()
+          + getRouteListener()
+          + setContext()
+          + setRouteListener()
+      }
+    }
+  
+
+  
+    namespace Controller {
+      class Controller.ConsultationDrugsController {
+          + ConsultationDrugsController()
+          + onSearch()
+      }
+    }
+  
+
+  
+    namespace Controller {
+      class Controller.ConsultationPratitionnersController {
+          + ConsultationPratitionnersController()
+          + onSearch()
+      }
+    }
+  
+
+  
+    namespace Controller {
+      class Controller.ConsultationReportController {
+          + ConsultationReportController()
+          + getConsultationRapportVisiteModel()
+          + getConsultationRapportVisiteView()
+          + getRapportVisite()
+          + loadRapportVisite()
+          + setConsultationRapportVisiteModel()
+          + setConsultationRapportVisiteView()
+          + setRapportVisite()
+      }
+    }
+  
+
+  
+    namespace Controller {
+      class Controller.ConsultationReportsController {
+          - listeners : Collection<ConsultationRapportVisitesListener>
+          + ConsultationReportsController()
+          + getConsultationRapportVisitesModel()
+          + getConsultationRapportVisitesView()
+          + onSearchSubmit()
+          + setConsultationRapportVisitesModel()
+          + setConsultationRapportVisitesView()
+      }
+    }
+  
+
+  
+    namespace Controller {
+      class Controller.LoginController {
+          {static} - apiClient : ApiClient
+          - gsbLogin : TextField
+          - password : PasswordField
+          + LoginController()
+          + onSubmit()
+      }
+    }
+  
+
+  
+    namespace Controller {
+      class Controller.MainController {
+          + MainController()
+          + getView()
+          + onDrugConsultation()
+          + onError()
+          + onNewReport()
+          + onPratitionners()
+          + onReportConsultation()
+          + onReportConsultations()
+          + setView()
+          + userLoginSucess()
+      }
+    }
+  
+
+  
+    namespace Controller {
+      class Controller.MenuController {
+          + MenuController()
+          + onConsulterClicked()
+          + onDrugsClicked()
+          + onNewReportClicked()
+          + onPratitionnersClicked()
+          + userLoginSucess()
+      }
+    }
+  
+
+  
+    namespace Controller {
+      class Controller.NewReportController {
+          + NewReportController()
+          + loadDrugsInView()
+          + loadPratitionnerInView()
+          + onSubmit()
+          + onSubmitNewReport()
+          + userLoginSucess()
+      }
+    }
+  
+
+  Controller.BaseController o-- Model.Context : context
+  Controller.BaseController o-- Listener.RouteListener : routeListener
+  Controller.ConsultationDrugsController .up.|> Listener.ConsultationDrugsViewListener
+  Controller.ConsultationDrugsController -up-|> Controller.BaseController
+  Controller.ConsultationDrugsController o-- Model.ConsultationDrugsModel : consultationDrugsModel
+  Controller.ConsultationDrugsController o-- View.component.ConsultationDrugsView : view
+  Controller.ConsultationPratitionnersController .up.|> Listener.ConsultationPratitionnerViewListener
+  Controller.ConsultationPratitionnersController -up-|> Controller.BaseController
+  Controller.ConsultationPratitionnersController o-- Model.ConsultationPratitionnersModel : consultationPratitionnersModel
+  Controller.ConsultationPratitionnersController o-- View.component.ConsultationPratitionnersView : view
+  Controller.ConsultationReportController -up-|> Controller.BaseController
+  Controller.ConsultationReportController o-- Model.ConsultationRapportVisiteModel : consultationRapportVisiteModel
+  Controller.ConsultationReportController o-- View.component.ConsultationRapportVisiteView : consultationRapportVisiteView
+  Controller.ConsultationReportController o-- Model.Report : rapportVisite
+  Controller.ConsultationReportsController .up.|> Listener.ConsultationRapportVisitesListener
+  Controller.ConsultationReportsController -up-|> Controller.BaseController
+  Controller.ConsultationReportsController o-- Model.ConsultationRapportVisitesModel : consultationRapportVisitesModel
+  Controller.ConsultationReportsController o-- View.component.ConsultationRapportVisitesView : consultationRapportVisitesView
+  Controller.LoginController .up.|> Listener.LoginListener
+  Controller.LoginController -up-|> Controller.BaseController
+  Controller.LoginController o-- View.component.LoginView : loginView
+  Controller.MainController .up.|> Listener.ContextListener
+  Controller.MainController .up.|> Listener.RouteListener
+  Controller.MainController -up-|> Controller.BaseController
+  Controller.MainController o-- Controller.ConsultationDrugsController : consultationDrugsController
+  Controller.MainController o-- Controller.ConsultationPratitionnersController : consultationPratitionnersController
+  Controller.MainController o-- Controller.ConsultationReportController : consultationReportController
+  Controller.MainController o-- Controller.MenuController : menuController
+  Controller.MainController o-- Controller.NewReportController : newReportController
+  Controller.MainController o-- View.component.MainView : view
+  Controller.MenuController .up.|> Listener.ContextListener
+  Controller.MenuController .up.|> Listener.MenuListener
+  Controller.MenuController -up-|> Controller.BaseController
+  Controller.MenuController o-- View.component.MenuView : menuView
+  Controller.NewReportController .up.|> Listener.ContextListener
+  Controller.NewReportController .up.|> Listener.NewReportListener
+  Controller.NewReportController -up-|> Controller.BaseController
+  Controller.NewReportController o-- View.component.SaisirRapportVisiteView : view
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

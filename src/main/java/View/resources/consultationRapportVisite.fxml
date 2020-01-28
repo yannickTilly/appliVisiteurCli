@@ -1,31 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<fx:root style="-fx-background-color: grey;" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root styleClass="background-color" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
         <HBox>
             <children>
-                <Label text="region" />
+                <Label text="Region : " />
                 <Label fx:id="region" />
             </children>
+      <opaqueInsets>
+         <Insets right="15.0" />
+      </opaqueInsets>
+      <VBox.margin>
+         <Insets right="15.0" />
+      </VBox.margin>
         </HBox>
         <HBox>
-            <Label text="note" />
+            <Label text="Note : " />
             <Label fx:id="description" />
+      <VBox.margin>
+         <Insets right="15.0" />
+      </VBox.margin>
         </HBox>
         <HBox>
             <children>
-                <Label text="praticien" />
+                <Label text="Praticien consulté : " />
                 <Label fx:id="pratitionner" />
             </children>
+      <VBox.margin>
+         <Insets right="15.0" />
+      </VBox.margin>
         </HBox>
         <HBox>
             <children>
-                <Label text="date" />
+                <Label text="Date : " />
                 <Label fx:id="date" />
             </children>
+      <VBox.margin>
+         <Insets right="15.0" />
+      </VBox.margin>
         </HBox>
+    <HBox>
+        <Label text="Médicament(s) : " />
         <HBox fx:id="drugPresentations" />
+        <VBox.margin>
+            <Insets right="15.0" />
+        </VBox.margin>
+    </HBox>
 </fx:root>

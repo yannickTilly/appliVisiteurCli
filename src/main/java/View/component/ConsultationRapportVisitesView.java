@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
 
-public class ConsultationRapportVisitesView extends Pane implements Initializable, ConsultationRapportVisitesModelListener {
+public class ConsultationRapportVisitesView extends VBox implements Initializable, ConsultationRapportVisitesModelListener {
 
     @FXML
     private Button searchSubmit;

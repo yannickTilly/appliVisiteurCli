@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root style="-fx-background-color: red;" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-    <Label text="titre"/>
-    <Button fx:id="searchSubmit" mnemonicParsing="false" text="Button" />
-    <VBox fx:id="rapportVisites" style="-fx-background-color: red;" />
+<fx:root alignment="TOP_CENTER" styleClass="background-color" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+    <Button fx:id="searchSubmit" mnemonicParsing="false" text="Actualiser les rapports" />
+    <VBox fx:id="rapportVisites" />
+   <padding>
+      <Insets bottom="10.0" top="10.0" />
+   </padding>
 </fx:root>

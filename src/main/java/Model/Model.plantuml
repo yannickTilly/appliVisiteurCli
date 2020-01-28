@@ -1,0 +1,337 @@
+@startuml
+
+title __MODEL's Class Diagram__\n
+
+  
+    namespace Model {
+      class Model.ConsultationDrugsModel {
+          ~ drugs : Collection<Drug>
+          + getDrugs()
+          + setDrugs()
+      }
+    }
+  
+
+  
+    namespace Model {
+      class Model.ConsultationPratitionnersModel {
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.ConsultationRapportVisiteModel {
+          - listeners : Collection<ConsultationRapportVisiteModelListener>
+          + ConsultationRapportVisiteModel()
+          + addListener()
+          + getRapportVisite()
+          + removeListener()
+          + setRapportVisite()
+          - fireRapportVisiteChange()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.ConsultationRapportVisitesModel {
+          - listeners : Collection<ConsultationRapportVisitesModelListener>
+          - rapportVisites : Collection<Report>
+          + ConsultationRapportVisitesModel()
+          + addListener()
+          + getRapportVisites()
+          + removeListener()
+          + setRapportVisites()
+          - fireRapportVisitesModel()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.Context {
+          - contextListeners : List<ContextListener>
+          - token : String
+          + Context()
+          + addListener()
+          + getToken()
+          + removeListener()
+          + setToken()
+          - fireUserLoginSucess()
+      }
+    }
+  
+
+  
+    namespace Model {
+      class Model.Credential {
+          - login : String
+          - password : String
+          + getLogin()
+          + getPassword()
+          + setLogin()
+          + setPassword()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.Department {
+          - code : String
+          - id : long
+          - name : String
+          - workedTimes : Collection<WorkedTime>
+          + getCode()
+          + getId()
+          + getName()
+          + getWorkedTimes()
+          + setCode()
+          + setId()
+          + setName()
+          + setWorkedTimes()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.Diploma {
+          - id : long
+          - name : String
+          - pratitionners : Collection<Pratitionner>
+          - speciality : String
+          + getId()
+          + getName()
+          + getPratitionners()
+          + getSpeciality()
+          + setId()
+          + setName()
+          + setPratitionners()
+          + setSpeciality()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.Drug {
+          - description : String
+          - drugPresentations : Collection<DrugPresentation>
+          - id : long
+          - name : String
+          + Drug()
+          + getDescription()
+          + getDrugPresentations()
+          + getId()
+          + getName()
+          + setDescription()
+          + setDrugPresentations()
+          + setId()
+          + setName()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.DrugPresentation {
+          - id : long
+          + getDrug()
+          + getId()
+          + getReport()
+          + setDrug()
+          + setId()
+          + setReport()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.Pratitionner {
+          - diplomas : Collection<Diploma>
+          - firstName : String
+          - id : long
+          - reports : Collection<Report>
+          + getDiplomas()
+          + getFirstName()
+          + getId()
+          + getReports()
+          + setDiplomas()
+          + setFirstName()
+          + setId()
+          + setReports()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.Region {
+          - code : String
+          - delegues : Collection<User>
+          - id : long
+          - name : String
+          - reports : Collection<Report>
+          - workedTimes : Collection<WorkedTime>
+          + getCode()
+          + getDelegues()
+          + getId()
+          + getName()
+          + getReports()
+          + getSector()
+          + getWorkedTimes()
+          + setCode()
+          + setDelegues()
+          + setId()
+          + setName()
+          + setReports()
+          + setSector()
+          + setWorkedTimes()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.Report {
+          - date : LocalDate
+          - description : String
+          - drugPresentations : Collection<DrugPresentation>
+          - id : long
+          + Report()
+          + getDate()
+          + getDescription()
+          + getDrugPresentations()
+          + getId()
+          + getPratitionner()
+          + getRegion()
+          + getUser()
+          + setDate()
+          + setDescription()
+          + setDrugPresentations()
+          + setId()
+          + setPratitionner()
+          + setRegion()
+          + setUser()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.Sector {
+          - code : String
+          - id : long
+          - name : String
+          + getCode()
+          + getId()
+          + getName()
+          + setCode()
+          + setId()
+          + setName()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.User {
+          - codePostal : String
+          - hiringDate : String
+          - id : long
+          - login : String
+          - matricule : String
+          - nom : String
+          - password : String
+          - prenom : String
+          - reports : Collection<Report>
+          - ville : String
+          - workedTimes : Collection<WorkedTime>
+          + getCodePostal()
+          + getHiringDate()
+          + getId()
+          + getLogin()
+          + getMatricule()
+          + getNom()
+          + getPassword()
+          + getPrenom()
+          + getRegion()
+          + getReports()
+          + getVille()
+          + getWorkedTimes()
+          + setCodePostal()
+          + setHiringDate()
+          + setId()
+          + setLogin()
+          + setMatricule()
+          + setNom()
+          + setPassword()
+          + setPrenom()
+          + setRegion()
+          + setReports()
+          + setVille()
+          + setWorkedTimes()
+      }
+    }
+
+  
+
+  
+    namespace Model {
+      class Model.WorkedTime {
+          - dateEnd : Date
+          - dateStart : Date
+          - id : long
+          + getDateEnd()
+          + getDateStart()
+          + getDepartment()
+          + getId()
+          + getRegion()
+          + getUser()
+          + setDateEnd()
+          + setDateStart()
+          + setDepartment()
+          + setId()
+          + setRegion()
+          + setUser()
+      }
+    }
+
+  
+
+  Model.ConsultationRapportVisiteModel o-- Model.Report : rapportVisite
+  Model.DrugPresentation o-- Model.Drug : drug
+  Model.DrugPresentation o-- Model.Report : report
+  Model.Region o-- Model.Sector : sector
+  Model.Report o-- Model.Pratitionner : pratitionner
+  Model.Report o-- Model.Region : region
+  Model.Report o-- Model.User : user
+  Model.User o-- Model.Region : region
+  Model.WorkedTime o-- Model.Department : department
+  Model.WorkedTime o-- Model.Region : region
+  Model.WorkedTime o-- Model.User : user
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

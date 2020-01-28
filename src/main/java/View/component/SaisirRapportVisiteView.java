@@ -42,7 +42,6 @@ public class SaisirRapportVisiteView extends VBox implements Initializable {
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
-        System.out.println("test");
     }
 
     @Override
