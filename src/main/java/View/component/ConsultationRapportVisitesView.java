@@ -84,6 +84,7 @@ public class ConsultationRapportVisitesView extends VBox implements Initializabl
             listener.onSearchSubmit();
         }
     }
+
     private void fireRequestConsultationRapportVisite(long id) {
         routeListener.onReportConsultation(id);
     }
@@ -97,7 +98,7 @@ public class ConsultationRapportVisitesView extends VBox implements Initializabl
             try {
                 RapportVisiteResumeView rapportVisiteResumeView= new RapportVisiteResumeView();
                 this.rapportVisites.getChildren().add(rapportVisiteResumeView);
-                rapportVisiteResumeView.setNote(rapportVisite.getDescription());
+                rapportVisiteResumeView.setLabel(rapportVisite.getLabel());
                 rapportVisiteResumeView.setOnOuvrirRapport(actionEvent -> fireRequestConsultationRapportVisite(rapportVisite.getId()));
             } catch (IOException e) {
                 e.printStackTrace();

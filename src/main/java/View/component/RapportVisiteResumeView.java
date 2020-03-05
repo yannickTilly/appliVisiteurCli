@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class RapportVisiteResumeView extends HBox {
     @FXML
-    private Label note;
+    private Label label;
 
     @FXML
     private Button ouvrirRapport;
@@ -26,9 +26,9 @@ public class RapportVisiteResumeView extends HBox {
         loader.load();
     }
 
-    public RapportVisiteResumeView setNote(String note)
+    public RapportVisiteResumeView setLabel(String label)
     {
-        this.note.setText(note);
+        this.label.setText(label);
         return this;
     }
 

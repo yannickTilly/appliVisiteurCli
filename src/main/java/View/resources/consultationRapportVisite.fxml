@@ -4,49 +4,88 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root styleClass="background-color" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
-        <HBox>
+<?import javafx.scene.text.Font?>
+<?import java.lang.String?>
+<fx:root styleClass="background-color" alignment="TOP_CENTER" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+
+    <Label text="Détails du rapport" textAlignment="CENTER" underline="true">
+        <VBox.margin>
+            <Insets bottom="25.0" top="5" />
+        </VBox.margin>
+        <font>
+            <Font size="17.0" />
+        </font>
+    </Label>
+    <HBox alignment="CENTER">
             <children>
                 <Label text="Region : " />
                 <Label fx:id="region" />
             </children>
       <opaqueInsets>
-         <Insets right="15.0" />
+         <Insets right="15.0"/>
       </opaqueInsets>
       <VBox.margin>
-         <Insets right="15.0" />
+         <Insets right="15.0"/>
       </VBox.margin>
         </HBox>
-        <HBox>
+        <HBox alignment="CENTER">
             <Label text="Note : " />
             <Label fx:id="description" />
       <VBox.margin>
-         <Insets right="15.0" />
+         <Insets right="15.0"/>
       </VBox.margin>
         </HBox>
-        <HBox>
+        <HBox alignment="CENTER">
             <children>
                 <Label text="Praticien consulté : " />
                 <Label fx:id="pratitionner" />
             </children>
       <VBox.margin>
-         <Insets right="15.0" />
+         <Insets right="15.0"/>
       </VBox.margin>
         </HBox>
-        <HBox>
+        <HBox alignment="CENTER">
             <children>
                 <Label text="Date : " />
                 <Label fx:id="date" />
             </children>
       <VBox.margin>
-         <Insets right="15.0" />
+         <Insets right="15.0"/>
       </VBox.margin>
         </HBox>
-    <HBox>
+    <HBox alignment="CENTER">
         <Label text="Médicament(s) : " />
         <HBox fx:id="drugPresentations" />
         <VBox.margin>
-            <Insets right="15.0" />
+            <Insets right="15.0" bottom="15"/>
         </VBox.margin>
+    </HBox>
+    <HBox alignment="CENTER" spacing="50">
+        <Button fx:id="editReport">
+            Editer
+            <styleClass>
+                <String fx:value="primary" />
+                <String fx:value="general-input" />
+            </styleClass>
+        </Button>
+        <Button fx:id="DeleteReport">
+            Supprimer
+            <styleClass>
+                <String fx:value="danger" />
+                <String fx:value="general-input" />
+            </styleClass>
+        </Button>
+        <VBox.margin>
+            <Insets bottom="15"/>
+        </VBox.margin>
+    </HBox>
+    <HBox alignment="CENTER">
+        <Button fx:id="backSubmit">
+            Revenir à la liste
+            <styleClass>
+                <String fx:value="content-color" />
+                <String fx:value="general-input" />
+            </styleClass>
+        </Button>
     </HBox>
 </fx:root>

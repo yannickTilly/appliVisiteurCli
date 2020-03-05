@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 
-<fx:root type="javafx.scene.layout.HBox" styleClass="background-color" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-        <Label>Libellé du rapport : </Label>
-        <Label fx:id="note"></Label>
-        <Button fx:id="ouvrirRapport">Ouvrir le rapport</Button>
+<fx:root alignment="CENTER" prefHeight="60" style="-fx-spacing: 5;" styleClass="background-color" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label text="Libellé du rapport : " textAlignment="LEFT" lineSpacing="5"/>
+        <Label fx:id="label" />
+        <Pane HBox.hgrow="ALWAYS" />
+        <Button fx:id="ouvrirRapport">
+            Ouvrir
+            <styleClass>
+                <String fx:value="success" />
+                <String fx:value="general-input" />
+            </styleClass>
+        </Button>
+        <Button fx:id="editReport">
+            Editer
+            <styleClass>
+                <String fx:value="primary" />
+                <String fx:value="general-input" />
+            </styleClass>
+        </Button>
+        <Button fx:id="DeleteReport">
+            Supprimer
+            <styleClass>
+                <String fx:value="danger" />
+                <String fx:value="general-input" />
+            </styleClass>
+        </Button>
+    </children>
+    <styleClass>
+        <String fx:value="background-color" />
+        <String fx:value="underline" />
+    </styleClass>
 </fx:root>

@@ -1,11 +1,51 @@
 .general-input {
-    -fx-background-radius:50px;
+    -fx-background-radius: 50;
+    -fx-padding: 5 22 5 22;
+}
+
+.form-input {
+    -fx-background-radius: 50;
+}
+
+.border-black {
+    -fx-border-color: black;
+    -fx-dash-style: solid;
+    -fx-border-radius: 50;
+    -fx-border-width: 1;
+}
+
+.spacing-5 {
+    -fx-spacing: 5;
 }
 
 .content-color {
-    -fx-background-color:#1f91ff;
+    -fx-background-color: #1f91ff;
 }
 
 .background-color {
-    -fx-background-color:#66b4ff;
+    -fx-background-color: #66b4ff;
+}
+
+.underline {
+    -fx-border-color : #1f91ff;
+}
+
+.primary {
+    -fx-background-color: #0243FE;
+}
+
+.success {
+    -fx-background-color: #21FE02;
+}
+
+.danger {
+    -fx-background-color: #FE0202;
+}
+
+.warning {
+    -fx-background-color: #FEA202;
+}
+
+.min-height-100 {
+    -fx-min-height: 100;
 }

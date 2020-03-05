@@ -1,17 +1,27 @@
 package View.component;
 
+import Listener.ConsultationRapportVisiteListener;
 import Listener.ConsultationRapportVisiteModelListener;
+import Listener.LoginListener;
 import Model.ConsultationRapportVisiteModel;
 import Model.DrugPresentation;
 import Model.Report;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class ConsultationRapportVisiteView extends VBox implements ConsultationRapportVisiteModelListener {
 
@@ -30,6 +40,11 @@ public class ConsultationRapportVisiteView extends VBox implements ConsultationR
     @FXML
     private HBox drugPresentations;
 
+    @FXML
+    private Button backSubmit;
+
+    private ConsultationRapportVisiteListener listener;
+
     private ConsultationRapportVisiteModel consultationRapportVisiteModel;
 
     public ConsultationRapportVisiteView() throws IOException {
@@ -37,6 +52,7 @@ public class ConsultationRapportVisiteView extends VBox implements ConsultationR
             loader.setController(this);
             loader.setRoot(this);
             loader.load();
+
     }
 
     //getteur setteur
@@ -50,6 +66,11 @@ public class ConsultationRapportVisiteView extends VBox implements ConsultationR
         this.consultationRapportVisiteModel = consultationRapportVisiteModel;
         consultationRapportVisiteModel.addListener(this);
         return this;
+    }
+
+    public void onBackClick()
+    {
+        listener.onBackSubmit();
     }
 
     @Override
@@ -69,5 +90,19 @@ public class ConsultationRapportVisiteView extends VBox implements ConsultationR
                 e.printStackTrace();
             }
         }
+    }
+
+
+    public ConsultationRapportVisiteListener getListener() {
+        return listener;
+    }
+
+    public void setListener(ConsultationRapportVisiteListener listener) {
+        this.listener = listener;
+        EventHandler<ActionEvent> backHandler = e -> {
+            onBackClick();
+        };
+
+        backSubmit.setOnAction(backHandler);
     }
 }

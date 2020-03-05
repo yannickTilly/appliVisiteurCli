@@ -1,5 +1,6 @@
 package Controller;
 
+import Listener.ConsultationRapportVisiteListener;
 import Listener.RouteListener;
 import Model.ConsultationRapportVisiteModel;
 import Model.Context;
@@ -8,7 +9,7 @@ import View.component.ConsultationRapportVisiteView;
 
 import java.io.IOException;
 
-public class ConsultationReportController extends BaseController {
+public class ConsultationReportController extends BaseController implements ConsultationRapportVisiteListener {
     private Report rapportVisite;
     private ConsultationRapportVisiteView consultationRapportVisiteView;
     private ConsultationRapportVisiteModel consultationRapportVisiteModel;
@@ -19,7 +20,7 @@ public class ConsultationReportController extends BaseController {
                                         ConsultationRapportVisiteModel consultationRapportVisiteModel, ConsultationRapportVisiteView consultationRapportVisiteView) {
         super(context, routeListener);
         this.consultationRapportVisiteModel = consultationRapportVisiteModel;
-        this.consultationRapportVisiteView = consultationRapportVisiteView;
+        this.setConsultationRapportVisiteView(consultationRapportVisiteView);
         consultationRapportVisiteView.setConsultationRapportVisiteModel(consultationRapportVisiteModel);
     }
 
@@ -41,6 +42,7 @@ public class ConsultationReportController extends BaseController {
 
     public ConsultationReportController setConsultationRapportVisiteView(ConsultationRapportVisiteView consultationRapportVisiteView) {
         this.consultationRapportVisiteView = consultationRapportVisiteView;
+        consultationRapportVisiteView.setListener(this);
         return this;
     }
 
@@ -62,5 +64,11 @@ public class ConsultationReportController extends BaseController {
         } catch (IOException | InterruptedException e) {
             getRouteListener().onError();
         }
+    }
+
+    @Override
+    public void onBackSubmit() {
+        System.out.println("JE REVIENS EN ARRIERE");
+        this.getRouteListener().onReportConsultations();
     }
 }
