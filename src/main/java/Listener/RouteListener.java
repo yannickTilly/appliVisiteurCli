@@ -7,4 +7,6 @@ public interface RouteListener {
     void onError();
     void onDrugConsultation();
     void onPratitionners();
+
+    void onReportEdit(long id);
 }

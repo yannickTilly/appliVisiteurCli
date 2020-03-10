@@ -9,7 +9,7 @@
 
 <fx:root alignment="TOP_CENTER" styleClass="background-color" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <Label layoutX="140.0" layoutY="41.0" text="Enregistrer un rapport de visite" textAlignment="CENTER" underline="true">
+    <Label layoutX="140.0" layoutY="41.0" text="Rapport de visite" textAlignment="CENTER" underline="true">
       <VBox.margin>
         <Insets bottom="50.0" top="5.0" />
       </VBox.margin>

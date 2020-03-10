@@ -6,11 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class RapportVisiteResumeView extends HBox {
     @FXML
@@ -19,7 +17,15 @@ public class RapportVisiteResumeView extends HBox {
     @FXML
     private Button ouvrirRapport;
 
-    public RapportVisiteResumeView() throws IOException {
+    @FXML
+    private Button editReport;
+
+    @FXML
+    private Button deleteReport;
+
+
+    public RapportVisiteResumeView() throws IOException
+    {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/rapportVisiteResume.fxml"));
         loader.setController(this);
         loader.setRoot(this);
@@ -35,5 +41,15 @@ public class RapportVisiteResumeView extends HBox {
     public void setOnOuvrirRapport(EventHandler<ActionEvent> eventHandler)
     {
         ouvrirRapport.setOnAction(eventHandler);
+    }
+
+    public void setOnEditReport(EventHandler<ActionEvent> eventHandler)
+    {
+        editReport.setOnAction(eventHandler);
+    }
+
+    public void setOnDeleteReport(EventHandler<ActionEvent> eventHandler)
+    {
+        deleteReport.setOnAction(eventHandler);
     }
 }

@@ -154,7 +154,7 @@ title __CONTROLLER's Class Diagram__\n
   Controller.NewReportController .up.|> Listener.ContextListener
   Controller.NewReportController .up.|> Listener.NewReportListener
   Controller.NewReportController -up-|> Controller.BaseController
-  Controller.NewReportController o-- View.component.SaisirRapportVisiteView : view
+  Controller.NewReportController o-- View.component.FormReportView : view
 
 
 right footer

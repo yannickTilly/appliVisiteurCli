@@ -1,6 +1,6 @@
 package View.Structure;
 
-public class Prationner {
+public class Pratitionner {
     private long id;
     private String name;
 
@@ -8,7 +8,7 @@ public class Prationner {
         return id;
     }
 
-    public Prationner setId(long id) {
+    public Pratitionner setId(long id) {
         this.id = id;
         return this;
     }
@@ -17,7 +17,7 @@ public class Prationner {
         return name;
     }
 
-    public Prationner setName(String name) {
+    public Pratitionner setName(String name) {
         this.name = name;
         return this;
     }

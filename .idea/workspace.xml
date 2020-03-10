@@ -2,16 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c56d041-db08-44e4-a142-a1ae194227ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Listener/ConsultationRapportVisiteListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/EditReportController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Listener/FormReportListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ConsultationReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ConsultationReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Report.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/component/ConsultationRapportVisiteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/component/ConsultationRapportVisiteView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/NewReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/FormReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Listener/NewReportListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Listener/RouteListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listener/RouteListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DrugPresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DrugPresentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/RequestBody/ReportBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/RequestBody/ReportBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/ApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Structure/Prationner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Structure/Pratitionner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/component/ConsultationPratitionnersView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/component/ConsultationPratitionnersView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/component/ConsultationRapportVisitesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/component/ConsultationRapportVisitesView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/component/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/component/MainView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/component/RapportVisiteResumeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/component/RapportVisiteResumeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/resources/consultationRapportVisite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/resources/consultationRapportVisite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/resources/consultationRapportVisites.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/resources/consultationRapportVisites.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/component/SaisirRapportVisiteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/component/FormReportView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/component/component.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/component/component.plantuml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/resources/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/resources/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/resources/rapportVisiteResume.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/resources/rapportVisiteResume.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/resources/saisirRapportVisite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/resources/saisirRapportVisite.fxml" afterDir="false" />
@@ -65,6 +75,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -159,14 +170,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#Plugins/0.0.1440.900@0.0.1440.900" timestamp="1580200756530" />
-    <state x="533" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1583414801747">
+    <state x="533" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1583845059149">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1583414801747" />
-    <state x="0" y="0" width="785" height="741" key="CommitChangelistDialog2" timestamp="1580201672805">
+    <state x="533" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1583845059149" />
+    <state x="0" y="0" width="785" height="741" key="CommitChangelistDialog2" timestamp="1583848951598">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580201672805" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583848951598" />
     <state x="0" y="23" key="CommitChangelistDialog2/0.23.1440.821@0.23.1440.821" timestamp="1579526879251" />
     <state x="0" y="23" key="CommitChangelistDialog2/0.23.1440.827@0.23.1440.827" timestamp="1579618496735" />
     <state x="51" y="27" width="785" height="741" key="CommitChangelistDialog2/51.27.1309.741@51.27.1309.741" timestamp="1578405130852" />
@@ -178,11 +189,12 @@
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="536" y="339" key="Github.CreateGistDialog/0.23.1440.826@0.23.1440.826" timestamp="1579616798217" />
-    <state width="1398" height="208" key="GridCell.Tab.0.bottom" timestamp="1583415801026">
+    <state width="1398" height="208" key="GridCell.Tab.0.bottom" timestamp="1583848797769">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="208" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583415801026" />
+    <state width="1398" height="208" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583848797769" />
     <state width="1398" height="208" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1580734705852" />
+    <state width="1398" height="208" key="GridCell.Tab.0.bottom/0.23.1440.816@0.23.1440.816" timestamp="1583844441104" />
     <state width="1398" height="167" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1579526558654" />
     <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1579523303363" />
     <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1583415727933" />
@@ -191,11 +203,12 @@
     <state width="1398" height="208" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1583403728506" />
     <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1580203794702" />
     <state width="1263" height="215" key="GridCell.Tab.0.bottom/51.27.1309.741@51.27.1309.741" timestamp="1578404517919" />
-    <state width="1398" height="208" key="GridCell.Tab.0.center" timestamp="1583415801024">
+    <state width="1398" height="208" key="GridCell.Tab.0.center" timestamp="1583848797766">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="208" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583415801024" />
+    <state width="1398" height="208" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583848797766" />
     <state width="1398" height="208" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1580734705848" />
+    <state width="1398" height="208" key="GridCell.Tab.0.center/0.23.1440.816@0.23.1440.816" timestamp="1583844441100" />
     <state width="1398" height="167" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1579526558652" />
     <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1579523303355" />
     <state width="1398" height="303" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1583415727931" />
@@ -204,11 +217,12 @@
     <state width="1398" height="208" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1583403728501" />
     <state width="1398" height="244" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1580203794701" />
     <state width="1263" height="215" key="GridCell.Tab.0.center/51.27.1309.741@51.27.1309.741" timestamp="1578404517919" />
-    <state width="1398" height="208" key="GridCell.Tab.0.left" timestamp="1583415801023">
+    <state width="1398" height="208" key="GridCell.Tab.0.left" timestamp="1583848797764">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="208" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583415801023" />
+    <state width="1398" height="208" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583848797764" />
     <state width="1398" height="208" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1580734705845" />
+    <state width="1398" height="208" key="GridCell.Tab.0.left/0.23.1440.816@0.23.1440.816" timestamp="1583844441098" />
     <state width="1398" height="167" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1579526558651" />
     <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1579523303352" />
     <state width="1398" height="303" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1583415727929" />
@@ -217,11 +231,12 @@
     <state width="1398" height="208" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1583403728500" />
     <state width="1398" height="244" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1580203794700" />
     <state width="1263" height="215" key="GridCell.Tab.0.left/51.27.1309.741@51.27.1309.741" timestamp="1578404517919" />
-    <state width="1398" height="208" key="GridCell.Tab.0.right" timestamp="1583415801025">
+    <state width="1398" height="208" key="GridCell.Tab.0.right" timestamp="1583848797768">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="208" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583415801025" />
+    <state width="1398" height="208" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583848797768" />
     <state width="1398" height="208" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1580734705850" />
+    <state width="1398" height="208" key="GridCell.Tab.0.right/0.23.1440.816@0.23.1440.816" timestamp="1583844441102" />
     <state width="1398" height="167" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1579526558653" />
     <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1579523303357" />
     <state width="1398" height="303" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1583415727932" />
@@ -281,9 +296,10 @@
       <screen x="51" y="27" width="1309" height="741" />
     </state>
     <state x="361" y="224" key="com.intellij.ide.util.TipDialog/51.27.1309.741@51.27.1309.741" timestamp="1578404595613" />
-    <state x="473" y="316" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578395729825">
-      <screen x="51" y="27" width="1309" height="741" />
+    <state x="464" y="351" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583765180813">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="464" y="351" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1583765180813" />
     <state x="473" y="316" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/51.27.1309.741@51.27.1309.741" timestamp="1578395729825" />
     <state x="400" y="212" width="639" height="476" key="find.popup" timestamp="1583415477274">
       <screen x="0" y="0" width="1440" height="900" />
@@ -293,6 +309,10 @@
       <screen x="51" y="27" width="1309" height="741" />
     </state>
     <state x="356" y="191" width="688" height="434" key="git4idea.merge.GitPullDialog/51.27.1309.741@51.27.1309.741" timestamp="1578405148478" />
+    <state x="482" y="63" key="refactoring.ChangeSignatureDialog" timestamp="1583843908981">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="482" y="63" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1583843908981" />
     <state x="385" y="68" width="670" height="740" key="search.everywhere.popup" timestamp="1580200745665">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

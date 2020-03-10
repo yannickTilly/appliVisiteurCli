@@ -3,7 +3,6 @@ package View.component;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -19,7 +18,9 @@ public class MainView extends BorderPane implements Initializable{
     @FXML
     private LoginView loginView;
     @FXML
-    private SaisirRapportVisiteView newReportView;
+    private FormReportView newReportView;
+    @FXML
+    private FormReportView editView;
     @FXML
     private MenuView menuView;
     @FXML
@@ -28,6 +29,7 @@ public class MainView extends BorderPane implements Initializable{
     private ConsultationPratitionnersView consultationPratitionnersView;
 
     public static final int newReport = 330;
+    public static final int editReport = 616;
     public static final int login = 11;
     public static final int consultationRapportVisite = 20;
     public static final int consultationRapportVisites = 121;
@@ -45,6 +47,7 @@ public class MainView extends BorderPane implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.loginView.setVisible(false);
         this.newReportView.setVisible(false);
+        this.editView.setVisible(false);
         this.consultationReportsView.setVisible(false);
         this.consultationReportView.setVisible(false);
     }
@@ -56,6 +59,7 @@ public class MainView extends BorderPane implements Initializable{
             case MainView.login:
                 loginView.setVisible(true);
                 consultationReportView.setVisible(false);
+                editView.setVisible(false);
                 consultationReportsView.setVisible(false);
                 newReportView.setVisible(false);
                 consultationDrugsView.setVisible(false);
@@ -63,6 +67,7 @@ public class MainView extends BorderPane implements Initializable{
                 break;
             case MainView.consultationRapportVisites:
                 consultationReportsView.setVisible(true);
+                editView.setVisible(false);
                 loginView.setVisible(false);
                 consultationReportView.setVisible(false);
                 newReportView.setVisible(false);
@@ -74,11 +79,22 @@ public class MainView extends BorderPane implements Initializable{
                 consultationReportsView.setVisible(false);
                 loginView.setVisible(false);
                 newReportView.setVisible(false);
+                editView.setVisible(false);
                 consultationDrugsView.setVisible(false);
                 consultationPratitionnersView.setVisible(false);
                 break;
             case MainView.newReport:
                 newReportView.setVisible(true);
+                editView.setVisible(false);
+                loginView.setVisible(false);
+                consultationReportView.setVisible(false);
+                consultationReportsView.setVisible(false);
+                consultationDrugsView.setVisible(false);
+                consultationPratitionnersView.setVisible(false);
+                break;
+            case MainView.editReport:
+                editView.setVisible(true);
+                newReportView.setVisible(false);
                 loginView.setVisible(false);
                 consultationReportView.setVisible(false);
                 consultationReportsView.setVisible(false);
@@ -86,20 +102,22 @@ public class MainView extends BorderPane implements Initializable{
                 consultationPratitionnersView.setVisible(false);
                 break;
             case MainView.consultationDrugs:
+                consultationDrugsView.setVisible(true);
                 newReportView.setVisible(false);
+                editView.setVisible(false);
                 loginView.setVisible(false);
                 consultationReportView.setVisible(false);
                 consultationReportsView.setVisible(false);
-                consultationDrugsView.setVisible(true);
                 consultationPratitionnersView.setVisible(false);
                 break;
             case MainView.consultationPratitionners:
+                consultationPratitionnersView.setVisible(true);
                 newReportView.setVisible(false);
+                editView.setVisible(false);
                 loginView.setVisible(false);
                 consultationReportView.setVisible(false);
                 consultationReportsView.setVisible(false);
                 consultationDrugsView.setVisible(false);
-                consultationPratitionnersView.setVisible(true);
                 break;
         }
     }
@@ -116,7 +134,7 @@ public class MainView extends BorderPane implements Initializable{
         return loginView;
     }
 
-    public SaisirRapportVisiteView getNewReportView() {
+    public FormReportView getNewReportView() {
         return newReportView;
     }
 
@@ -130,5 +148,10 @@ public class MainView extends BorderPane implements Initializable{
 
     public ConsultationPratitionnersView getConsultationPratitionnersView() {
         return consultationPratitionnersView;
+    }
+
+    public FormReportView getEditReportView()
+    {
+        return editView;
     }
 }

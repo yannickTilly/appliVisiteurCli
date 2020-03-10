@@ -179,7 +179,7 @@ title __COMPONENT's Class Diagram__\n
 
   
     namespace View.component {
-      class View.component.SaisirRapportVisiteView {
+      class View.component.FormReportView {
           ~ pratitionnersIdName : Hashtable<Long, String>
           ~ selectedDrugIds : List<Long>
           - date : DatePicker
@@ -230,15 +230,15 @@ title __COMPONENT's Class Diagram__\n
   View.component.MainView o-- View.component.ConsultationRapportVisitesView : consultationReportsView
   View.component.MainView o-- View.component.LoginView : loginView
   View.component.MainView o-- View.component.MenuView : menuView
-  View.component.MainView o-- View.component.SaisirRapportVisiteView : newReportView
+  View.component.MainView o-- View.component.FormReportView : newReportView
   View.component.MenuView .up.|> javafx.fxml.Initializable
   View.component.MenuView -up-|> javafx.scene.control.MenuBar
   View.component.MenuView o-- Listener.MenuListener : listener
   View.component.PrationnerResumeView -up-|> javafx.scene.layout.AnchorPane
   View.component.RapportVisiteResumeView -up-|> javafx.scene.layout.HBox
-  View.component.SaisirRapportVisiteView .up.|> javafx.fxml.Initializable
-  View.component.SaisirRapportVisiteView -up-|> javafx.scene.layout.VBox
-  View.component.SaisirRapportVisiteView o-- Listener.NewReportListener : listener
+  View.component.FormReportView .up.|> javafx.fxml.Initializable
+  View.component.FormReportView -up-|> javafx.scene.layout.VBox
+  View.component.FormReportView o-- Listener.NewReportListener : listener
 
 
 right footer

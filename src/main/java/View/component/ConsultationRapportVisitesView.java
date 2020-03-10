@@ -26,6 +26,7 @@ public class ConsultationRapportVisitesView extends VBox implements Initializabl
 
     @FXML
     private Button searchSubmit;
+
     @FXML
     private VBox rapportVisites;
 
@@ -89,6 +90,16 @@ public class ConsultationRapportVisitesView extends VBox implements Initializabl
         routeListener.onReportConsultation(id);
     }
 
+    private void fireEditReport(long id)
+    {
+        routeListener.onReportEdit(id);
+    }
+
+    private void fireDeleteReport(long id)
+    {
+        System.out.println("fireDeleteReport");
+    }
+
 
     //écoute du model
     @Override
@@ -100,6 +111,8 @@ public class ConsultationRapportVisitesView extends VBox implements Initializabl
                 this.rapportVisites.getChildren().add(rapportVisiteResumeView);
                 rapportVisiteResumeView.setLabel(rapportVisite.getLabel());
                 rapportVisiteResumeView.setOnOuvrirRapport(actionEvent -> fireRequestConsultationRapportVisite(rapportVisite.getId()));
+                rapportVisiteResumeView.setOnEditReport(actionEvent -> fireEditReport(rapportVisite.getId()));
+                rapportVisiteResumeView.setOnDeleteReport(actionEvent -> fireDeleteReport(rapportVisite.getId()));
             } catch (IOException e) {
                 e.printStackTrace();
             }

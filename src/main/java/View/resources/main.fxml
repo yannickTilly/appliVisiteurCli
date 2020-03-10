@@ -19,7 +19,8 @@
                                 <ConsultationRapportVisiteView fx:id="consultationReportView" />
                                 <ConsultationRapportVisitesView fx:id="consultationReportsView" />
                                 <LoginView fx:id="loginView" />
-                                <SaisirRapportVisiteView fx:id="newReportView" />
+                                <FormReportView fx:id="newReportView" />
+                                <FormReportView fx:id="editView" />
                                 <ConsultationDrugsView fx:id="consultationDrugsView" />
                                 <ConsultationPratitionnersView fx:id="consultationPratitionnersView" />
                             </children>
