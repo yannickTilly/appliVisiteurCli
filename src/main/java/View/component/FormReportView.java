@@ -1,23 +1,27 @@
 package View.component;
 
-import Listener.NewReportListener;
-import View.Structure.Prationner;
+import Listener.FormReportListener;
+import View.Structure.Pratitionner;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.*;
 
-public class SaisirRapportVisiteView extends AnchorPane implements Initializable {
+public class FormReportView extends VBox implements Initializable {
+
     @FXML
-    private ComboBox<Prationner> pratitionners;
+    private TextField label;
+
+    @FXML
+    private ComboBox<Pratitionner> pratitionners;
 
     @FXML
     private MenuButton drugs;
@@ -31,17 +35,16 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
     @FXML
     private DatePicker date;
 
-    private NewReportListener listener;
+    private FormReportListener listener;
 
     List<Long> selectedDrugIds = new ArrayList<>();
     Hashtable<Long, String> pratitionnersIdName = new Hashtable<>();
 
-    public SaisirRapportVisiteView() throws IOException {
+    public FormReportView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/saisirRapportVisite.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
-        System.out.println("test");
     }
 
     @Override
@@ -53,6 +56,15 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
         List<CheckMenuItem> items = Arrays.asList(
         );
         drugs.getItems().addAll(items);
+    }
+
+    public String getLabel() {
+        return label.getText();
+    }
+
+    public FormReportView setLabel(TextField label) {
+        this.label = label;
+        return this;
     }
 
     public long getPrationerId() {
@@ -73,14 +85,14 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
 
     public void onSubmit()
     {
-        listener.onSubmitNewReport(getDescription(), getDrugIds(), getPrationerId(), date.getValue());
+        listener.onSubmitReport(getDescription(), getDrugIds(), getPrationerId(), date.getValue(), getLabel().toString());
     }
 
-    public NewReportListener getListener() {
+    public FormReportListener getListener() {
         return listener;
     }
 
-    public void setListener(NewReportListener listener) {
+    public void setListener(FormReportListener listener) {
         this.listener = listener;
     }
 
@@ -100,10 +112,18 @@ public class SaisirRapportVisiteView extends AnchorPane implements Initializable
 
     public void addPratitionners(String name, Long id)
     {
-        Prationner prationner = new Prationner();
+        Pratitionner prationner = new Pratitionner();
         prationner
                 .setId(id)
                 .setName(name);
         pratitionners.getItems().add(prationner);
+    }
+
+    public void setReport(String label, LocalDate date, long practitionerId, ArrayList<Long> drugsId, String description)
+    {
+        this.label.setText(label);
+        this.date.setValue(date);
+        this.description.setText(description);
+
     }
 }

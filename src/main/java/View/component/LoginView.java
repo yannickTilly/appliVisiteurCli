@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
 
-public class LoginView extends Pane implements Initializable {
+public class LoginView extends VBox implements Initializable {
     private Collection<LoginListener> listeners;
     @FXML
     private Button submit;

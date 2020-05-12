@@ -1,0 +1,251 @@
+@startuml
+
+title __COMPONENT's Class Diagram__\n
+
+  
+    namespace View.component {
+      class View.component.ConsultationDrugsView {
+          - drugs : VBox
+          - searchButton : Button
+          + ConsultationDrugsView()
+          + addDrug()
+          + clearDrug()
+          + initialize()
+          + onChangeModel()
+          + setListener()
+          - fireSearch()
+      }
+    }
+
+  
+    namespace View.component {
+      class View.component.ConsultationPratitionnersView {
+          - pratitionners : VBox
+          - searchButton : Button
+          + ConsultationPratitionnersView()
+          + addPratitionner()
+          + clearPratitionners()
+          + initialize()
+          + setListener()
+          - fireSearch()
+      }
+    }
+  
+
+  
+    namespace View.component {
+      class View.component.ConsultationRapportVisiteView {
+          - date : Label
+          - description : Label
+          - drugPresentations : HBox
+          - pratitionner : Label
+          - region : Label
+          + ConsultationRapportVisiteView()
+          + getConsultationRapportVisiteModel()
+          + onRapportVisiteChange()
+          + setConsultationRapportVisiteModel()
+      }
+    }
+  
+
+  
+    namespace View.component {
+      class View.component.ConsultationRapportVisitesView {
+          - consultationRapportVisitesListeners : Collection<ConsultationRapportVisitesListener>
+          - rapportVisites : VBox
+          - searchSubmit : Button
+          + ConsultationRapportVisitesView()
+          + addConsultationRapportVisitesListener()
+          + getConsultationRapportVisitesModel()
+          + getRouteListener()
+          + initialize()
+          + onRapportVisitesChange()
+          + removeConsultationRapportVisitesListener()
+          + setConsultationRapportVisitesModel()
+          + setRouteListener()
+          - fireRequestConsultationRapportVisite()
+          - fireSearchSubmit()
+      }
+    }
+
+  
+
+  
+    namespace View.component {
+      class View.component.DrugPresentationResumeView {
+          - drugName : Label
+          + DrugPresentationResumeView()
+          + setDrugName()
+      }
+    }
+
+  
+
+  
+    namespace View.component {
+      class View.component.DrugResumeView {
+          - name : Label
+          + DrugResumeView()
+          + setName()
+      }
+    }
+
+  
+
+  
+    namespace View.component {
+      class View.component.LoginView {
+          - gsbLogin : TextField
+          - listeners : Collection<LoginListener>
+          - password : PasswordField
+          - submit : Button
+          + LoginView()
+          + addListener()
+          + initialize()
+          + removeListener()
+          - fireSubmit()
+      }
+    }
+
+  
+
+  
+    namespace View.component {
+      class View.component.MainView {
+          {static} + consultationDrugs : int
+          {static} + consultationPratitionners : int
+          {static} + consultationRapportVisite : int
+          {static} + consultationRapportVisites : int
+          {static} + login : int
+          {static} + newReport : int
+          + MainView()
+          + display()
+          + getConsulatationDrugsView()
+          + getConsultationPratitionnersView()
+          + getConsultationReportView()
+          + getConsultationReportsView()
+          + getLoginView()
+          + getMenuView()
+          + getNewReportView()
+          + initialize()
+      }
+    }
+
+  
+
+  
+    namespace View.component {
+      class View.component.MenuView {
+          - consulter : MenuItem
+          - drugs : MenuItem
+          - newReport : MenuItem
+          - pratitionners : MenuItem
+          + MenuView()
+          + getListener()
+          + initialize()
+          + onConsulterClick()
+          + onNewReportClick()
+          + setListener()
+          - onDrugsClick()
+          - onPraticionnersClick()
+      }
+    }
+
+  
+
+  
+    namespace View.component {
+      class View.component.PrationnerResumeView {
+          - name : Label
+          + PrationnerResumeView()
+          + setName()
+      }
+    }
+
+  
+
+  
+    namespace View.component {
+      class View.component.RapportVisiteResumeView {
+          - note : Label
+          - ouvrirRapport : Button
+          + RapportVisiteResumeView()
+          + setNote()
+          + setOnOuvrirRapport()
+      }
+    }
+
+  
+
+  
+    namespace View.component {
+      class View.component.FormReportView {
+          ~ pratitionnersIdName : Hashtable<Long, String>
+          ~ selectedDrugIds : List<Long>
+          - date : DatePicker
+          - description : TextArea
+          - drugs : MenuButton
+          - pratitionners : ComboBox<Prationner>
+          - submit : Button
+          + SaisirRapportVisiteView()
+          + addDrug()
+          + addPratitionners()
+          + getDate()
+          + getDescription()
+          + getDrugIds()
+          + getListener()
+          + getPrationerId()
+          + initialize()
+          + onSubmit()
+          + setListener()
+      }
+    }
+
+  
+
+  View.component.ConsultationDrugsView .up.|> Listener.ConsultationDrugsModelListener
+  View.component.ConsultationDrugsView .up.|> javafx.fxml.Initializable
+  View.component.ConsultationDrugsView -up-|> javafx.scene.layout.AnchorPane
+  View.component.ConsultationDrugsView o-- Listener.ConsultationDrugsViewListener : listener
+  View.component.ConsultationPratitionnersView .up.|> javafx.fxml.Initializable
+  View.component.ConsultationPratitionnersView -up-|> javafx.scene.layout.AnchorPane
+  View.component.ConsultationPratitionnersView o-- Listener.ConsultationPratitionnerViewListener : listener
+  View.component.ConsultationRapportVisiteView .up.|> Listener.ConsultationRapportVisiteModelListener
+  View.component.ConsultationRapportVisiteView -up-|> javafx.scene.layout.VBox
+  View.component.ConsultationRapportVisiteView o-- Model.ConsultationRapportVisiteModel : consultationRapportVisiteModel
+  View.component.ConsultationRapportVisitesView .up.|> Listener.ConsultationRapportVisitesModelListener
+  View.component.ConsultationRapportVisitesView .up.|> javafx.fxml.Initializable
+  View.component.ConsultationRapportVisitesView -up-|> javafx.scene.layout.VBox
+  View.component.ConsultationRapportVisitesView o-- Model.ConsultationRapportVisitesModel : consultationRapportVisitesModel
+  View.component.ConsultationRapportVisitesView o-- Listener.RouteListener : routeListener
+  View.component.DrugPresentationResumeView -up-|> javafx.scene.layout.HBox
+  View.component.DrugResumeView -up-|> javafx.scene.layout.AnchorPane
+  View.component.LoginView .up.|> javafx.fxml.Initializable
+  View.component.LoginView -up-|> javafx.scene.layout.VBox
+  View.component.MainView .up.|> javafx.fxml.Initializable
+  View.component.MainView -up-|> javafx.scene.layout.BorderPane
+  View.component.MainView o-- View.component.ConsultationDrugsView : consultationDrugsView
+  View.component.MainView o-- View.component.ConsultationPratitionnersView : consultationPratitionnersView
+  View.component.MainView o-- View.component.ConsultationRapportVisiteView : consultationReportView
+  View.component.MainView o-- View.component.ConsultationRapportVisitesView : consultationReportsView
+  View.component.MainView o-- View.component.LoginView : loginView
+  View.component.MainView o-- View.component.MenuView : menuView
+  View.component.MainView o-- View.component.FormReportView : newReportView
+  View.component.MenuView .up.|> javafx.fxml.Initializable
+  View.component.MenuView -up-|> javafx.scene.control.MenuBar
+  View.component.MenuView o-- Listener.MenuListener : listener
+  View.component.PrationnerResumeView -up-|> javafx.scene.layout.AnchorPane
+  View.component.RapportVisiteResumeView -up-|> javafx.scene.layout.HBox
+  View.component.FormReportView .up.|> javafx.fxml.Initializable
+  View.component.FormReportView -up-|> javafx.scene.layout.VBox
+  View.component.FormReportView o-- Listener.NewReportListener : listener
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

@@ -22,10 +22,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
 
-public class ConsultationRapportVisitesView extends Pane implements Initializable, ConsultationRapportVisitesModelListener {
+public class ConsultationRapportVisitesView extends VBox implements Initializable, ConsultationRapportVisitesModelListener {
 
     @FXML
     private Button searchSubmit;
+
     @FXML
     private VBox rapportVisites;
 
@@ -84,8 +85,19 @@ public class ConsultationRapportVisitesView extends Pane implements Initializabl
             listener.onSearchSubmit();
         }
     }
+
     private void fireRequestConsultationRapportVisite(long id) {
         routeListener.onReportConsultation(id);
+    }
+
+    private void fireEditReport(long id)
+    {
+        routeListener.onReportEdit(id);
+    }
+
+    private void fireDeleteReport(long id)
+    {
+        System.out.println("fireDeleteReport");
     }
 
 
@@ -97,8 +109,10 @@ public class ConsultationRapportVisitesView extends Pane implements Initializabl
             try {
                 RapportVisiteResumeView rapportVisiteResumeView= new RapportVisiteResumeView();
                 this.rapportVisites.getChildren().add(rapportVisiteResumeView);
-                rapportVisiteResumeView.setNote(rapportVisite.getDescription());
+                rapportVisiteResumeView.setLabel(rapportVisite.getLabel());
                 rapportVisiteResumeView.setOnOuvrirRapport(actionEvent -> fireRequestConsultationRapportVisite(rapportVisite.getId()));
+                rapportVisiteResumeView.setOnEditReport(actionEvent -> fireEditReport(rapportVisite.getId()));
+                rapportVisiteResumeView.setOnDeleteReport(actionEvent -> fireDeleteReport(rapportVisite.getId()));
             } catch (IOException e) {
                 e.printStackTrace();
             }

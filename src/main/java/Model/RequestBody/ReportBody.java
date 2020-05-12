@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Collection;
 
 public class ReportBody {
+    private String label;
     private Collection<Long> medicamentIds;
     private Long praticienId;
     private String note;
@@ -52,6 +53,15 @@ public class ReportBody {
 
     public ReportBody setSampleNumber(int sampleNumber) {
         this.sampleNumber = sampleNumber;
+        return this;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public ReportBody setLabel(String label) {
+        this.label = label;
         return this;
     }
 }

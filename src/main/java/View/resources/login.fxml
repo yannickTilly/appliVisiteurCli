@@ -1,18 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<fx:root BorderPane.alignment="CENTER" type="javafx.scene.layout.Pane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<fx:root alignment="TOP_CENTER" styleClass="background-color" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <Label layoutX="209.0" layoutY="34.0" text="Connexion à AppliVisiteur" />
-    <Label layoutX="245.0" layoutY="50.0" text="Groupe GSB" />
-    <Text layoutX="134.0" layoutY="170.0" scaleX="1.0" scaleY="1.002439733235438" strokeType="OUTSIDE" strokeWidth="0.0" text="Login :" />
-    <Text layoutX="92.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe :" />
-    <TextField fx:id="gsbLogin" layoutX="189.0" layoutY="157.0" prefWidth="200.0" />
-    <PasswordField fx:id="password" layoutX="189.0" layoutY="184.0" prefWidth="200.0" />
-    <Button fx:id="submit" layoutX="239.0" layoutY="226.0" mnemonicParsing="false" text="Connexion" />
+      <Label text="Connexion à votre espace personnel" textAlignment="CENTER" underline="true">
+         <VBox.margin>
+            <Insets bottom="150.0" top="5" />
+         </VBox.margin>
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+    <TextField fx:id="gsbLogin" alignment="CENTER" focusTraversable="false" layoutX="189.0" layoutY="157.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Identifiant">
+      <VBox.margin>
+        <Insets bottom="15.0" left="250" right="250" />
+      </VBox.margin>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <styleClass>
+            <String fx:value="content-color" />
+            <String fx:value="general-input" />
+         </styleClass>
+         <font>
+            <Font size="17.0" />
+         </font>
+    </TextField>
+    <PasswordField fx:id="password" alignment="CENTER" focusTraversable="false" layoutX="189.0" layoutY="184.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Mot de passe">
+      <VBox.margin>
+        <Insets bottom="15.0" left="250" right="250" />
+      </VBox.margin>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+        <styleClass>
+            <String fx:value="content-color" />
+            <String fx:value="general-input" />
+        </styleClass>
+        <font>
+            <Font size="17.0" />
+        </font>
+    </PasswordField>
+    <Button fx:id="submit" layoutX="239.0" layoutY="226.0" mnemonicParsing="false" text="Connexion">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        <styleClass>
+            <String fx:value="content-color" />
+            <String fx:value="general-input" />
+        </styleClass>
+        <font>
+            <Font size="17.0" />
+        </font>
+    </Button>
   </children>
 </fx:root>

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root style="-fx-background-color: red;" type="javafx.scene.control.MenuBar" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root styleClass="background-color" type="javafx.scene.control.MenuBar" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
      <menus>
        <Menu mnemonicParsing="false" text="Rapport de visite">
           <items>

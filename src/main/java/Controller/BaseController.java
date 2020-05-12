@@ -6,7 +6,7 @@ import Util.ApiClient;
 
 public abstract class BaseController {
     private Context context;
-    private static ApiClient apiClient= new ApiClient();
+    private static ApiClient apiClient = new ApiClient();
     private RouteListener routeListener;
 
 

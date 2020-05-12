@@ -8,6 +8,8 @@ public class DrugPresentation {
 
     private long id;
 
+    private String label;
+
     private Drug drug;
 
     private Report report;
@@ -35,6 +37,15 @@ public class DrugPresentation {
 
     public DrugPresentation setReport(Report report) {
         this.report = report;
+        return this;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public DrugPresentation setLabel(String label) {
+        this.label = label;
         return this;
     }
 }

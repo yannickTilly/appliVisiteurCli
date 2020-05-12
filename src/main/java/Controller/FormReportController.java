@@ -2,7 +2,7 @@ package Controller;
 
 
 import Listener.ContextListener;
-import Listener.NewReportListener;
+import Listener.FormReportListener;
 import Listener.RouteListener;
 import Model.Context;
 import Model.Drug;
@@ -11,41 +11,25 @@ import Model.Execption.ServerError;
 import Model.Pratitionner;
 import Model.Report;
 import Model.RequestBody.ReportBody;
-import View.component.SaisirRapportVisiteView;
+import View.component.FormReportView;
 import javafx.event.ActionEvent;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class NewReportController extends BaseController implements NewReportListener, ContextListener {
-    private SaisirRapportVisiteView view;
+public class FormReportController extends BaseController implements FormReportListener, ContextListener {
+    private FormReportView view;
 
-    public NewReportController(Context context, RouteListener routeListener, SaisirRapportVisiteView saisirRapportVisiteView) {
+    public FormReportController(Context context, RouteListener routeListener, FormReportView formReportView)
+    {
         super(context, routeListener);
-        view = saisirRapportVisiteView;
+        view = formReportView;
         view.setListener(this);
         getContext().addListener(this);
     }
 
     public void onSubmit(ActionEvent actionEvent) {
         System.out.println("aaaaaaa");
-    }
-
-    @Override
-    public void onSubmitNewReport(String description, List<Long> drugIds, long prationerId, LocalDate date) {
-        System.out.println("Soumission rapport ...");
-        ReportBody reportBody = new ReportBody();
-        reportBody.setMedicamentIds(drugIds)
-                .setNote(description)
-                .setPraticienId(prationerId)
-                .setDate(date.toString());
-        try {
-            Report report = getApiClient().postReport(reportBody, getContext().getToken());
-            getRouteListener().onReportConsultation(report.getId());
-            System.out.println("redirection vers consultationReport");
-        } catch (ServerError | ClientError serverError) {
-            getRouteListener().onError();
-        }
     }
 
     public void loadDrugsInView() {
@@ -68,10 +52,27 @@ public class NewReportController extends BaseController implements NewReportList
         }
     }
 
-
     @Override
     public void userLoginSucess() {
         loadDrugsInView();
         loadPratitionnerInView();
+    }
+
+    @Override
+    public void onSubmitReport(String description, List<Long> drugIds, long prationerId, LocalDate date, String label) {
+        System.out.println("Soumission rapport ...");
+        ReportBody reportBody = new ReportBody();
+        reportBody.setMedicamentIds(drugIds)
+                .setNote(description)
+                .setPraticienId(prationerId)
+                .setDate(date.toString())
+                .setLabel(label);
+        try {
+            Report report = getApiClient().postReport(reportBody, getContext().getToken());
+            getRouteListener().onReportConsultation(report.getId());
+            System.out.println("redirection vers consultationReport");
+        } catch (ServerError | ClientError serverError) {
+            getRouteListener().onError();
+        }
     }
 }

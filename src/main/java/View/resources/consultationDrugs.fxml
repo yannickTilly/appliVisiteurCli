@@ -14,7 +14,7 @@
             <HBox>
                <children>
                   <TextField />
-                  <Button mnemonicParsing="false" text="rechercher" fx:id="searchButton"/>
+                  <Button mnemonicParsing="false" text="Rechercher le médicaments" fx:id="searchButton" />
                </children>
             </HBox>
             <VBox fx:id="drugs"/>

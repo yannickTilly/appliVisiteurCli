@@ -8,7 +8,6 @@ import Model.Pratitionner;
 import Model.Report;
 import Model.RequestBody.ReportBody;
 import Model.ResponseBody.AuthResponse;
-import View.Structure.Prationner;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

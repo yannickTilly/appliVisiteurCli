@@ -10,7 +10,8 @@ public class MainController extends BaseController implements RouteListener, Con
     private MainView view;
     private ConsultationReportController consultationReportController;
     private MenuController menuController;
-    private NewReportController newReportController;
+    private FormReportController newReportController;
+    private EditReportController editReportController;
     private ConsultationDrugsController consultationDrugsController;
 
     public MainController(Context context, MainView view) {
@@ -41,8 +42,14 @@ public class MainController extends BaseController implements RouteListener, Con
                         consultationRapportVisiteView);
         //partie saisie rapport
 
-        SaisirRapportVisiteView saisirRapportVisiteView = view.getNewReportView();
-        newReportController = new NewReportController(context,this, saisirRapportVisiteView);
+        FormReportView formReportView = view.getNewReportView();
+        newReportController = new FormReportController(context,this, formReportView);
+
+        //partie edition de rapport
+
+        FormReportView editReportView = view.getEditReportView();
+        editReportController = new EditReportController(context,this, editReportView);
+
         // partie login
         LoginView loginView = view.getLoginView();
         LoginController loginController = new LoginController(getContext(), this, loginView);
@@ -101,6 +108,12 @@ public class MainController extends BaseController implements RouteListener, Con
     @Override
     public void onPratitionners() {
         view.display(MainView.consultationPratitionners);
+    }
+
+    @Override
+    public void onReportEdit(long id) {
+        editReportController.loadReport(id);
+        view.display(MainView.newReport);
     }
 
     @Override

@@ -1,8 +1,6 @@
 package View.component;
 
-import Listener.ConsultationDrugsViewListener;
 import Listener.ConsultationPratitionnerViewListener;
-import View.Structure.Prationner;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

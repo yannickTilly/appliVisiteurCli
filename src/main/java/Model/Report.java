@@ -22,7 +22,15 @@ public class Report {
     private Collection<DrugPresentation> drugPresentations;
     private Pratitionner pratitionner;
     private Region region;
+    private String label;
 
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
     public LocalDate getDate() {
         return date;
