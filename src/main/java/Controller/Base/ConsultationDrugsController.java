@@ -1,13 +1,13 @@
-package Controller;
+package Controller.Base;
 
 import Listener.ConsultationDrugsViewListener;
 import Listener.RouteListener;
 import Model.ConsultationDrugsModel;
 import Model.Context;
 import Model.Drug;
-import Model.Execption.ServerError;
 import View.component.ConsultationDrugsView;
 
+import java.io.IOException;
 import java.util.Collection;
 
 public class ConsultationDrugsController extends BaseController implements ConsultationDrugsViewListener
@@ -15,14 +15,20 @@ public class ConsultationDrugsController extends BaseController implements Consu
     private ConsultationDrugsView view;
     private ConsultationDrugsModel consultationDrugsModel;
     public ConsultationDrugsController(Context context, RouteListener routeListener,
-                                       ConsultationDrugsModel consultationDrugsModel,
-                                       ConsultationDrugsView consultationDrugsView) {
+                                       ConsultationDrugsModel consultationDrugsModel) {
         super(context, routeListener);
-        this.view = consultationDrugsView;
+        try {
+            this.view = new ConsultationDrugsView();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         this.consultationDrugsModel = consultationDrugsModel;
-        consultationDrugsView.setListener(this);
+        view.setListener(this);
     }
 
+    public ConsultationDrugsView getView(){
+        return view;
+    }
     @Override
     public void onSearch(String keyWord) {
         try {
@@ -32,7 +38,7 @@ public class ConsultationDrugsController extends BaseController implements Consu
             {
                 view.addDrug(drug.getName());
             }
-        } catch (ServerError serverError) {
+        } catch (IOException serverError) {
             getRouteListener().onError();
         }
     }

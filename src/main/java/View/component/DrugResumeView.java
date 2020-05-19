@@ -12,7 +12,7 @@ public class DrugResumeView extends AnchorPane {
     private Label name;
 
     public DrugResumeView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/drugResume.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/Visitor/drugResume.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();

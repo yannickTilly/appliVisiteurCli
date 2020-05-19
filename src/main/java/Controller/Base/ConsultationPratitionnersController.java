@@ -1,26 +1,33 @@
-package Controller;
+package Controller.Base;
 
 import Listener.ConsultationPratitionnerViewListener;
 import Listener.RouteListener;
-import Model.*;
-import Model.Execption.ServerError;
-import View.component.ConsultationDrugsView;
+import Model.ConsultationPratitionnersModel;
+import Model.Context;
+import Model.Pratitionner;
 import View.component.ConsultationPratitionnersView;
 
+import java.io.IOException;
 import java.util.Collection;
 
 public class ConsultationPratitionnersController extends BaseController implements ConsultationPratitionnerViewListener {
     private ConsultationPratitionnersView view;
     private ConsultationPratitionnersModel consultationPratitionnersModel;
     public ConsultationPratitionnersController(Context context, RouteListener routeListener,
-                                               ConsultationPratitionnersModel consultationPratitionnersModel,
-                                               ConsultationPratitionnersView consultationPratitionnersView) {
+                                               ConsultationPratitionnersModel consultationPratitionnersModel) {
         super(context, routeListener);
-        this.view = consultationPratitionnersView;
+        try {
+            this.view = new ConsultationPratitionnersView();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         this.consultationPratitionnersModel = consultationPratitionnersModel;
-        consultationPratitionnersView.setListener(this);
+        view.setListener(this);
     }
 
+    public ConsultationPratitionnersView getView(){
+        return view;
+    }
     @Override
     public void onSearch(String keyWord) {
         try {
@@ -30,7 +37,7 @@ public class ConsultationPratitionnersController extends BaseController implemen
             {
                 view.addPratitionner(pratitionner.getFirstName());
             }
-        } catch (ServerError serverError) {
+        } catch (IOException serverError) {
             getRouteListener().onError();
         }
     }

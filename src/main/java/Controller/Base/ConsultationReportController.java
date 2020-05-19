@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Base;
 
 import Listener.ConsultationRapportVisiteListener;
 import Listener.RouteListener;
@@ -16,12 +16,17 @@ public class ConsultationReportController extends BaseController implements Cons
 
     //constructeur
     public ConsultationReportController(Context context,
-                                        RouteListener routeListener,
-                                        ConsultationRapportVisiteModel consultationRapportVisiteModel, ConsultationRapportVisiteView consultationRapportVisiteView) {
+                                        RouteListener routeListener) {
         super(context, routeListener);
-        this.consultationRapportVisiteModel = consultationRapportVisiteModel;
+        this.consultationRapportVisiteModel = new ConsultationRapportVisiteModel();
+        try {
+            consultationRapportVisiteView = new ConsultationRapportVisiteView();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         this.setConsultationRapportVisiteView(consultationRapportVisiteView);
         consultationRapportVisiteView.setConsultationRapportVisiteModel(consultationRapportVisiteModel);
+        this.setRole("visitor");
     }
 
     // getter setter
@@ -36,7 +41,7 @@ public class ConsultationReportController extends BaseController implements Cons
         return this;
     }
 
-    public ConsultationRapportVisiteView getConsultationRapportVisiteView() {
+    public ConsultationRapportVisiteView getView() {
         return consultationRapportVisiteView;
     }
 
@@ -70,5 +75,20 @@ public class ConsultationReportController extends BaseController implements Cons
     public void onBackSubmit() {
         System.out.println("JE REVIENS EN ARRIERE");
         this.getRouteListener().onReportConsultations();
+    }
+
+    @Override
+    public void onDelete() {
+        try {
+            getApiClient().deleteReport(consultationRapportVisiteModel.getRapportVisite().getId(), getContext().getToken());
+            getRouteListener().onReportConsultations();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onEdit() {
+        getRouteListener().onReportEdit(consultationRapportVisiteModel.getRapportVisite().getId());
     }
 }

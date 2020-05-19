@@ -155,7 +155,7 @@ title __COMPONENT's Class Diagram__\n
 
   
     namespace View.component {
-      class View.component.PrationnerResumeView {
+      class View.component.VisitorPrationnerResumeView {
           - name : Label
           + PrationnerResumeView()
           + setName()
@@ -166,7 +166,7 @@ title __COMPONENT's Class Diagram__\n
 
   
     namespace View.component {
-      class View.component.RapportVisiteResumeView {
+      class View.component.VisitorRapportVisiteResumeView {
           - note : Label
           - ouvrirRapport : Button
           + RapportVisiteResumeView()
@@ -234,8 +234,8 @@ title __COMPONENT's Class Diagram__\n
   View.component.MenuView .up.|> javafx.fxml.Initializable
   View.component.MenuView -up-|> javafx.scene.control.MenuBar
   View.component.MenuView o-- Listener.MenuListener : listener
-  View.component.PrationnerResumeView -up-|> javafx.scene.layout.AnchorPane
-  View.component.RapportVisiteResumeView -up-|> javafx.scene.layout.HBox
+  View.component.VisitorPrationnerResumeView -up-|> javafx.scene.layout.AnchorPane
+  View.component.VisitorRapportVisiteResumeView -up-|> javafx.scene.layout.HBox
   View.component.FormReportView .up.|> javafx.fxml.Initializable
   View.component.FormReportView -up-|> javafx.scene.layout.VBox
   View.component.FormReportView o-- Listener.NewReportListener : listener

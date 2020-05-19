@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Base;
 
 import Listener.ContextListener;
 import Listener.MenuListener;
@@ -6,14 +6,24 @@ import Listener.RouteListener;
 import Model.Context;
 import View.component.MenuView;
 
-public class MenuController extends BaseController implements MenuListener, ContextListener {
-    private MenuView menuView;
-    public MenuController(Context context, RouteListener routeListener, MenuView menuView) {
+import java.io.IOException;
+
+public class VisitorMenuController extends BaseController implements MenuListener, ContextListener {
+    private MenuView visitorMenuView;
+    public VisitorMenuController(Context context, RouteListener routeListener) {
         super(context, routeListener);
+        try {
+            this.visitorMenuView = new MenuView();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        visitorMenuView.setListener(this);
         getContext().addListener(this);
-        menuView.setListener(this);
-        this.menuView = menuView;
-        menuView.setVisible(false);
+    }
+
+    public MenuView getView()
+    {
+        return visitorMenuView;
     }
 
     @Override
@@ -37,7 +47,12 @@ public class MenuController extends BaseController implements MenuListener, Cont
     }
 
     @Override
+    public void onDisconect() {
+        this.getRouteListener().onDisconnect();
+    }
+
+    @Override
     public void userLoginSucess() {
-        this.menuView.setVisible(true);
+        this.visitorMenuView.setVisible(true);
     }
 }

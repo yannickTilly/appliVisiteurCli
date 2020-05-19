@@ -7,22 +7,14 @@
 <?import java.lang.String?>
 <fx:root styleClass="background-color" stylesheets="@css/style.css" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
         <top>
-            <MenuView fx:id="menuView" />
         </top>
         <center>
             <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER">
                <content>
                    <AnchorPane>
                       <children>
-                         <StackPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                         <StackPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="container">
                             <children>
-                                <ConsultationRapportVisiteView fx:id="consultationReportView" />
-                                <ConsultationRapportVisitesView fx:id="consultationReportsView" />
-                                <LoginView fx:id="loginView" />
-                                <FormReportView fx:id="newReportView" />
-                                <FormReportView fx:id="editView" />
-                                <ConsultationDrugsView fx:id="consultationDrugsView" />
-                                <ConsultationPratitionnersView fx:id="consultationPratitionnersView" />
                             </children>
                          </StackPane>
                       </children>

@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Base;
 
 
 import Listener.ContextListener;
@@ -6,39 +6,47 @@ import Listener.FormReportListener;
 import Listener.RouteListener;
 import Model.Context;
 import Model.Drug;
-import Model.Execption.ClientError;
-import Model.Execption.ServerError;
 import Model.Pratitionner;
 import Model.Report;
 import Model.RequestBody.ReportBody;
 import View.component.FormReportView;
 import javafx.event.ActionEvent;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
 public class FormReportController extends BaseController implements FormReportListener, ContextListener {
     private FormReportView view;
 
-    public FormReportController(Context context, RouteListener routeListener, FormReportView formReportView)
+    public FormReportController(Context context, RouteListener routeListener)
     {
         super(context, routeListener);
-        view = formReportView;
-        view.setListener(this);
         getContext().addListener(this);
+        try {
+            view = new FormReportView();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        view.setListener(this);
     }
 
     public void onSubmit(ActionEvent actionEvent) {
         System.out.println("aaaaaaa");
     }
 
+    public FormReportView getView(){
+        loadDrugsInView();
+        loadPratitionnerInView();
+        return view;
+    }
     public void loadDrugsInView() {
         try {
             for (Drug drug : getApiClient().getDrugs(getContext().getToken())) {
                 view.addDrug(drug.getName(), drug.getId());
             }
-        } catch (ServerError serverError) {
-            getRouteListener().onError();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -47,7 +55,7 @@ public class FormReportController extends BaseController implements FormReportLi
             for (Pratitionner pratitionner : getApiClient().getPratitionners(getContext().getToken())) {
                 view.addPratitionners(pratitionner.getFirstName(), pratitionner.getId());
             }
-        } catch (ServerError serverError) {
+        } catch (IOException serverError) {
             getRouteListener().onError();
         }
     }
@@ -67,12 +75,8 @@ public class FormReportController extends BaseController implements FormReportLi
                 .setPraticienId(prationerId)
                 .setDate(date.toString())
                 .setLabel(label);
-        try {
             Report report = getApiClient().postReport(reportBody, getContext().getToken());
             getRouteListener().onReportConsultation(report.getId());
             System.out.println("redirection vers consultationReport");
-        } catch (ServerError | ClientError serverError) {
-            getRouteListener().onError();
-        }
     }
 }

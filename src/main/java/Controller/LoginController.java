@@ -1,5 +1,7 @@
 package Controller;
 
+import Controller.Base.BaseController;
+import Controller.Base.ConsultationReportController;
 import Listener.LoginListener;
 import Listener.RouteListener;
 import Model.Context;
@@ -7,15 +9,11 @@ import Model.Credential;
 import Model.ResponseBody.AuthResponse;
 import Util.ApiClient;
 import View.component.LoginView;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class LoginController extends BaseController implements LoginListener {
 
@@ -33,6 +31,10 @@ public class LoginController extends BaseController implements LoginListener {
         loginView.addListener(this);
     }
 
+    public LoginView getView()
+    {
+        return loginView;
+    }
     @Override
     public void onSubmit(Credential credential)
     {
@@ -47,5 +49,11 @@ public class LoginController extends BaseController implements LoginListener {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void setContext(Context context)
+    {
+        super.setContext(context);
     }
 }

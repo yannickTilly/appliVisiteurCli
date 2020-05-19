@@ -1,11 +1,11 @@
-package Controller;
+package Controller.Base;
 
 import Listener.RouteListener;
 import Model.Context;
 import Util.ApiClient;
 
 public abstract class BaseController {
-    private Context context;
+    protected Context context;
     private static ApiClient apiClient = new ApiClient();
     private RouteListener routeListener;
 
@@ -19,13 +19,16 @@ public abstract class BaseController {
         return context;
     }
 
-    public BaseController setContext(Context context) {
+    public void setContext(Context context) {
         this.context = context;
-        return this;
     }
 
     public static ApiClient getApiClient() {
         return apiClient;
+    }
+
+    public void setRole(String role){
+        apiClient.setRole(role);
     }
 
     public RouteListener getRouteListener() {

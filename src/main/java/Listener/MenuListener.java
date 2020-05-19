@@ -7,4 +7,5 @@ public interface MenuListener extends EventListener {
     void onNewReportClicked();
     void onDrugsClicked();
     void onPratitionnersClicked();
+    void onDisconect();
 }

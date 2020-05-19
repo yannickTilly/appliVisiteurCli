@@ -41,7 +41,7 @@ public class FormReportView extends VBox implements Initializable {
     Hashtable<Long, String> pratitionnersIdName = new Hashtable<>();
 
     public FormReportView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/saisirRapportVisite.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/Visitor/saisirRapportVisite.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
@@ -65,6 +65,10 @@ public class FormReportView extends VBox implements Initializable {
     public FormReportView setLabel(TextField label) {
         this.label = label;
         return this;
+    }
+
+    public void removePratitionners(){
+        pratitionners.getItems().clear();
     }
 
     public long getPrationerId() {
@@ -100,6 +104,7 @@ public class FormReportView extends VBox implements Initializable {
     {
         CheckMenuItem checkMenuItem = new CheckMenuItem();
         checkMenuItem.setText(name);
+        checkMenuItem.setId(String.valueOf(id));
         drugs.getItems().add(checkMenuItem);
         checkMenuItem.selectedProperty().addListener((observableValue, oldValue, newValue) -> {
             if (newValue) {
@@ -119,11 +124,41 @@ public class FormReportView extends VBox implements Initializable {
         pratitionners.getItems().add(prationner);
     }
 
+    public void setSelectedPratitionnersId(long id)
+    {
+        for (Pratitionner pratitionner :pratitionners.getItems())
+        {
+            if(id == pratitionner.getId())
+            {
+                pratitionners.setValue(pratitionner);
+            }
+        };
+    }
+
     public void setReport(String label, LocalDate date, long practitionerId, ArrayList<Long> drugsId, String description)
     {
         this.label.setText(label);
         this.date.setValue(date);
         this.description.setText(description);
+        setSelectedPratitionnersId(practitionerId);
 
+    }
+
+    public void removeDrugs() {
+        drugs.getItems().clear();
+    }
+
+    public void setSelectedDrugsId(List<Long> drugsId) {
+        for(MenuItem menuItem :drugs.getItems())
+        {
+            for (Long drugId : drugsId)
+            {
+                if(drugId.equals(Long.valueOf(menuItem.getId())))
+                {
+                    ((CheckMenuItem)menuItem).setSelected(true);
+                    selectedDrugIds.add(drugId);
+                }
+            }
+        }
     }
 }

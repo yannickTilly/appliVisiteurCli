@@ -3,7 +3,6 @@ package View.component;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
@@ -14,7 +13,7 @@ public class DrugPresentationResumeView extends HBox {
     private Label drugName;
 
     public DrugPresentationResumeView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/drugPresentationResume.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/Visitor/drugPresentationResume.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();

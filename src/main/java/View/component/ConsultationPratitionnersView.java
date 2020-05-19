@@ -24,7 +24,7 @@ public class ConsultationPratitionnersView extends AnchorPane implements Initial
 
     // constructeur et initalisation
     public ConsultationPratitionnersView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/consultationPratitionners.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/Visitor/consultationPratitionners.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
@@ -33,9 +33,9 @@ public class ConsultationPratitionnersView extends AnchorPane implements Initial
     public void addPratitionner(String name)
     {
         try {
-            PrationnerResumeView prationnerResumeView  = new PrationnerResumeView();
-            prationnerResumeView.setName(name);
-            pratitionners.getChildren().add(prationnerResumeView);
+            VisitorPrationnerResumeView visitorPrationnerResumeView = new VisitorPrationnerResumeView();
+            visitorPrationnerResumeView.setName(name);
+            pratitionners.getChildren().add(visitorPrationnerResumeView);
         } catch (IOException e) {
             e.printStackTrace();
         }

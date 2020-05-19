@@ -68,7 +68,7 @@
                 <String fx:value="general-input" />
             </styleClass>
         </Button>
-        <Button fx:id="DeleteReport">
+        <Button fx:id="deleteReport">
             Supprimer
             <styleClass>
                 <String fx:value="danger" />

@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Base;
 
 import Listener.ConsultationRapportVisitesListener;
 import Listener.RouteListener;
@@ -14,13 +14,20 @@ public class ConsultationReportsController extends BaseController implements Con
     private ConsultationRapportVisitesModel consultationRapportVisitesModel;
     private Collection<ConsultationRapportVisitesListener> listeners;
 
-    public ConsultationReportsController(Context context, RouteListener routeListener, ConsultationRapportVisitesView consultationRapportVisitesView) {
+    public ConsultationReportsController(Context context, RouteListener routeListener) {
         super(context, routeListener);
+        try {
+            consultationRapportVisitesView = new ConsultationRapportVisitesView();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         this.consultationRapportVisitesView = consultationRapportVisitesView;
         consultationRapportVisitesView.addConsultationRapportVisitesListener(this);
+        this.setRole("visitor");
     }
 
-    public ConsultationRapportVisitesView getConsultationRapportVisitesView() {
+    public ConsultationRapportVisitesView getView() {
+        onSearchSubmit();
         return consultationRapportVisitesView;
     }
 
@@ -49,6 +56,16 @@ public class ConsultationReportsController extends BaseController implements Con
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deleteReport(long id) {
+        try {
+            getApiClient().deleteReport(id, context.getToken());
+            onSearchSubmit();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

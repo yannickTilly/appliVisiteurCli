@@ -9,4 +9,6 @@ public interface RouteListener {
     void onPratitionners();
 
     void onReportEdit(long id);
+
+    void onDisconnect();
 }

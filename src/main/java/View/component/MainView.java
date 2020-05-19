@@ -3,7 +3,9 @@ package View.component;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,21 +14,7 @@ import java.util.ResourceBundle;
 public class MainView extends BorderPane implements Initializable{
 
     @FXML
-    private ConsultationRapportVisiteView consultationReportView;
-    @FXML
-    private ConsultationRapportVisitesView consultationReportsView;
-    @FXML
-    private LoginView loginView;
-    @FXML
-    private FormReportView newReportView;
-    @FXML
-    private FormReportView editView;
-    @FXML
-    private MenuView menuView;
-    @FXML
-    private ConsultationDrugsView consultationDrugsView;
-    @FXML
-    private ConsultationPratitionnersView consultationPratitionnersView;
+    private StackPane container;
 
     public static final int newReport = 330;
     public static final int editReport = 616;
@@ -45,113 +33,17 @@ public class MainView extends BorderPane implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.loginView.setVisible(false);
-        this.newReportView.setVisible(false);
-        this.editView.setVisible(false);
-        this.consultationReportsView.setVisible(false);
-        this.consultationReportView.setVisible(false);
     }
 
-    public void display(int component)
+    public void setContainerView(Node e){
+        container.getChildren().clear();
+        container.getChildren().add(e);
+    }
+    public void display(int consultationRapportVisites) {
+    }
+
+    public void setMenuView(Node node)
     {
-        switch (component)
-        {
-            case MainView.login:
-                loginView.setVisible(true);
-                consultationReportView.setVisible(false);
-                editView.setVisible(false);
-                consultationReportsView.setVisible(false);
-                newReportView.setVisible(false);
-                consultationDrugsView.setVisible(false);
-                consultationPratitionnersView.setVisible(false);
-                break;
-            case MainView.consultationRapportVisites:
-                consultationReportsView.setVisible(true);
-                editView.setVisible(false);
-                loginView.setVisible(false);
-                consultationReportView.setVisible(false);
-                newReportView.setVisible(false);
-                consultationDrugsView.setVisible(false);
-                consultationPratitionnersView.setVisible(false);
-                break;
-            case MainView.consultationRapportVisite:
-                consultationReportView.setVisible(true);
-                consultationReportsView.setVisible(false);
-                loginView.setVisible(false);
-                newReportView.setVisible(false);
-                editView.setVisible(false);
-                consultationDrugsView.setVisible(false);
-                consultationPratitionnersView.setVisible(false);
-                break;
-            case MainView.newReport:
-                newReportView.setVisible(true);
-                editView.setVisible(false);
-                loginView.setVisible(false);
-                consultationReportView.setVisible(false);
-                consultationReportsView.setVisible(false);
-                consultationDrugsView.setVisible(false);
-                consultationPratitionnersView.setVisible(false);
-                break;
-            case MainView.editReport:
-                editView.setVisible(true);
-                newReportView.setVisible(false);
-                loginView.setVisible(false);
-                consultationReportView.setVisible(false);
-                consultationReportsView.setVisible(false);
-                consultationDrugsView.setVisible(false);
-                consultationPratitionnersView.setVisible(false);
-                break;
-            case MainView.consultationDrugs:
-                consultationDrugsView.setVisible(true);
-                newReportView.setVisible(false);
-                editView.setVisible(false);
-                loginView.setVisible(false);
-                consultationReportView.setVisible(false);
-                consultationReportsView.setVisible(false);
-                consultationPratitionnersView.setVisible(false);
-                break;
-            case MainView.consultationPratitionners:
-                consultationPratitionnersView.setVisible(true);
-                newReportView.setVisible(false);
-                editView.setVisible(false);
-                loginView.setVisible(false);
-                consultationReportView.setVisible(false);
-                consultationReportsView.setVisible(false);
-                consultationDrugsView.setVisible(false);
-                break;
-        }
-    }
-
-    public ConsultationRapportVisiteView getConsultationReportView() {
-        return consultationReportView;
-    }
-
-    public ConsultationRapportVisitesView getConsultationReportsView() {
-        return consultationReportsView;
-    }
-
-    public LoginView getLoginView() {
-        return loginView;
-    }
-
-    public FormReportView getNewReportView() {
-        return newReportView;
-    }
-
-    public MenuView getMenuView() {
-        return menuView;
-    }
-
-    public ConsultationDrugsView getConsulatationDrugsView() {
-        return consultationDrugsView;
-    }
-
-    public ConsultationPratitionnersView getConsultationPratitionnersView() {
-        return consultationPratitionnersView;
-    }
-
-    public FormReportView getEditReportView()
-    {
-        return editView;
+        this.setTop(node);
     }
 }

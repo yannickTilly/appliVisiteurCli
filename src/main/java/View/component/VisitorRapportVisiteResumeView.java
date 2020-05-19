@@ -10,7 +10,7 @@ import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 
-public class RapportVisiteResumeView extends HBox {
+public class VisitorRapportVisiteResumeView extends HBox {
     @FXML
     private Label label;
 
@@ -24,15 +24,15 @@ public class RapportVisiteResumeView extends HBox {
     private Button deleteReport;
 
 
-    public RapportVisiteResumeView() throws IOException
+    public VisitorRapportVisiteResumeView() throws IOException
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/rapportVisiteResume.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/Visitor/rapportVisiteResume.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
     }
 
-    public RapportVisiteResumeView setLabel(String label)
+    public VisitorRapportVisiteResumeView setLabel(String label)
     {
         this.label.setText(label);
         return this;

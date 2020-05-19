@@ -2,7 +2,6 @@ package View.component;
 
 import Listener.ConsultationRapportVisiteListener;
 import Listener.ConsultationRapportVisiteModelListener;
-import Listener.LoginListener;
 import Model.ConsultationRapportVisiteModel;
 import Model.DrugPresentation;
 import Model.Report;
@@ -10,18 +9,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class ConsultationRapportVisiteView extends VBox implements ConsultationRapportVisiteModelListener {
 
@@ -43,16 +36,21 @@ public class ConsultationRapportVisiteView extends VBox implements ConsultationR
     @FXML
     private Button backSubmit;
 
+    @FXML
+    private Button editReport;
+
+    @FXML
+    private Button deleteReport;
+
     private ConsultationRapportVisiteListener listener;
 
     private ConsultationRapportVisiteModel consultationRapportVisiteModel;
 
     public ConsultationRapportVisiteView() throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/consultationRapportVisite.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/Visitor/consultationRapportVisite.fxml"));
             loader.setController(this);
             loader.setRoot(this);
             loader.load();
-
     }
 
     //getteur setteur
@@ -77,7 +75,6 @@ public class ConsultationRapportVisiteView extends VBox implements ConsultationR
     public void onRapportVisiteChange(Report rapportVisite) {
         description.setText(rapportVisite.getDescription());
         pratitionner.setText(String.valueOf(rapportVisite.getPratitionner().getFirstName()));
-        region.setText(rapportVisite.getRegion().getName());
         date.setText(rapportVisite.getDate().toString());
         drugPresentations.getChildren().clear();
         for(DrugPresentation drugPresentation : rapportVisite.getDrugPresentations())
@@ -102,7 +99,15 @@ public class ConsultationRapportVisiteView extends VBox implements ConsultationR
         EventHandler<ActionEvent> backHandler = e -> {
             onBackClick();
         };
+        EventHandler<ActionEvent> deleteHandler = e -> {
+            listener.onDelete();
+        };
+        EventHandler<ActionEvent> editHandler = e -> {
+            listener.onEdit();
+        };
 
         backSubmit.setOnAction(backHandler);
+        editReport.setOnAction(editHandler);
+        deleteReport.setOnAction(deleteHandler);
     }
 }

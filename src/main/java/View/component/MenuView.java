@@ -6,14 +6,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.ResourceBundle;
 
 public class MenuView extends MenuBar implements Initializable{
@@ -26,12 +24,14 @@ public class MenuView extends MenuBar implements Initializable{
     private MenuItem drugs;
     @FXML
     private MenuItem pratitionners;
+    @FXML
+    private MenuItem disconnect;
 
     private MenuListener listener;
 
 
     public MenuView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/menu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/Visitor/menu.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
@@ -52,11 +52,15 @@ public class MenuView extends MenuBar implements Initializable{
         EventHandler<ActionEvent> pratitionnersHandler = e -> {
             onPraticionnersClick();
         };
+        EventHandler<ActionEvent> disconnectHandler = e -> {
+            onDisconnect();
+        };
 
         pratitionners.setOnAction(pratitionnersHandler);
         consulter.setOnAction(consultHandler);
         newReport.setOnAction(newReportHandler);
         drugs.setOnAction(drugsHandler);
+        disconnect.setOnAction(disconnectHandler);
     }
 
     public MenuListener getListener() {
@@ -69,7 +73,7 @@ public class MenuView extends MenuBar implements Initializable{
 
     public void onConsulterClick()
     {
-        listener.onConsulterClicked();
+        this.listener.onConsulterClicked();
     }
 
     public void onNewReportClick()
@@ -84,4 +88,6 @@ public class MenuView extends MenuBar implements Initializable{
     private void onPraticionnersClick() {
         listener.onPratitionnersClicked();
     }
+
+    private void onDisconnect(){ listener.onDisconect();}
 }

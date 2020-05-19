@@ -24,6 +24,13 @@
             <MenuItem fx:id="pratitionners_consult" mnemonicParsing="false" text="Consulter les pratitiens" />
           </items>
        </Menu>
-       <Menu fx:id="espaceUtilisateur" mnemonicParsing="false" text="Espace utilisateur" />
+         <Menu mnemonicParsing="false" text="Statitique">
+             <items>
+                 <MenuItem fx:id="stats" mnemonicParsing="false" text="Consulter les statistiques" />
+             </items>
+         </Menu>
+         <Menu mnemonicParsing="false" text="Espace utilisateur">
+             <MenuItem fx:id="disconnect" mnemonicParsing="false" text="Se deconnecter" />
+         </Menu>
      </menus>
 </fx:root>

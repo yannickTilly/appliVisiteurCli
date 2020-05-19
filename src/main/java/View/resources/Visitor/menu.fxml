@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root styleClass="background-color" type="javafx.scene.control.MenuBar" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+     <menus>
+       <Menu mnemonicParsing="false" text="Rapport de visite">
+          <items>
+            <MenuItem fx:id="consulter" mnemonicParsing="false" text="Consulter les rapports" />
+            <MenuItem fx:id="newReport" mnemonicParsing="false" text="Entrer un nouveau rapport" />
+          </items>
+       </Menu>
+       <Menu fx:id="drugs" mnemonicParsing="false" text="Medicament">
+          <items>
+            <MenuItem fx:id="drugs_consult" mnemonicParsing="false" text="Consulter les médicaments" />
+          </items>
+       </Menu>
+       <Menu fx:id="pratitionners" mnemonicParsing="false" text="Pratitiens">
+          <items>
+            <MenuItem fx:id="pratitionners_consult" mnemonicParsing="false" text="Consulter les pratitiens" />
+          </items>
+       </Menu>
+         <Menu mnemonicParsing="false" text="Espace utilisateur">
+             <MenuItem fx:id="disconnect" mnemonicParsing="false" text="Se deconnecter" />
+         </Menu>
+     </menus>
+</fx:root>

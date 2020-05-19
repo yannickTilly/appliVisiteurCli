@@ -11,9 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -38,7 +35,7 @@ public class ConsultationRapportVisitesView extends VBox implements Initializabl
 
     // constructeur et initalisation
     public ConsultationRapportVisitesView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/consultationRapportVisites.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/Visitor/consultationRapportVisites.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
@@ -47,10 +44,10 @@ public class ConsultationRapportVisitesView extends VBox implements Initializabl
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        EventHandler<ActionEvent> eventHandler = e -> {
+        EventHandler<ActionEvent> searchHandler = e -> {
             fireSearchSubmit();
         };
-        searchSubmit.setOnAction(eventHandler);
+        searchSubmit.setOnAction(searchHandler);
     }
 
     //getter setter
@@ -97,7 +94,9 @@ public class ConsultationRapportVisitesView extends VBox implements Initializabl
 
     private void fireDeleteReport(long id)
     {
-        System.out.println("fireDeleteReport");
+        for(ConsultationRapportVisitesListener consultationRapportVisitesListener :consultationRapportVisitesListeners){
+            consultationRapportVisitesListener.deleteReport(id);
+        }
     }
 
 
@@ -107,12 +106,12 @@ public class ConsultationRapportVisitesView extends VBox implements Initializabl
         this.rapportVisites.getChildren().clear();
         rapportVisites.forEach(rapportVisite -> {
             try {
-                RapportVisiteResumeView rapportVisiteResumeView= new RapportVisiteResumeView();
-                this.rapportVisites.getChildren().add(rapportVisiteResumeView);
-                rapportVisiteResumeView.setLabel(rapportVisite.getLabel());
-                rapportVisiteResumeView.setOnOuvrirRapport(actionEvent -> fireRequestConsultationRapportVisite(rapportVisite.getId()));
-                rapportVisiteResumeView.setOnEditReport(actionEvent -> fireEditReport(rapportVisite.getId()));
-                rapportVisiteResumeView.setOnDeleteReport(actionEvent -> fireDeleteReport(rapportVisite.getId()));
+                VisitorRapportVisiteResumeView visitorRapportVisiteResumeView = new VisitorRapportVisiteResumeView();
+                this.rapportVisites.getChildren().add(visitorRapportVisiteResumeView);
+                visitorRapportVisiteResumeView.setLabel(rapportVisite.getLabel());
+                visitorRapportVisiteResumeView.setOnOuvrirRapport(actionEvent -> fireRequestConsultationRapportVisite(rapportVisite.getId()));
+                visitorRapportVisiteResumeView.setOnEditReport(actionEvent -> fireEditReport(rapportVisite.getId()));
+                visitorRapportVisiteResumeView.setOnDeleteReport(actionEvent -> fireDeleteReport(rapportVisite.getId()));
             } catch (IOException e) {
                 e.printStackTrace();
             }

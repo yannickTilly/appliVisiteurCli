@@ -7,18 +7,18 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class PrationnerResumeView extends AnchorPane {
+public class VisitorPrationnerResumeView extends AnchorPane {
     @FXML
     private Label name;
 
-    public PrationnerResumeView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/pratitionnerResume.fxml"));
+    public VisitorPrationnerResumeView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/Visitor/pratitionnerResume.fxml"));
         loader.setController(this);
         loader.setRoot(this);
         loader.load();
     }
 
-    public PrationnerResumeView setName(String drugName)
+    public VisitorPrationnerResumeView setName(String drugName)
     {
         this.name.setText(drugName);
         return this;

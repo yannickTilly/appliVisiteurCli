@@ -3,13 +3,11 @@ package Model;
 import Listener.ContextListener;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.sun.javafx.property.adapter.PropertyDescriptor;
 
 import javax.swing.event.EventListenerList;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Observable;
+import java.util.*;
 
 public class Context {
     private List<ContextListener> contextListeners;
@@ -43,8 +41,9 @@ public class Context {
     }
     private void fireUserLoginSucess()
     {
-        for(ContextListener listener : contextListeners) {
-            listener.userLoginSucess();
+        List<ContextListener> copyContextListeners = new ArrayList<>(contextListeners);
+        for (ContextListener contextListener : copyContextListeners) {
+            contextListener.userLoginSucess();
         }
     }
 }
